@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PKU PI-Lab | 物理智能实验室</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               pku: {
-                red: '#8A0000', // Peking University Red
-                light: '#B03030',
-                bg: '#F9F9F9'
+                red: '#8B0000',
+                dark: '#600000',
+                light: '#A52A2A',
               }
+            },
+            fontFamily: {
+              serif: ['"Noto Serif SC"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
             }
           }
         }
       }
     </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, .serif-font {
+        font-family: 'Noto Serif SC', serif;
+      }
+    </style>
 
 <link rel="stylesheet" href="/index.css">
   <script type="importmap">
@@ -27,12 +40,13 @@
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.2.1/",
     "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-wbmaNFDW.js"></script>
+  <script type="module" crossorigin src="/assets/index-D_47Dl7p.js"></script>
 </head>
   <body>
     <div id="root"></div>
