@@ -1,240 +1,411 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>你的名字 - 个人主页</title>
+    <title>Industrial Embodied Intelligence Lab - Peking University</title>
+    <meta name="description" content="Industrial Embodied Intelligence Lab (工业具身智能实验室), School of Advanced Manufacturing and Robotics, Peking University. Led by Prof. Zhibo Pang.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-brand">你的名字</div>
+        <div class="nav-brand">Industrial Embodied Intelligence Lab <span class="nav-brand-cn">工业具身智能实验室</span></div>
         <div class="nav-links">
+            <a href="#home" class="active">Home</a>
             <a href="#news">News</a>
+            <a href="#research">Research</a>
             <a href="#publications">Publications</a>
-            <a href="#awards">Awards</a>
+            <a href="#people">People</a>
             <a href="#teaching">Teaching</a>
-            <a href="#service">Professional Service</a>
+            <a href="#impact">Impact</a>
             <a href="#opportunities">Opportunities</a>
-            <a href="#home" class="active">Home / Lab</a>
+            <a href="#gallery">Gallery</a>
         </div>
     </nav>
 
-    <!-- 主容器 -->
     <main class="container">
-        
-        <!-- ===== 个人信息模块（请修改） ===== -->
+
+        <!-- ===== Principal Investigator ===== -->
         <section class="profile" id="home">
             <div class="profile-left">
-                <!-- 请替换为你的照片 -->
-                <img src="https://via.placeholder.com/300x300?text=Your+Photo" alt="你的照片" class="avatar">
+                <img src="images/pang.jpg" alt="Prof. Zhibo Pang" class="avatar">
             </div>
             <div class="profile-right">
-                <h1>你的名字</h1>
-                <p class="title">你的职位 @ <a href="#">你的单位</a></p>
-                <p class="affiliation">你的其他头衔 / 研究方向</p>
+                <h1>Zhibo Pang <span class="name-cn">庞智博</span></h1>
+                <p class="title">Tenured Professor &amp; Ph.D. Advisor @ <a href="https://www.pku.edu.cn" target="_blank" rel="noopener">Peking University</a></p>
+                <p class="affiliation">School of Advanced Manufacturing and Robotics<br>
+                Director, Industrial Embodied Intelligence Lab (工业具身智能实验室)</p>
+                <p class="affiliation">
+                    Former Senior Principal Scientist, ABB Corporate Research, Sweden (2013–2025)<br>
+                    Adjunct / Dual-appointed Professor, KTH Royal Institute of Technology (2018–2025)<br>
+                    Co-founder &amp; Chief Scientist, Yipai Intelligence (一湃智能, 2025– )
+                </p>
                 <div class="social-links">
-                    <a href="#" title="Google Scholar">📄</a>
-                    <a href="#" title="Email">✉️</a>
-                    <a href="#" title="GitHub">💻</a>
-                    <a href="#" title="Twitter/X">𝕏</a>
-                    <a href="#" title="LinkedIn">🔗</a>
+                    <a href="mailto:zhibo.pang@pku.edu.cn" title="Email">✉️ zhibo.pang@pku.edu.cn</a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 个人简介模块（请修改） ===== -->
+        <!-- ===== About ===== -->
         <section class="bio">
+            <h2 class="section-title">About the Lab</h2>
             <p>
-                这里是你的个人简介。请替换为真实的介绍文字，包括你的研究方向、学术背景、主要成就等。
-                你可以写多段文字，描述你的实验室、团队、项目等。
+                The <strong>Industrial Embodied Intelligence Lab</strong> at Peking University, led by
+                <strong>Prof. Zhibo Pang</strong>, focuses on robots and autonomous control systems for both
+                traditional and emerging industrial scenarios. We develop the full stack of urgently needed
+                intelligent software and hardware technologies — from multimodal embodied AI models to
+                high-dynamic dexterous robotic systems — with the goal of redefining
+                <strong>flexible precision manufacturing</strong> through embodied intelligence.
             </p>
             <p>
-                例如：我目前的研究兴趣主要集中在 <strong>[你的研究方向]</strong>，
-                致力于通过 [方法/技术] 解决 [问题]。我于 [年份] 年获得 [学位]，
-                师从 [导师名字]。在此之前，我在 [学校] 获得 [学位]。
+                Our research is organized around the <strong>PAM (Physical-Attribute Model) paradigm</strong>:
+                a unified embodied-intelligence framework that represents the physical semantics affecting robot
+                action generation, efficiently produces massive simulation scenarios and training data, and
+                delivers generalization, precision, and industrial-grade reliability for high-value
+                contact-rich manipulation tasks. We pursue a deep integration of
+                <strong>mechanics, classical control, and artificial intelligence</strong>.
+            </p>
+            <p>
+                Prof. Pang proposed the <strong>Cloud-Fog Automation (CFA)</strong> and
+                <strong>Cloud-Fog Robotics</strong> technology frameworks in 2017, which were later highlighted
+                by ABB's global CTO and adopted in ABB's product strategy, including the OmniCore robot
+                controller generation. Before joining Peking University, he spent twelve years at ABB Corporate
+                Research Sweden, where he led the software and communication technologies of several
+                world-first industrial products, including ABB Mobile YuMi — the industry's first mobile
+                dual-arm humanoid collaborative robot.
             </p>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 新闻动态模块（请修改） ===== -->
+        <!-- ===== News ===== -->
         <section class="news-section" id="news">
             <h2 class="section-title">📰 News</h2>
             <ul class="news-list">
-                <li><span class="news-date">[日期]</span> 新闻内容 1 - 请替换为你的真实新闻</li>
-                <li><span class="news-date">[日期]</span> 新闻内容 2 - 请替换为你的真实新闻</li>
-                <li><span class="news-date">[日期]</span> 新闻内容 3 - 请替换为你的真实新闻</li>
-                <li><span class="news-date">[日期]</span> 新闻内容 4 - 请替换为你的真实新闻</li>
+                <li><span class="news-date">Jul 2026</span> Our paper <em>TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence</em> is published in <strong>IEEE Transactions on Consumer Electronics</strong>.</li>
+                <li><span class="news-date">Jul 2026</span> Our paper <em>Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning</em> (Temp-ACT) is published in <strong>IEEE Transactions on Consumer Electronics</strong>.</li>
+                <li><span class="news-date">2026</span> Our paper on the <em>Embodied AI-Driven Integrated Development Environment for Industrial Automation Systems</em> is published in <strong>IEEE Industrial Electronics Magazine</strong>.</li>
+                <li><span class="news-date">2026</span> <em>TRACE</em> is accepted by <strong>IEEE/RSJ IROS 2026</strong>; <em>CAML</em> is accepted by <strong>ICML 2026</strong>; three papers (<em>RegGraft</em>, <em>VistaCo</em>, <em>PhyGen</em>) are under review at <strong>AAAI 2027</strong>.</li>
+                <li><span class="news-date">Oct 2025</span> Prof. Zhibo Pang joins Peking University as a Tenured Professor and founds the Industrial Embodied Intelligence Lab.</li>
+                <li><span class="news-date">Jun 2025</span> Prof. Zhibo Pang co-founds Yipai Intelligence (一湃智能) and serves as Chief Scientist.</li>
             </ul>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 代表论文模块（请修改） ===== -->
+        <!-- ===== Research ===== -->
+        <section class="research-section" id="research">
+            <h2 class="section-title">🔬 Research</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>Embodied AI Models &amp; Robot Learning</h3>
+                    <p>Multimodal embodied foundation models (VLA / world models / PAM), imitation and reinforcement learning for contact-rich manipulation, sim-to-real transfer, and reliable long-horizon task planning through physics-semantics-driven agent clusters (PySAC).</p>
+                </div>
+                <div class="research-item">
+                    <h3>Physics-Informed Machine Learning</h3>
+                    <p>Physics-informed neural networks (PINNs), neural operators for large-scale multi-scale PDE solving, and mechanism–data fusion models that bring physical semantics into learning-based control.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Cloud-Fog Automation &amp; Industrial eCPS</h3>
+                    <p>Cloud-Fog Automation (CFA): software-defined, intelligence-native industrial control infrastructure with communication–computing–control co-design, virtualized controllers, converged 5G/6G networks, and functional safety.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Robot Systems &amp; Industrial Deployment</h3>
+                    <p>High-dynamic dexterous robotic systems, dexterous hands, embodied toolchains (ETC), embodied model libraries (EML), and edge controllers (ECC) — deployed as reusable process packages for flexible precision manufacturing in semiconductor, aerospace, rail-transit, and new-energy equipment.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== Publications ===== -->
         <section class="publications" id="publications">
             <h2 class="section-title">📚 Selected Publications</h2>
-            <p class="pub-hint">* 表示共同第一作者，<sup>†</sup> 表示通讯作者</p>
+            <p class="pub-hint">* Corresponding author. Full and up-to-date list available upon request.</p>
 
-            <!-- 论文 1 -->
-            <div class="paper">
-                <div class="paper-thumb">
-                    <img src="https://via.placeholder.com/300x180?text=Paper+1" alt="论文配图">
-                </div>
-                <div class="paper-info">
-                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
-                    <p class="paper-authors">
-                        <strong>你的名字*</strong>, 合作者1, 合作者2, 导师名字<sup>†</sup>
-                    </p>
-                    <p class="paper-venue">
-                        <em>会议/期刊全称 (简称)</em>, 年份
-                    </p>
-                    <div class="paper-links">
-                        <a href="#" class="btn">📄 Paper</a>
-                        <a href="#" class="btn">💻 Code</a>
-                        <a href="#" class="btn">▶️ Video</a>
-                        <a href="#" class="btn">📰 Project Page</a>
-                    </div>
-                    <p class="paper-abstract">
-                        <strong>Abstract:</strong> 这里是论文摘要。请替换为真实的摘要内容...
-                    </p>
-                </div>
-            </div>
+            <h3 class="pub-group">Embodied AI &amp; Robot Learning</h3>
+            <ul class="pub-list">
+                <li>
+                    D. Hu et al., "TRACE: Trajectory Action Chunking Enhancement for Robust Imitation Learning in Robotic Manipulation,"
+                    in <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2026.
+                    <span class="pub-note">Improves precision from ±1.2 to ±0.15 via encoder debiasing and visual–trajectory cross-attention.</span>
+                </li>
+                <li>
+                    D. Hu et al., "Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning" (Temp-ACT),
+                    in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
+                    <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3692732" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3692732</a>
+                    <span class="pub-note">Frequency-domain policy learning lifts long-horizon success rate from 3% to 36%.</span>
+                </li>
+                <li>
+                    Y. Chen et al., "TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence,"
+                    in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
+                    <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3698831" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3698831</a>
+                    <span class="pub-note">Wasserstein-aware causal synchronization raises task success from ~68% to 75%.</span>
+                </li>
+                <li>
+                    F. Ma et al., "Embodied Artificial Intelligence-Driven Integrated Development Environment for Industrial Automation Systems: Requirements and Framework,"
+                    in <em>IEEE Industrial Electronics Magazine</em>, 2026.
+                    <a class="pub-doi" href="https://doi.org/10.1109/MIE.2026.3694206" target="_blank" rel="noopener">doi:10.1109/MIE.2026.3694206</a>
+                </li>
+                <li>
+                    Y. Liu et al., "VistaCo: Synergizing Visual Attention and Task Cognition in Robot Visuomotor Policy Learning,"
+                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
+                    <span class="pub-note">Real-world success rate improved from 44.5% to 67.5%.</span>
+                </li>
+                <li>
+                    D. Song et al., "RegGraft: Region-Aware Block Reuse in Diffusion Transformers,"
+                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
+                    <span class="pub-note">25% improvement in diffusion training efficiency via cross-domain block grafting.</span>
+                </li>
+                <li>
+                    F. Ma et al., "PhyGen: Physics-Informed Repair Fields for Generated Robot Demonstrations,"
+                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
+                    <span class="pub-note">Rigid-body demonstration generation yield raised from 55.6% to 93.5%.</span>
+                </li>
+                <li>
+                    J. Deng et al., "STEAM: Structured Temporal Episode Annotation for Manipulation in Embodied Robots," <em>IAI</em>, 2026.
+                </li>
+                <li>
+                    Y. Li et al., "DCP-ACQ: Reliable Control and Data Acquisition for Embodied Intelligence," <em>IAI</em>, 2026.
+                </li>
+                <li>
+                    W. Wang et al., "MP-GOP: Mobile Photogrammetric Reconstruction and Geometric Optimization," submitted to <em>IAI</em>, 2026.
+                </li>
+                <li>
+                    J. Liao et al., "GES-Bench: Simulation-Readiness Evaluation for Single-View 3D Generation," submitted to <em>IAI</em>, 2026.
+                </li>
+                <li>
+                    "ViPS: Visuomotor Policy-to-Servo Coordination for Precision Industrial Manipulation,"
+                    <em>IEEE Transactions on Industrial Cyber-Physical Systems (TICPS)</em>, under review.
+                    <span class="pub-note">Installation success rate improved from 35% to 78%.</span>
+                </li>
+            </ul>
 
-            <!-- 论文 2 -->
-            <div class="paper">
-                <div class="paper-thumb">
-                    <img src="https://via.placeholder.com/300x180?text=Paper+2" alt="论文配图">
-                </div>
-                <div class="paper-info">
-                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
-                    <p class="paper-authors">
-                        <strong>你的名字*</strong>, 合作者1, 合作者2
-                    </p>
-                    <p class="paper-venue">
-                        <em>会议/期刊全称 (简称)</em>, 年份
-                    </p>
-                    <div class="paper-links">
-                        <a href="#" class="btn">📄 Paper</a>
-                        <a href="#" class="btn">💻 Code</a>
-                    </div>
-                </div>
-            </div>
+            <h3 class="pub-group">Physics-Informed Machine Learning</h3>
+            <ul class="pub-list">
+                <li>
+                    Y. Luo, J. Wang, et al., "MMET: A Multi-Input and Multi-Scale Transformer for Efficient PDEs Solving,"
+                    in <em>International Joint Conference on Artificial Intelligence (IJCAI)</em>, 2025.
+                </li>
+                <li>
+                    Y. Luo, P. Zhu, et al., "Mitigating Gradient Pathology in PINNs through Aligned Constraint" (CAML),
+                    in <em>International Conference on Machine Learning (ICML)</em>, 2026.
+                </li>
+                <li>
+                    Y. Luo, D. Hu, et al., "Derivative Cheating in Fusion-Based PINNs: Understanding and Preventing,"
+                    <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2026, under review.
+                </li>
+            </ul>
 
-            <!-- 论文 3 -->
-            <div class="paper">
-                <div class="paper-thumb">
-                    <img src="https://via.placeholder.com/300x180?text=Paper+3" alt="论文配图">
-                </div>
-                <div class="paper-info">
-                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
-                    <p class="paper-authors">
-                        合作者1, <strong>你的名字*</strong>, 合作者2<sup>†</sup>
-                    </p>
-                    <p class="paper-venue">
-                        <em>会议/期刊全称 (简称)</em>, 年份
-                    </p>
-                    <div class="paper-links">
-                        <a href="#" class="btn">📄 Paper</a>
-                        <a href="#" class="btn">💻 Code</a>
-                        <a href="#" class="btn">▶️ Video</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="divider">
-
-        <!-- ===== 荣誉奖项模块（请修改） ===== -->
-        <section class="awards-section" id="awards">
-            <h2 class="section-title">🏆 Awards & Honors</h2>
-            <ul class="award-list">
-                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
-                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
-                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
+            <h3 class="pub-group">Cloud-Fog Automation &amp; Industrial Communications</h3>
+            <ul class="pub-list">
+                <li>
+                    J. Jin, K. Yu, J. Kua, N. Zhang, <strong>Z. Pang*</strong>, and Q.-L. Han*, "Cloud-Fog Automation: Vision, Enabling Technologies, and Future Research Directions,"
+                    in <em>IEEE Transactions on Industrial Informatics</em>, 2023.
+                </li>
+                <li>
+                    H. Lv, <strong>Z. Pang*</strong>, et al., "Cloud–Fog Automation: Heterogeneous Applications Over New-Generation Infrastructure of Virtualized Computing and Converged Networks,"
+                    in <em>IEEE Industrial Electronics Magazine</em>, 2024.
+                </li>
+                <li>
+                    M. Zhan, <strong>Z. Pang*</strong>, et al., "Joint Error Detection and Correction for Safety Communication: Reducing the Alarm Rate of Transmitted Safety Messages,"
+                    in <em>IEEE Industrial Electronics Magazine</em>, 2024.
+                </li>
+                <li>
+                    M. Zhan et al., "High Throughput Joint Error Detection and Correction Based on GRAND-MO and CRC,"
+                    in <em>IEEE Transactions on Consumer Electronics</em>, 2024.
+                </li>
+                <li>
+                    M. Zhan et al., "Noise Error Pattern Generation Based on Successive Addition-Subtraction for GRAND-MO,"
+                    in <em>IEEE Communications Letters</em>, vol. 26, no. 4, pp. 743–747, Apr. 2022.
+                </li>
+                <li>
+                    Y. Liu, <strong>Z. Pang</strong>, et al., "RL-Based Joint Latency Optimization for Software-Defined Wireless Cloud Fog Automation,"
+                    in <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, 2025.
+                </li>
+                <li>
+                    Y. Liu, <strong>Z. Pang</strong>, and Y. Ding, "CFA-OpenRAN: An Integrated Communication, Computing, and Control Architecture for Wireless Cloud Fog Automation Based on O-RAN,"
+                    in <em>the 22nd IEEE International Conference on Industrial Informatics (INDIN)</em>, Beijing, China, Aug. 2024.
+                </li>
+                <li>
+                    K. B. Lee, R. Candell, H.-P. Bernhard, D. Cavalcanti, <strong>Z. Pang</strong>, and I. Val, "Reliable, High-Performance Wireless Systems for Factory Automation,"
+                    <em>NIST Interagency/Internal Report (NISTIR) 8317</em>, Sep. 2020.
+                </li>
             </ul>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 教学经历模块（请修改） ===== -->
+        <!-- ===== People ===== -->
+        <section class="people-section" id="people">
+            <h2 class="section-title">👥 People</h2>
+
+            <h3 class="people-group">Principal Investigator</h3>
+            <p class="people-line"><strong>Zhibo Pang (庞智博)</strong> — Tenured Professor, Ph.D. Advisor</p>
+
+            <h3 class="people-group">Postdoctoral Researchers</h3>
+            <p class="people-line">Ming Kang (亢明) — Physical Embodiment</p>
+
+            <h3 class="people-group">Visiting Scholars</h3>
+            <p class="people-line">Le Zhang (张乐) — Associate Professor, Fusion Intelligence Algorithms</p>
+
+            <h3 class="people-group">Ph.D. Students</h3>
+            <ul class="member-list">
+                <li>Boxian Yao (姚泊先) — Cable Manipulation</li>
+                <li>Dongxiao Hu (胡东晓) — Policy Learning (joint)</li>
+                <li>Su Zhang (张粟) — Embodied Simulation (joint)</li>
+                <li>Yuanhao Liu (刘元浩) — Multimodal Control (joint)</li>
+                <li>Fuyu Ma (马富裕) — Embodied Simulation (joint)</li>
+                <li>Guixu Wang (汪圭旭) — Efficient Embodiment (joint)</li>
+                <li>Zhaolong Zhou (周兆龙) — Collision Avoidance (joint)</li>
+                <li>Yanghang Zeng (曾杨航) — Industrial Safety (joint)</li>
+                <li>Yijia Liu (刘一甲) — 5G/6G Wireless Communications (joint)</li>
+                <li>Yichen Luo (罗翼晨) — Physics-Informed Neural Networks (joint)</li>
+                <li>Yiwen Wang (王一雯) — Spatial Reasoning (joint)</li>
+                <li>Donghao Song (宋东昊) — Multimodal Learning (joint)</li>
+                <li>Ziqi Wang (王子琪) — Engineering Ph.D., ENN Science &amp; Technology</li>
+                <li>Minghan Wang (王鸣晗) — Engineering Ph.D., China Development Bank</li>
+            </ul>
+
+            <h3 class="people-group">Master Students</h3>
+            <ul class="member-list">
+                <li>Peiyu Zhu (朱佩禹) — Cable Manipulation</li>
+                <li>Yifan Yang (杨怡帆) — Cable Manipulation</li>
+                <li>Xiang Zhang (张翔) — Cable Manipulation</li>
+                <li>Luliang Ye (叶鲁亮) — Cable Manipulation</li>
+                <li>Xuan Han (韩萱) — Pharmaceutical Unpackaging</li>
+                <li>Jiajun Li (李佳俊) — Data Generation (joint)</li>
+                <li>Junhao Deng (邓俊豪) — Semantic Extraction (joint)</li>
+                <li>Tao Wang (王涛) — Embodied Simulation (joint)</li>
+                <li>Jundong Xu (徐俊东) — Embodied Simulation (joint)</li>
+                <li>Guangyu Yang (杨光宇) — Live-Object Grasping (joint)</li>
+                <li>Kerun Chen (陈柯润) — Embodied Simulation (joint)</li>
+                <li>Yuxing Yang (杨宇星) — Embodied Simulation (joint)</li>
+                <li>Jinfeng Liao (廖锦锋) — Data Synthesis (joint)</li>
+                <li>Weibing Wang (王维兵) — Data Synthesis (joint)</li>
+            </ul>
+
+            <h3 class="people-group">Research Interns</h3>
+            <p class="people-line">
+                Huaye Tan (谭华烨), Mengdi Li (李梦迪), Tianlin Li (李天琳), Xin Liu (刘鑫), Shuhan Zhan (詹淑涵),
+                Yuchen Xue (薛雨宸), Zinuo Jin (金子诺), Zhuoran Qiao (乔卓然), Tianyou Zuo (左天佑),
+                Xiyu Zhu (朱玺谕), Wenjie Ding (丁文杰), Yunfan Lou (娄云帆)
+            </p>
+
+            <h3 class="people-group">Project Management</h3>
+            <p class="people-line">Heqin Wang (王鹤钦)</p>
+
+            <h3 class="people-group">Alumni</h3>
+            <ul class="member-list">
+                <li>Siwen Zhou (周思文), M.S. → Tashi Zhihang (它石智航)</li>
+                <li>Yizhe Chen (陈亦哲), M.S. → Yipai Intelligence (一湃智能)</li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== Teaching ===== -->
         <section class="teaching-section" id="teaching">
             <h2 class="section-title">🎓 Teaching</h2>
             <ul class="teaching-list">
                 <li>
-                    <strong>[课程名称]</strong> - [学期/年份]
-                    <br><span class="teaching-desc">课程简介，请替换为你的描述</span>
+                    <strong>Development Practice of Robotic Embodied Intelligence Systems</strong> (new course, under construction)
+                    <br><span class="teaching-desc">A practice-oriented course covering the full pipeline of embodied AI development in four units: task simulation, data collection, model training, and inference deployment.</span>
                 </li>
                 <li>
-                    <strong>[课程名称]</strong> - [学期/年份]
-                    <br><span class="teaching-desc">课程简介，请替换为你的描述</span>
+                    <strong>Embodied AI Development Bootcamp</strong> (Student Engineering &amp; Science Innovation Association)
+                    <br><span class="teaching-desc">A hands-on training camp that bridges classroom learning and industrial deployment, strengthening students' practical engineering skills in embodied intelligence.</span>
                 </li>
             </ul>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 学术服务模块（请修改） ===== -->
-        <section class="service-section" id="service">
-            <h2 class="section-title">📝 Professional Service</h2>
-            <h3>Conference Reviewer</h3>
-            <p>CVPR, ICCV, ECCV, NeurIPS, ICML, ICLR, RSS, CoRL ...（请替换）</p>
-            
-            <h3>Journal Reviewer</h3>
-            <p>IJCV, T-PAMI, RA-L, Autonomous Robots ...（请替换）</p>
-            
-            <h3>Workshop Organizer</h3>
-            <p>请替换为你的 workshop 组织经历</p>
+        <!-- ===== Industrial Impact ===== -->
+        <section class="impact-section" id="impact">
+            <h2 class="section-title">🏭 Industrial Impact</h2>
+            <p class="impact-intro">
+                Prof. Pang's innovations have been adopted by world-leading industrial automation products,
+                generating output value of hundreds of millions of euros across the power, process, discrete,
+                and building automation industries.
+            </p>
+            <ul class="impact-list">
+                <li><span class="impact-year">2025</span> Led software &amp; communication technologies of the ABB Ability 800xA HI safety controller — the world's first DCS product supporting the OPC UA Safety protocol (DCS world No.1 market share).</li>
+                <li><span class="impact-year">2023</span> Cloud-Fog Automation became a core selling point of ABB's new-generation robot controller OmniCore.</li>
+                <li><span class="impact-year">2022</span> Lead author of ABB's vision whitepaper for process-industry control systems.</li>
+                <li><span class="impact-year">2019</span> Led software &amp; communication of ABB Mobile YuMi — the world's first mobile dual-arm collaborative robot, which brought ABB into the healthcare and e-commerce logistics robot markets (endorsed by Karolinska Hospital, JD, Amazon, Volkswagen, Walmart).</li>
+                <li><span class="impact-year">2018</span> Led Hitachi Energy Tropos wireless technology — one of the few wireless networks for power &amp; energy infrastructure in the industry.</li>
+                <li><span class="impact-year">2017</span> Led Hitachi Energy WirelessHP — the world's first hybrid wireless-optical UHVDC control technology (HVDC world No.1 market share).</li>
+                <li><span class="impact-year">2016</span> Led communication &amp; software of ABB free@home — a premium building automation &amp; security brand with millions of installations; one of the world's largest Thread ecosystems.</li>
+                <li><span class="impact-year">2012</span> Led ABB WirelessHART process automation instrumentation — the world's first wireless standard for process automation.</li>
+            </ul>
+            <h3 class="impact-sub">Academic &amp; Professional Appointments (selected)</h3>
+            <ul class="impact-list">
+                <li>Guest Professor, Beijing University of Posts and Telecommunications (2013–2022) — Trusted IoT / Medical AI</li>
+                <li>International Advisor, Dept. of Industrial Engineering, Tsinghua University (2013–2016) — Industrial IoT</li>
+                <li>Adjunct Professor, University of Sydney (2019–2023) — Industrial IoT / Intelligent Robotics</li>
+                <li>Adjunct Professor, Zhejiang University (2019–2022) — Medical Robotics / Robot Skin</li>
+                <li>Overseas Scholar Short-term Program, Beihang University (2020–2022) — Quantum Sensing</li>
+                <li>Adjunct Professor, UESTC (2019–2022) — Cyber-Physical Security</li>
+                <li>Overseas Renowned Scholar, Shenyang Institute of Automation, CAS (2019–2022) — Cloud-Fog Automation</li>
+            </ul>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 招生/招聘模块（请修改） ===== -->
+        <!-- ===== Opportunities ===== -->
         <section class="opportunities-section" id="opportunities">
             <h2 class="section-title">🚀 Opportunities</h2>
             <p>
-                <strong>我们实验室正在招收 [本科生/硕士生/博士生/博士后/访问学者]！</strong>
+                <strong>We are recruiting Ph.D. students, master students, postdoctoral researchers, visiting scholars, and research interns!</strong>
             </p>
             <p>
-                如果你对 <strong>[研究方向]</strong> 感兴趣，欢迎发送邮件至 
-                <a href="mailto:your@email.com">your@email.com</a>。
+                If you are passionate about <strong>embodied AI, robotics, physics-informed machine learning, or
+                industrial cyber-physical systems</strong>, and want to work on problems that matter for real
+                industry, you are very welcome to join us. Postdoctoral positions on
+                <strong>foundation models</strong> are currently open (虚位以待).
             </p>
             <p>
-                请附上你的 CV、成绩单和一段简短的研究兴趣描述。
+                Please send your CV, transcripts, and a short description of your research interests to
+                <a href="mailto:zhibo.pang@pku.edu.cn">zhibo.pang@pku.edu.cn</a>.
             </p>
         </section>
 
         <hr class="divider">
 
-        <!-- ===== 图片画廊模块（请修改） ===== -->
-        <section class="gallery-section">
-            <h2 class="section-title">📸 Gallery</h2>
+        <!-- ===== Gallery ===== -->
+        <section class="gallery-section" id="gallery">
+            <h2 class="section-title">📸 Lab Gallery</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+1" alt="实验室照片">
-                    <p class="gallery-caption">实验室照片 1 - 请替换</p>
+                    <img src="images/gallery_lab_s1_4.jpg" alt="Dual-arm mobile manipulator">
+                    <p class="gallery-caption">Dual-arm mobile manipulation platform</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+2" alt="实验室照片">
-                    <p class="gallery-caption">实验室照片 2 - 请替换</p>
+                    <img src="images/gallery_lab_s1_6.jpg" alt="Cable manipulation cell">
+                    <p class="gallery-caption">Cable manipulation &amp; dexterous robot cell</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+3" alt="实验室照片">
-                    <p class="gallery-caption">实验室照片 3 - 请替换</p>
+                    <img src="images/gallery_lab_s1_10.jpg" alt="Robot workstations">
+                    <p class="gallery-caption">Robot workstations and data-collection setups</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+4" alt="实验室照片">
-                    <p class="gallery-caption">实验室照片 4 - 请替换</p>
+                    <img src="images/gallery_lab_s1_5.jpg" alt="Lab office B111">
+                    <p class="gallery-caption">Lab B111, Xin'ao Engineering Building</p>
                 </div>
             </div>
+            <p class="gallery-note">Our lab operates at two sites: Room B111, Xin'ao Engineering Building (15 seats, 3 robot systems, ample computing power) and Yinke Building (76 seats, 8 robot systems, 4 meeting rooms).</p>
         </section>
 
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="footer">
-        <p>© 2026 你的名字. All rights reserved.</p>
+        <p><strong>Industrial Embodied Intelligence Lab (工业具身智能实验室)</strong></p>
+        <p>School of Advanced Manufacturing and Robotics, Peking University</p>
+        <p>Contact: <a href="mailto:zhibo.pang@pku.edu.cn">zhibo.pang@pku.edu.cn</a></p>
+        <p>© 2026 Industrial Embodied Intelligence Lab, Peking University. All rights reserved.</p>
         <p>Powered by GitHub Pages</p>
     </footer>
 
