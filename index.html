@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的名字 - 个人主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">你的名字</div>
+        <div class="nav-links">
+            <a href="#news">News</a>
+            <a href="#publications">Publications</a>
+            <a href="#awards">Awards</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#service">Professional Service</a>
+            <a href="#opportunities">Opportunities</a>
+            <a href="#home" class="active">Home / Lab</a>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <main class="container">
+        
+        <!-- ===== 个人信息模块（请修改） ===== -->
+        <section class="profile" id="home">
+            <div class="profile-left">
+                <!-- 请替换为你的照片 -->
+                <img src="https://via.placeholder.com/300x300?text=Your+Photo" alt="你的照片" class="avatar">
+            </div>
+            <div class="profile-right">
+                <h1>你的名字</h1>
+                <p class="title">你的职位 @ <a href="#">你的单位</a></p>
+                <p class="affiliation">你的其他头衔 / 研究方向</p>
+                <div class="social-links">
+                    <a href="#" title="Google Scholar">📄</a>
+                    <a href="#" title="Email">✉️</a>
+                    <a href="#" title="GitHub">💻</a>
+                    <a href="#" title="Twitter/X">𝕏</a>
+                    <a href="#" title="LinkedIn">🔗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 个人简介模块（请修改） ===== -->
+        <section class="bio">
+            <p>
+                这里是你的个人简介。请替换为真实的介绍文字，包括你的研究方向、学术背景、主要成就等。
+                你可以写多段文字，描述你的实验室、团队、项目等。
+            </p>
+            <p>
+                例如：我目前的研究兴趣主要集中在 <strong>[你的研究方向]</strong>，
+                致力于通过 [方法/技术] 解决 [问题]。我于 [年份] 年获得 [学位]，
+                师从 [导师名字]。在此之前，我在 [学校] 获得 [学位]。
+            </p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 新闻动态模块（请修改） ===== -->
+        <section class="news-section" id="news">
+            <h2 class="section-title">📰 News</h2>
+            <ul class="news-list">
+                <li><span class="news-date">[日期]</span> 新闻内容 1 - 请替换为你的真实新闻</li>
+                <li><span class="news-date">[日期]</span> 新闻内容 2 - 请替换为你的真实新闻</li>
+                <li><span class="news-date">[日期]</span> 新闻内容 3 - 请替换为你的真实新闻</li>
+                <li><span class="news-date">[日期]</span> 新闻内容 4 - 请替换为你的真实新闻</li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 代表论文模块（请修改） ===== -->
+        <section class="publications" id="publications">
+            <h2 class="section-title">📚 Selected Publications</h2>
+            <p class="pub-hint">* 表示共同第一作者，<sup>†</sup> 表示通讯作者</p>
+
+            <!-- 论文 1 -->
+            <div class="paper">
+                <div class="paper-thumb">
+                    <img src="https://via.placeholder.com/300x180?text=Paper+1" alt="论文配图">
+                </div>
+                <div class="paper-info">
+                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
+                    <p class="paper-authors">
+                        <strong>你的名字*</strong>, 合作者1, 合作者2, 导师名字<sup>†</sup>
+                    </p>
+                    <p class="paper-venue">
+                        <em>会议/期刊全称 (简称)</em>, 年份
+                    </p>
+                    <div class="paper-links">
+                        <a href="#" class="btn">📄 Paper</a>
+                        <a href="#" class="btn">💻 Code</a>
+                        <a href="#" class="btn">▶️ Video</a>
+                        <a href="#" class="btn">📰 Project Page</a>
+                    </div>
+                    <p class="paper-abstract">
+                        <strong>Abstract:</strong> 这里是论文摘要。请替换为真实的摘要内容...
+                    </p>
+                </div>
+            </div>
+
+            <!-- 论文 2 -->
+            <div class="paper">
+                <div class="paper-thumb">
+                    <img src="https://via.placeholder.com/300x180?text=Paper+2" alt="论文配图">
+                </div>
+                <div class="paper-info">
+                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
+                    <p class="paper-authors">
+                        <strong>你的名字*</strong>, 合作者1, 合作者2
+                    </p>
+                    <p class="paper-venue">
+                        <em>会议/期刊全称 (简称)</em>, 年份
+                    </p>
+                    <div class="paper-links">
+                        <a href="#" class="btn">📄 Paper</a>
+                        <a href="#" class="btn">💻 Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 论文 3 -->
+            <div class="paper">
+                <div class="paper-thumb">
+                    <img src="https://via.placeholder.com/300x180?text=Paper+3" alt="论文配图">
+                </div>
+                <div class="paper-info">
+                    <h3 class="paper-title">论文标题 - 请替换为你的论文标题</h3>
+                    <p class="paper-authors">
+                        合作者1, <strong>你的名字*</strong>, 合作者2<sup>†</sup>
+                    </p>
+                    <p class="paper-venue">
+                        <em>会议/期刊全称 (简称)</em>, 年份
+                    </p>
+                    <div class="paper-links">
+                        <a href="#" class="btn">📄 Paper</a>
+                        <a href="#" class="btn">💻 Code</a>
+                        <a href="#" class="btn">▶️ Video</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 荣誉奖项模块（请修改） ===== -->
+        <section class="awards-section" id="awards">
+            <h2 class="section-title">🏆 Awards & Honors</h2>
+            <ul class="award-list">
+                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
+                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
+                <li><span class="award-year">[年份]</span> 奖项名称 - 请替换</li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 教学经历模块（请修改） ===== -->
+        <section class="teaching-section" id="teaching">
+            <h2 class="section-title">🎓 Teaching</h2>
+            <ul class="teaching-list">
+                <li>
+                    <strong>[课程名称]</strong> - [学期/年份]
+                    <br><span class="teaching-desc">课程简介，请替换为你的描述</span>
+                </li>
+                <li>
+                    <strong>[课程名称]</strong> - [学期/年份]
+                    <br><span class="teaching-desc">课程简介，请替换为你的描述</span>
+                </li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 学术服务模块（请修改） ===== -->
+        <section class="service-section" id="service">
+            <h2 class="section-title">📝 Professional Service</h2>
+            <h3>Conference Reviewer</h3>
+            <p>CVPR, ICCV, ECCV, NeurIPS, ICML, ICLR, RSS, CoRL ...（请替换）</p>
+            
+            <h3>Journal Reviewer</h3>
+            <p>IJCV, T-PAMI, RA-L, Autonomous Robots ...（请替换）</p>
+            
+            <h3>Workshop Organizer</h3>
+            <p>请替换为你的 workshop 组织经历</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 招生/招聘模块（请修改） ===== -->
+        <section class="opportunities-section" id="opportunities">
+            <h2 class="section-title">🚀 Opportunities</h2>
+            <p>
+                <strong>我们实验室正在招收 [本科生/硕士生/博士生/博士后/访问学者]！</strong>
+            </p>
+            <p>
+                如果你对 <strong>[研究方向]</strong> 感兴趣，欢迎发送邮件至 
+                <a href="mailto:your@email.com">your@email.com</a>。
+            </p>
+            <p>
+                请附上你的 CV、成绩单和一段简短的研究兴趣描述。
+            </p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== 图片画廊模块（请修改） ===== -->
+        <section class="gallery-section">
+            <h2 class="section-title">📸 Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+1" alt="实验室照片">
+                    <p class="gallery-caption">实验室照片 1 - 请替换</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+2" alt="实验室照片">
+                    <p class="gallery-caption">实验室照片 2 - 请替换</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+3" alt="实验室照片">
+                    <p class="gallery-caption">实验室照片 3 - 请替换</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x250?text=Lab+Photo+4" alt="实验室照片">
+                    <p class="gallery-caption">实验室照片 4 - 请替换</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 你的名字. All rights reserved.</p>
+        <p>Powered by GitHub Pages</p>
+    </footer>
+
+</body>
+</html>

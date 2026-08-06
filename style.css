@@ -1,0 +1,413 @@
+/* ========== 基础样式 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background: #fff;
+    font-size: 15px;
+}
+
+a {
+    color: #2b6cb0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========== 导航栏 ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 5%;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1a202c;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.nav-links a {
+    font-size: 0.88rem;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #2b6cb0;
+}
+
+.nav-links a.active {
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+/* ========== 主容器 ========== */
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+
+/* ========== 分割线 ========== */
+.divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 2.5rem 0;
+}
+
+/* ========== 个人信息 ========== */
+.profile {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.profile-left {
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.profile-right h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.6rem;
+}
+
+.profile-right .title {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 0.3rem;
+}
+
+.profile-right .affiliation {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    color: #4a5568;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #2b6cb0;
+}
+
+/* ========== 简介 ========== */
+.bio {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.bio p {
+    margin-bottom: 1rem;
+}
+
+.bio strong {
+    color: #2d3748;
+}
+
+/* ========== 板块标题 ========== */
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #2b6cb0;
+    display: inline-block;
+}
+
+/* ========== 新闻列表 ========== */
+.news-list {
+    list-style: none;
+}
+
+.news-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed #e2e8f0;
+    color: #4a5568;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-date {
+    font-weight: 600;
+    color: #2b6cb0;
+    margin-right: 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* ========== 论文列表 ========== */
+.pub-hint {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 1.5rem;
+}
+
+.paper {
+    display: flex;
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.paper:last-child {
+    border-bottom: none;
+}
+
+.paper-thumb {
+    flex-shrink: 0;
+    width: 260px;
+}
+
+.paper-thumb img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.paper-info {
+    flex: 1;
+}
+
+.paper-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+.paper-authors {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 0.3rem;
+}
+
+.paper-venue {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 0.8rem;
+}
+
+.paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid #2b6cb0;
+    color: #2b6cb0;
+    text-decoration: none;
+    font-size: 0.82rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: #2b6cb0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.paper-abstract {
+    font-size: 0.88rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* ========== 荣誉奖项 ========== */
+.award-list {
+    list-style: none;
+}
+
+.award-list li {
+    padding: 0.5rem 0;
+    color: #4a5568;
+}
+
+.award-year {
+    font-weight: 600;
+    color: #2b6cb0;
+    margin-right: 0.8rem;
+}
+
+/* ========== 教学经历 ========== */
+.teaching-list {
+    list-style: none;
+}
+
+.teaching-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.teaching-list li:last-child {
+    border-bottom: none;
+}
+
+.teaching-desc {
+    color: #718096;
+    font-size: 0.88rem;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* ========== 学术服务 ========== */
+.service-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 1.2rem 0 0.5rem;
+}
+
+.service-section p {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+/* ========== 招生招聘 ========== */
+.opportunities-section p {
+    color: #4a5568;
+    margin-bottom: 0.8rem;
+}
+
+.opportunities-section strong {
+    color: #2d3748;
+}
+
+/* ========== 图片画廊 ========== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.02);
+}
+
+.gallery-caption {
+    margin-top: 0.6rem;
+    font-size: 0.88rem;
+    color: #718096;
+}
+
+/* ========== 页脚 ========== */
+.footer {
+    background: #f7fafc;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 2rem;
+}
+
+.footer p {
+    color: #718096;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0.6rem 1rem;
+        gap: 0.5rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .avatar {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .paper {
+        flex-direction: column;
+    }
+    
+    .paper-thumb {
+        width: 100%;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 1.5rem 1rem;
+    }
+}
