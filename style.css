@@ -357,6 +357,29 @@ a:hover {
     color: var(--ink-faint);
 }
 
+.paper-links {
+    margin: 0.3rem 0 0.15rem;
+}
+
+.paper-links a {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--pku-red);
+    border: 1px solid var(--pku-red);
+    border-radius: 4px;
+    padding: 0.02rem 0.5rem;
+    margin-right: 0.4rem;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+}
+
+.paper-links a:hover {
+    background: var(--pku-red);
+    color: #fff;
+    text-decoration: none;
+}
+
 .paper-figure {
     flex-shrink: 0;
     width: 300px;
