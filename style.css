@@ -310,6 +310,67 @@ a:hover {
     margin-top: 0.2rem;
 }
 
+/* ========== Research images ========== */
+.research-img {
+    width: calc(100% + 2.6rem);
+    margin: -1.2rem -1.3rem 0.9rem;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ========== Paper cards (figure right, info left) ========== */
+.paper-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-card {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid #f0ede9;
+}
+
+.paper-card:last-child {
+    border-bottom: none;
+}
+
+.paper-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.paper-cite {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.25rem;
+}
+
+.paper-cite em {
+    color: var(--ink);
+}
+
+.paper-note {
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+}
+
+.paper-figure {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.paper-figure img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background: #fff;
+}
+
 /* ========== People ========== */
 .people-group {
     font-family: var(--serif);
@@ -520,6 +581,14 @@ a:hover {
 
     .gallery {
         grid-template-columns: 1fr;
+    }
+
+    .paper-card {
+        flex-direction: column;
+    }
+
+    .paper-figure {
+        width: 100%;
     }
 
     .container {

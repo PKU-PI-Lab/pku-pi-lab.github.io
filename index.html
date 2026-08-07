@@ -86,6 +86,7 @@
                 <li><span class="news-date">Jul 2026</span> Our paper <em>Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning</em> (Temp-ACT) is published in <strong>IEEE Transactions on Consumer Electronics</strong>.</li>
                 <li><span class="news-date">2026</span> Our paper on the <em>Embodied AI-Driven Integrated Development Environment for Industrial Automation Systems</em> is published in <strong>IEEE Industrial Electronics Magazine</strong>.</li>
                 <li><span class="news-date">2026</span> <em>TRACE</em> is accepted by <strong>IEEE/RSJ IROS 2026</strong>; <em>CAML</em> is accepted by <strong>ICML 2026</strong>; three papers (<em>RegGraft</em>, <em>VistaCo</em>, <em>PhyGen</em>) are under review at <strong>AAAI 2027</strong>.</li>
+                <li><span class="news-date">2026</span> Our paper <em>APiLLM: Action Prompt Integration in Large Language Models for Time Series Forecasting in Process Industrial Systems</em> is published in <strong>Advanced Engineering Informatics</strong>.</li>
                 <li><span class="news-date">Oct 2025</span> Prof. Zhibo Pang joins Peking University as a Tenured Professor and founds the Physical Intelligence Lab.</li>
             </ul>
         </section>
@@ -97,18 +98,22 @@
             <h2 class="section-title">🔬 Research</h2>
             <div class="research-grid">
                 <div class="research-item">
+                    <img class="research-img" src="images/pubs/res_embodied.jpg" alt="Embodied AI for cable manipulation scenarios" loading="lazy">
                     <h3>Embodied AI Models &amp; Robot Learning</h3>
                     <p>Multimodal embodied foundation models (VLA / world models / PAM), imitation and reinforcement learning for contact-rich manipulation, sim-to-real transfer, and reliable long-horizon task planning through physics-semantics-driven agent clusters (PySAC).</p>
                 </div>
                 <div class="research-item">
+                    <img class="research-img" src="images/pubs/res_pinn.jpg" alt="Physics-informed machine learning" loading="lazy">
                     <h3>Physics-Informed Machine Learning</h3>
                     <p>Physics-informed neural networks (PINNs), neural operators for large-scale multi-scale PDE solving, and mechanism–data fusion models that bring physical semantics into learning-based control.</p>
                 </div>
                 <div class="research-item">
+                    <img class="research-img" src="images/pubs/res_cfa.jpg" alt="Cloud-Fog Automation architecture" loading="lazy">
                     <h3>Cloud-Fog Automation &amp; Industrial eCPS</h3>
                     <p>Cloud-Fog Automation (CFA): software-defined, intelligence-native industrial control infrastructure with communication–computing–control co-design, virtualized controllers, converged 5G/6G networks, and functional safety.</p>
                 </div>
                 <div class="research-item">
+                    <img class="research-img" src="images/pubs/res_robots.jpg" alt="Precision machining robotic deployment" loading="lazy">
                     <h3>Robot Systems &amp; Industrial Deployment</h3>
                     <p>High-dynamic dexterous robotic systems, dexterous hands, embodied toolchains (ETC), embodied model libraries (EML), and edge controllers (ECC) — deployed as reusable process packages for flexible precision manufacturing in semiconductor, aerospace, rail-transit, and new-energy equipment.</p>
                 </div>
@@ -123,114 +128,224 @@
             <p class="pub-hint">* Corresponding author. Full and up-to-date list available upon request.</p>
 
             <h3 class="pub-group">Embodied AI &amp; Robot Learning</h3>
-            <ul class="pub-list">
-                <li>
-                    D. Hu et al., "TRACE: Trajectory Action Chunking Enhancement for Robust Imitation Learning in Robotic Manipulation,"
-                    in <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2026.
-                    <span class="pub-note">Improves precision from ±1.2 to ±0.15 via encoder debiasing and visual–trajectory cross-attention.</span>
-                </li>
-                <li>
-                    D. Hu et al., "Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning" (Temp-ACT),
-                    in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
-                    <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3692732" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3692732</a>
-                    <span class="pub-note">Frequency-domain policy learning lifts long-horizon success rate from 3% to 36%.</span>
-                </li>
-                <li>
-                    Y. Chen et al., "TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence,"
-                    in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
-                    <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3698831" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3698831</a>
-                    <span class="pub-note">Wasserstein-aware causal synchronization raises task success from ~68% to 75%.</span>
-                </li>
-                <li>
-                    F. Ma et al., "Embodied Artificial Intelligence-Driven Integrated Development Environment for Industrial Automation Systems: Requirements and Framework,"
-                    in <em>IEEE Industrial Electronics Magazine</em>, 2026.
-                    <a class="pub-doi" href="https://doi.org/10.1109/MIE.2026.3694206" target="_blank" rel="noopener">doi:10.1109/MIE.2026.3694206</a>
-                </li>
-                <li>
-                    Y. Liu et al., "VistaCo: Synergizing Visual Attention and Task Cognition in Robot Visuomotor Policy Learning,"
-                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
-                    <span class="pub-note">Real-world success rate improved from 44.5% to 67.5%.</span>
-                </li>
-                <li>
-                    D. Song et al., "RegGraft: Region-Aware Block Reuse in Diffusion Transformers,"
-                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
-                    <span class="pub-note">25% improvement in diffusion training efficiency via cross-domain block grafting.</span>
-                </li>
-                <li>
-                    F. Ma et al., "PhyGen: Physics-Informed Repair Fields for Generated Robot Demonstrations,"
-                    <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.
-                    <span class="pub-note">Rigid-body demonstration generation yield raised from 55.6% to 93.5%.</span>
-                </li>
-                <li>
-                    J. Deng et al., "STEAM: Structured Temporal Episode Annotation for Manipulation in Embodied Robots," <em>IAI</em>, 2026.
-                </li>
-                <li>
-                    Y. Li et al., "DCP-ACQ: Reliable Control and Data Acquisition for Embodied Intelligence," <em>IAI</em>, 2026.
-                </li>
-                <li>
-                    W. Wang et al., "MP-GOP: Mobile Photogrammetric Reconstruction and Geometric Optimization," submitted to <em>IAI</em>, 2026.
-                </li>
-                <li>
-                    J. Liao et al., "GES-Bench: Simulation-Readiness Evaluation for Single-View 3D Generation," submitted to <em>IAI</em>, 2026.
-                </li>
-                <li>
-                    "ViPS: Visuomotor Policy-to-Servo Coordination for Precision Industrial Manipulation,"
-                    <em>IEEE Transactions on Industrial Cyber-Physical Systems (TICPS)</em>, under review.
-                    <span class="pub-note">Installation success rate improved from 35% to 78%.</span>
-                </li>
-            </ul>
+            <div class="paper-list">
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">D. Hu et al., "TRACE: Trajectory Action Chunking Enhancement for Robust Imitation Learning in Robotic Manipulation,"
+                        in <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>, 2026.</p>
+                        <p class="paper-note">Improves precision from ±1.2 to ±0.15 via encoder debiasing and visual–trajectory cross-attention.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_trace.jpg" alt="TRACE framework" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">D. Hu et al., "Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning" (Temp-ACT),
+                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
+                        <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3692732" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3692732</a></p>
+                        <p class="paper-note">Frequency-domain policy learning lifts long-horizon success rate from 3% to 36%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_tempact.jpg" alt="Temp-ACT framework" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Chen et al., "TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence,"
+                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
+                        <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3698831" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3698831</a></p>
+                        <p class="paper-note">Wasserstein-aware causal synchronization raises task success from ~68% to 75%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_tcsc.jpg" alt="TCSC framework" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">F. Ma et al., "Embodied Artificial Intelligence-Driven Integrated Development Environment for Industrial Automation Systems: Requirements and Framework,"
+                        in <em>IEEE Industrial Electronics Magazine</em>, 2026.
+                        <a class="pub-doi" href="https://doi.org/10.1109/MIE.2026.3694206" target="_blank" rel="noopener">doi:10.1109/MIE.2026.3694206</a></p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_ide.jpg" alt="Embodied AI-driven IDE architecture" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Liu et al., "VistaCo: Synergizing Visual Attention and Task Cognition in Robot Visuomotor Policy Learning,"
+                        <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.</p>
+                        <p class="paper-note">Real-world success rate improved from 44.5% to 67.5%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_vistaco.jpg" alt="VistaCo framework" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Lou et al., "DynamicWAM: Dual-Path Motion Conditioning for World–Action Models in Dynamic Manipulation,"
+                        <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.</p>
+                        <p class="paper-note">Dual-path motion conditioning lifts the DOMINO benchmark success rate from 29.3% (previous SOTA) to 38.2%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_dynamicwam.jpg" alt="DynamicWAM architecture" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">D. Song et al., "RegGraft: Region-Aware Block Reuse in Diffusion Transformers,"
+                        <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.</p>
+                        <p class="paper-note">25% improvement in diffusion training efficiency via cross-domain block grafting.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_reggraft.jpg" alt="RegGraft method" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">F. Ma et al., "PhyGen: Physics-Informed Repair Fields for Generated Robot Demonstrations,"
+                        <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.</p>
+                        <p class="paper-note">Rigid-body demonstration generation yield raised from 55.6% to 93.5%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_phygen.jpg" alt="PhyGen pipeline" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Fu et al., "CableSort: Force-Guided Dual-Arm Sorting of Stacked Cables,"
+                        <em>RSS 2026 DAROMA Workshop</em>, 2026.</p>
+                        <p class="paper-note">Instance-mask IoU improved from 0.36 to 0.93 over the strongest segmentation baseline, with 48% end-to-end sorting success.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_cablesort.jpg" alt="CableSort system" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">"ViPS: Visuomotor Policy-to-Servo Coordination for Precision Industrial Manipulation,"
+                        <em>IEEE Transactions on Industrial Cyber-Physical Systems (TICPS)</em>, under review.</p>
+                        <p class="paper-note">Installation success rate improved from 35% to 78%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_vips.jpg" alt="ViPS architecture" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">"UPST: Unified Pose-Stream Teleoperation for Heterogeneous Robot Control and Demonstration Generation,"
+                        submitted to <em>IEEE Industrial Electronics Magazine</em>, 2026.</p>
+                        <p class="paper-note">Unified pose-stream teleoperation cuts task time by 24.5% over the VR baseline and raises ACT success from 69.5% to 76.8%.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_upst.jpg" alt="UPST teleoperation pipeline" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">"CRAFT: A Cloud-Fog Automation Synergistic Framework Empowered by Embodied AI in Precision Manufacturing,"
+                        <em>Robotics and Computer-Integrated Manufacturing (RCIM)</em>, under review.</p>
+                        <p class="paper-note">Cloud–fog–edge task execution lifts real-factory success from 39.5% to 76.5% with ~7× longer continuous autonomous operation.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_craft.jpg" alt="CRAFT framework" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">J. Deng et al., "STEAM: Structured Temporal Episode Annotation for Manipulation in Embodied Robots," <em>IAI</em>, 2026.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_steam.jpg" alt="STEAM annotation pipeline" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Li et al., "DCP-ACQ: Reliable Control and Data Acquisition for Embodied Intelligence," <em>IAI</em>, 2026.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_dcpacq.jpg" alt="DCP-ACQ system" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">W. Wang et al., "MP-GOP: Mobile Photogrammetric Reconstruction and Geometric Optimization," submitted to <em>IAI</em>, 2026.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_mpgop.jpg" alt="MP-GOP reconstruction pipeline" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">J. Liao et al., "GES-Bench: Simulation-Readiness Evaluation for Single-View 3D Generation," submitted to <em>IAI</em>, 2026.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_gesbench.jpg" alt="GES-Bench evaluation" loading="lazy"></div>
+                </div>
+            </div>
 
             <h3 class="pub-group">Physics-Informed Machine Learning</h3>
-            <ul class="pub-list">
-                <li>
-                    Y. Luo, J. Wang, et al., "MMET: A Multi-Input and Multi-Scale Transformer for Efficient PDEs Solving,"
-                    in <em>International Joint Conference on Artificial Intelligence (IJCAI)</em>, 2025.
-                </li>
-                <li>
-                    Y. Luo, P. Zhu, et al., "Mitigating Gradient Pathology in PINNs through Aligned Constraint" (CAML),
-                    in <em>International Conference on Machine Learning (ICML)</em>, 2026.
-                </li>
-                <li>
-                    Y. Luo, D. Hu, et al., "Derivative Cheating in Fusion-Based PINNs: Understanding and Preventing,"
-                    <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2026, under review.
-                </li>
-            </ul>
+            <div class="paper-list">
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">L. Zhang et al., "Action Prompt Integration in Large Language Models for Time Series Forecasting in Process Industrial Systems" (APiLLM),
+                        in <em>Advanced Engineering Informatics</em>, 2026.
+                        <a class="pub-doi" href="https://doi.org/10.1016/j.aei.2026.105033" target="_blank" rel="noopener">doi:10.1016/j.aei.2026.105033</a></p>
+                        <p class="paper-note">Action-aware attention reduces average MSE and MAE by 18.6% and 10.7% over the SOTA method.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_apillm.jpg" alt="APiLLM architecture" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Luo, J. Wang, et al., "MMET: A Multi-Input and Multi-Scale Transformer for Efficient PDEs Solving,"
+                        in <em>International Joint Conference on Artificial Intelligence (IJCAI)</em>, 2025.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_mmet.jpg" alt="MMET neural operator" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Luo, P. Zhu, et al., "Mitigating Gradient Pathology in PINNs through Aligned Constraint" (CAML),
+                        in <em>International Conference on Machine Learning (ICML)</em>, 2026.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_caml.jpg" alt="CAML method" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Luo, D. Hu, et al., "Derivative Cheating in Fusion-Based PINNs: Understanding and Preventing,"
+                        <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2026, under review.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_derivcheat.jpg" alt="Derivative cheating analysis" loading="lazy"></div>
+                </div>
+            </div>
 
             <h3 class="pub-group">Cloud-Fog Automation &amp; Industrial Communications</h3>
-            <ul class="pub-list">
-                <li>
-                    J. Jin, K. Yu, J. Kua, N. Zhang, <strong>Z. Pang*</strong>, and Q.-L. Han*, "Cloud-Fog Automation: Vision, Enabling Technologies, and Future Research Directions,"
-                    in <em>IEEE Transactions on Industrial Informatics</em>, 2023.
-                </li>
-                <li>
-                    H. Lv, <strong>Z. Pang*</strong>, et al., "Cloud–Fog Automation: Heterogeneous Applications Over New-Generation Infrastructure of Virtualized Computing and Converged Networks,"
-                    in <em>IEEE Industrial Electronics Magazine</em>, 2024.
-                </li>
-                <li>
-                    M. Zhan, <strong>Z. Pang*</strong>, et al., "Joint Error Detection and Correction for Safety Communication: Reducing the Alarm Rate of Transmitted Safety Messages,"
-                    in <em>IEEE Industrial Electronics Magazine</em>, 2024.
-                </li>
-                <li>
-                    M. Zhan et al., "High Throughput Joint Error Detection and Correction Based on GRAND-MO and CRC,"
-                    in <em>IEEE Transactions on Consumer Electronics</em>, 2024.
-                </li>
-                <li>
-                    M. Zhan et al., "Noise Error Pattern Generation Based on Successive Addition-Subtraction for GRAND-MO,"
-                    in <em>IEEE Communications Letters</em>, vol. 26, no. 4, pp. 743–747, Apr. 2022.
-                </li>
-                <li>
-                    Y. Liu, <strong>Z. Pang</strong>, et al., "RL-Based Joint Latency Optimization for Software-Defined Wireless Cloud Fog Automation,"
-                    in <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, 2025.
-                </li>
-                <li>
-                    Y. Liu, <strong>Z. Pang</strong>, and Y. Ding, "CFA-OpenRAN: An Integrated Communication, Computing, and Control Architecture for Wireless Cloud Fog Automation Based on O-RAN,"
-                    in <em>the 22nd IEEE International Conference on Industrial Informatics (INDIN)</em>, Beijing, China, Aug. 2024.
-                </li>
-                <li>
-                    K. B. Lee, R. Candell, H.-P. Bernhard, D. Cavalcanti, <strong>Z. Pang</strong>, and I. Val, "Reliable, High-Performance Wireless Systems for Factory Automation,"
-                    <em>NIST Interagency/Internal Report (NISTIR) 8317</em>, Sep. 2020.
-                </li>
-            </ul>
+            <div class="paper-list">
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">J. Jin, K. Yu, J. Kua, N. Zhang, <strong>Z. Pang*</strong>, and Q.-L. Han*, "Cloud-Fog Automation: Vision, Enabling Technologies, and Future Research Directions,"
+                        in <em>IEEE Transactions on Industrial Informatics</em>, 2023.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_cfa_tii2023.jpg" alt="Cloud-Fog Automation vision" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">H. Lv, <strong>Z. Pang*</strong>, et al., "Cloud–Fog Automation: Heterogeneous Applications Over New-Generation Infrastructure of Virtualized Computing and Converged Networks,"
+                        in <em>IEEE Industrial Electronics Magazine</em>, 2024.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_cfa_iem2024.jpg" alt="CFA heterogeneous applications" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">M. Zhan, <strong>Z. Pang*</strong>, et al., "Joint Error Detection and Correction for Safety Communication: Reducing the Alarm Rate of Transmitted Safety Messages,"
+                        in <em>IEEE Industrial Electronics Magazine</em>, 2024.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_jedec.jpg" alt="JEDeC safety communication" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">M. Zhan et al., "High Throughput Joint Error Detection and Correction Based on GRAND-MO and CRC,"
+                        in <em>IEEE Transactions on Consumer Electronics</em>, 2024.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_grandmo_tce.jpg" alt="GRAND-MO decoding" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">M. Zhan et al., "Noise Error Pattern Generation Based on Successive Addition-Subtraction for GRAND-MO,"
+                        in <em>IEEE Communications Letters</em>, vol. 26, no. 4, pp. 743–747, Apr. 2022.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_grandmo_cl.jpg" alt="GRAND-MO noise error patterns" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Liu, <strong>Z. Pang</strong>, et al., "RL-Based Joint Latency Optimization for Software-Defined Wireless Cloud Fog Automation,"
+                        in <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, 2025.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_indin2025.jpg" alt="RL-based latency optimization" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">Y. Liu, <strong>Z. Pang</strong>, and Y. Ding, "CFA-OpenRAN: An Integrated Communication, Computing, and Control Architecture for Wireless Cloud Fog Automation Based on O-RAN,"
+                        in <em>the 22nd IEEE International Conference on Industrial Informatics (INDIN)</em>, Beijing, China, Aug. 2024.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_openran.jpg" alt="CFA-OpenRAN architecture" loading="lazy"></div>
+                </div>
+                <div class="paper-card">
+                    <div class="paper-info">
+                        <p class="paper-cite">K. B. Lee, R. Candell, H.-P. Bernhard, D. Cavalcanti, <strong>Z. Pang</strong>, and I. Val, "Reliable, High-Performance Wireless Systems for Factory Automation,"
+                        <em>NIST Interagency/Internal Report (NISTIR) 8317</em>, Sep. 2020.</p>
+                    </div>
+                    <div class="paper-figure"><img src="images/pubs/pub_nistir.jpg" alt="Wireless factory automation testbed" loading="lazy"></div>
+                </div>
+            </div>
         </section>
 
         <hr class="divider">
