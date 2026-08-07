@@ -140,8 +140,8 @@
                 <div class="paper-card">
                     <div class="paper-info">
                         <p class="paper-cite">D. Hu et al., "Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning" (Temp-ACT),
-                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
-                        <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3692732" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3692732</a></p>
+                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.</p>
+                        <p class="paper-links"><a href="https://doi.org/10.1109/TCE.2026.3692732" target="_blank" rel="noopener">DOI</a></p>
                         <p class="paper-note">Frequency-domain policy learning lifts long-horizon success rate from 3% to 36%.</p>
                     </div>
                     <div class="paper-figure"><img src="images/pubs/pub_tempact.jpg" alt="Temp-ACT framework" loading="lazy"></div>
@@ -149,8 +149,8 @@
                 <div class="paper-card">
                     <div class="paper-info">
                         <p class="paper-cite">Y. Chen et al., "TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence,"
-                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.
-                        <a class="pub-doi" href="https://doi.org/10.1109/TCE.2026.3698831" target="_blank" rel="noopener">doi:10.1109/TCE.2026.3698831</a></p>
+                        in <em>IEEE Transactions on Consumer Electronics</em>, 2026.</p>
+                        <p class="paper-links"><a href="https://doi.org/10.1109/TCE.2026.3698831" target="_blank" rel="noopener">DOI</a></p>
                         <p class="paper-note">Wasserstein-aware causal synchronization raises task success from ~68% to 75%.</p>
                     </div>
                     <div class="paper-figure"><img src="images/pubs/pub_tcsc.jpg" alt="TCSC framework" loading="lazy"></div>
@@ -158,8 +158,8 @@
                 <div class="paper-card">
                     <div class="paper-info">
                         <p class="paper-cite">F. Ma et al., "Embodied Artificial Intelligence-Driven Integrated Development Environment for Industrial Automation Systems: Requirements and Framework,"
-                        in <em>IEEE Industrial Electronics Magazine</em>, 2026.
-                        <a class="pub-doi" href="https://doi.org/10.1109/MIE.2026.3694206" target="_blank" rel="noopener">doi:10.1109/MIE.2026.3694206</a></p>
+                        in <em>IEEE Industrial Electronics Magazine</em>, 2026.</p>
+                        <p class="paper-links"><a href="https://doi.org/10.1109/MIE.2026.3694206" target="_blank" rel="noopener">DOI</a></p>
                     </div>
                     <div class="paper-figure"><img src="images/pubs/pub_ide.jpg" alt="Embodied AI-driven IDE architecture" loading="lazy"></div>
                 </div>
@@ -258,8 +258,8 @@
                 <div class="paper-card">
                     <div class="paper-info">
                         <p class="paper-cite">L. Zhang et al., "Action Prompt Integration in Large Language Models for Time Series Forecasting in Process Industrial Systems" (APiLLM),
-                        in <em>Advanced Engineering Informatics</em>, 2026.
-                        <a class="pub-doi" href="https://doi.org/10.1016/j.aei.2026.105033" target="_blank" rel="noopener">doi:10.1016/j.aei.2026.105033</a></p>
+                        in <em>Advanced Engineering Informatics</em>, 2026.</p>
+                        <p class="paper-links"><a href="https://doi.org/10.1016/j.aei.2026.105033" target="_blank" rel="noopener">DOI</a></p>
                         <p class="paper-note">Action-aware attention reduces average MSE and MAE by 18.6% and 10.7% over the SOTA method.</p>
                     </div>
                     <div class="paper-figure"><img src="images/pubs/pub_apillm.jpg" alt="APiLLM architecture" loading="lazy"></div>
@@ -529,6 +529,15 @@
         <p>© 2026 Physical Intelligence Lab, Peking University. All rights reserved.</p>
         <p>Powered by GitHub Pages</p>
     </footer>
+
+    <script>
+        // Click any publication figure to view it full-size
+        document.querySelectorAll('.paper-figure img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                window.open(img.src, '_blank', 'noopener');
+            });
+        });
+    </script>
 
 </body>
 </html>
