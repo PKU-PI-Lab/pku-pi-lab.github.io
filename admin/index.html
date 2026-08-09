@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网站内容后台</title>
+<style>
+  :root{
+    --blue:#1565c0; --blue2:#1e88e5; --bg:#f4f6fb; --card:#fff; --line:#e2e8f0;
+    --text:#1f2937; --muted:#64748b; --ok:#16a34a; --danger:#dc2626; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%;font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+  body{display:flex;flex-direction:column}
+
+  header{height:56px;flex-shrink:0;background:#fff;border-bottom:1px solid var(--line);padding:0 16px;display:flex;align-items:center;gap:12px}
+  header h1{font-size:16px;margin:0;color:var(--blue);display:flex;align-items:center;gap:8px}
+  header .spacer{flex:1}
+  .link{color:var(--blue2);text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px;background:#f1f5f9}
+  .link:hover{background:#e2e8f0}
+  #toast{font-size:13px;color:var(--ok);min-width:120px;text-align:right}
+  #dirtyMark{color:var(--warn);font-size:12px;margin-right:8px;white-space:nowrap}
+  #saveBtn{background:var(--blue);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500}
+  #saveBtn:hover{background:var(--blue2)}
+  #saveBtn:disabled{opacity:.6;cursor:default}
+
+  .layout{flex:1;display:flex;overflow:hidden}
+  aside{width:170px;flex-shrink:0;background:#fff;border-right:1px solid var(--line);padding:8px 6px;display:flex;flex-direction:column;gap:2px;overflow:auto}
+  .nav{padding:8px 10px;border-radius:7px;cursor:pointer;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .nav:hover{background:#f1f5f9}
+  .nav.active{background:#eef6ff;color:var(--blue);font-weight:600}
+
+  main{flex:1;overflow:auto;padding:18px 22px 50px}
+  .panel{display:none;max-width:960px;margin:0 auto}
+  .panel.active{display:block}
+
+  .page-title{font-size:18px;font-weight:600;margin:0 0 6px}
+  .page-desc{font-size:13px;color:var(--muted);margin:0 0 16px}
+
+  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+  .btn-add{background:var(--blue);color:#fff;border:none;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
+  .btn-add:hover{background:var(--blue2)}
+  .btn-add.outline{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+  .btn-add.outline:hover{background:#eef6ff}
+  .count{font-size:13px;color:var(--muted)}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .card-title{font-size:13px;font-weight:600;color:var(--muted)}
+  .btn-del{background:#fff;color:var(--danger);border:1px solid var(--danger);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer}
+  .btn-del:hover{background:#fef2f2}
+
+  label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+  .fld{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px;font-family:inherit;outline:none;background:#fff}
+  .fld:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(30,136,229,.1)}
+  textarea.fld{min-height:64px;resize:vertical;line-height:1.6}
+  input.fld, select.fld{min-height:38px}
+  .hint{font-size:12px;color:var(--muted);margin-top:3px}
+  .chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-top:8px;cursor:pointer}
+  .toggle-row{display:flex;align-items:center;gap:10px;margin:10px 0}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+  .group-card{border:2px solid #dbeafe;border-radius:14px;padding:14px;margin-bottom:16px;background:#f8fbff}
+  .group-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .group-title-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+
+  .member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .member-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:12px}
+  .photo-col{width:90px;flex-shrink:0}
+  .photo-col img, .photo-col .no-photo{width:84px;height:112px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:#f8fafc;display:block}
+  .photo-col .no-photo{display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);text-align:center}
+  .upload-wrap{position:relative;margin-top:6px}
+  .upload-wrap input{position:absolute;opacity:0;width:100%;height:100%;left:0;top:0;cursor:pointer}
+  .upload-btn{display:block;width:100%;text-align:center;background:#eef6ff;color:var(--blue);border:1px dashed var(--blue2);border-radius:6px;padding:4px 0;font-size:12px;cursor:pointer}
+  .member-fields{flex:1;display:flex;flex-direction:column;gap:2px}
+  .member-fields label{margin-top:6px}
+  .del-member{color:var(--danger);font-size:12px;background:none;border:none;padding:0;margin-top:auto;text-align:left;cursor:pointer}
+
+  .paper-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+  .paper-links-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+  .paper-links-row .btn-del{font-size:11px;padding:2px 8px}
+
+  .nav-item{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  .nav-item .fld{margin:0}
+  .nav-item label{margin:0 0 0 4px;font-size:12px}
+
+  #loader{position:fixed;inset:0;background:rgba(255,255,255,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50}
+  #loader.hidden{display:none}
+  .spinner{width:36px;height:36px;border:3px solid #dbeafe;border-top-color:var(--blue);border-radius:50%;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #loader p{margin-top:10px;font-size:14px;color:var(--muted)}
+  .error-box{background:#fef2f2;border:1px solid #fecaca;color:var(--danger);padding:14px 16px;border-radius:10px;margin-bottom:16px;font-size:14px}
+  .empty{text-align:center;padding:35px 20px;color:var(--muted);font-size:14px;background:#fff;border:1px dashed var(--line);border-radius:12px}
+  .section-divider{border-top:1px solid var(--line);margin:24px 0 16px}
+
+  /* 所见即所得富文本编辑器 */
+  .rich{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+  .rich:focus-within{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(30,136,229,.1)}
+  .rich-toolbar{display:flex;gap:4px;padding:5px 6px;background:#f8fafc;border-bottom:1px solid var(--line)}
+  .rt-btn{border:1px solid var(--line);background:#fff;border-radius:6px;min-width:30px;height:28px;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);padding:0 8px}
+  .rt-btn:hover{background:#eef6ff;border-color:var(--blue2)}
+  .rich-editor{min-height:66px;padding:9px 11px;font-size:14px;line-height:1.7;outline:none;overflow:auto}
+  .rich-editor:empty:before{content:attr(data-placeholder);color:#94a3b8}
+  .rich-editor p{margin:0 0 6px}
+  .rich-editor a{color:var(--blue);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="spinner"></div><p>正在加载内容…</p></div>
+
+<header>
+  <h1>🛠️ 网站内容后台</h1>
+  <a class="link" href="/" target="site_preview">↗ 网站预览</a>
+  <span class="spacer"></span>
+  <span id="dirtyMark"></span>
+  <span id="toast"></span>
+  <button id="saveBtn">💾 保存并生成前端</button>
+</header>
+
+<div class="layout">
+  <aside>
+    <div class="nav active" data-tab="home" onclick="switchTab('home')">🏠 首页信息</div>
+    <div class="nav" data-tab="nav" onclick="switchTab('nav')">🧭 导航栏目</div>
+    <div class="nav" data-tab="bio" onclick="switchTab('bio')">📄 实验室简介</div>
+    <div class="nav" data-tab="opp" onclick="switchTab('opp')">🚀 招聘</div>
+    <div class="nav" data-tab="news" onclick="switchTab('news')">📰 新闻</div>
+    <div class="nav" data-tab="impact" onclick="switchTab('impact')">🏭 产业影响</div>
+    <div class="nav" data-tab="research" onclick="switchTab('research')">🔬 研究方向</div>
+    <div class="nav" data-tab="people" onclick="switchTab('people')">👥 团队成员</div>
+    <div class="nav" data-tab="publications" onclick="switchTab('publications')">📚 论文发表</div>
+    <div class="nav" data-tab="teaching" onclick="switchTab('teaching')">🎓 教学</div>
+    <div class="nav" data-tab="footer" onclick="switchTab('footer')">🔻 页脚</div>
+  </aside>
+
+  <main>
+    <div id="errorBox"></div>
+
+    <section class="panel active" id="panel-home">
+      <h2 class="page-title">首页 PI 信息</h2>
+      <p class="page-desc">修改首页顶部姓名、头衔、单位、邮箱与头像。</p>
+      <div class="card" id="home-card"></div>
+    </section>
+
+    <section class="panel" id="panel-nav">
+      <h2 class="page-title">导航栏目</h2>
+      <p class="page-desc">增删导航条目、修改名称、控制是否显示。ID 对应页面锚点，链接请以 # 开头。</p>
+      <div class="toolbar"><span class="count" id="nav-count"></span><button class="btn-add" onclick="addNav()">+ 添加栏目</button></div>
+      <div id="nav-list"></div>
+    </section>
+
+    <section class="panel" id="panel-bio">
+      <h2 class="page-title">实验室简介</h2>
+      <p class="page-desc">修改 About the Lab / 实验室简介 的中英文段落。</p>
+      <div class="toolbar"><span class="count" id="bio-count"></span><button class="btn-add" onclick="addBio()">+ 添加段落</button></div>
+      <div id="bio-list"></div>
+    </section>
+
+    <section class="panel" id="panel-opp">
+      <h2 class="page-title">招聘</h2>
+      <p class="page-desc">修改 Opportunities / 加入我们 的招聘信息。</p>
+      <div class="toolbar"><span class="count" id="opp-count"></span><button class="btn-add" onclick="addOpp()">+ 添加招聘条目</button></div>
+      <div id="opp-list"></div>
+    </section>
+
+    <section class="panel" id="panel-news">
+      <h2 class="page-title">新闻动态</h2>
+      <p class="page-desc">新增、删除或编辑新闻。新添加的新闻会显示在最前面。</p>
+      <div class="toolbar"><span class="count" id="news-count"></span><button class="btn-add" onclick="addNews()">+ 添加新闻</button></div>
+      <div id="news-list"></div>
+    </section>
+
+    <section class="panel" id="panel-impact">
+      <h2 class="page-title">产业影响</h2>
+      <p class="page-desc">修改 Industrial Impact / 产业影响 的简介与年度条目。</p>
+      <div class="card" id="impact-intro-card"></div>
+      <div class="toolbar"><span class="count" id="impact-count"></span><button class="btn-add" onclick="addImpact()">+ 添加年度条目</button></div>
+      <div id="impact-list"></div>
+    </section>
+
+    <section class="panel" id="panel-research">
+      <h2 class="page-title">研究方向</h2>
+      <p class="page-desc">控制研究方向栏目是否显示，并管理轮播内容。</p>
+      <div class="card" id="research-settings"></div>
+      <div class="toolbar"><span class="count" id="research-count"></span><button class="btn-add" onclick="addResearch()">+ 添加轮播项</button></div>
+      <div id="research-list"></div>
+    </section>
+
+    <section class="panel" id="panel-people">
+      <h2 class="page-title">团队成员</h2>
+      <p class="page-desc">按分组管理成员：改姓名、头衔、上传头像，或新增/删除成员与分组。</p>
+      <div class="card" id="people-intro-card"></div>
+      <div class="toolbar"><span class="count" id="people-count"></span><button class="btn-add" onclick="addGroup()">+ 添加分组</button></div>
+      <div id="people-list"></div>
+    </section>
+
+    <section class="panel" id="panel-publications">
+      <h2 class="page-title">论文发表</h2>
+      <p class="page-desc">管理论文分组与每篇论文的信息、链接、配图。</p>
+      <div class="card" id="pub-settings"></div>
+      <div class="toolbar"><span class="count" id="pub-group-count"></span><button class="btn-add" onclick="addPubGroup()">+ 添加分组</button></div>
+      <div id="pub-list"></div>
+    </section>
+
+    <section class="panel" id="panel-teaching">
+      <h2 class="page-title">教学</h2>
+      <p class="page-desc">管理课程列表。</p>
+      <div class="toolbar"><span class="count" id="teaching-count"></span><button class="btn-add" onclick="addTeaching()">+ 添加课程</button></div>
+      <div id="teaching-list"></div>
+    </section>
+
+    <section class="panel" id="panel-footer">
+      <h2 class="page-title">页脚</h2>
+      <p class="page-desc">修改页脚单位、联系方式与版权信息。</p>
+      <div class="card" id="footer-card"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+const API='/api/content';
+let data=null;
+let originalData='';
+
+function $(s){return document.querySelector(s)}
+function $$(s){return document.querySelectorAll(s)}
+function el(tag, attrs={}, ...kids){
+  const e=document.createElement(tag);
+  for(const k in attrs){
+    if(k==='class') e.className=attrs[k];
+    else if(k==='text') e.textContent=attrs[k];
+    else if(k==='html') e.innerHTML=attrs[k];
+    else if(k.startsWith('on')) e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  }
+  for(const c of kids){ if(c==null||c===false) continue; e.appendChild(typeof c==='string'?document.createTextNode(c):c); }
+  return e;
+}
+function ta(value, onInput, ph){
+  const t=el('textarea',{class:'fld', placeholder:ph||'', oninput:e=>{ onInput(e.target.value); }}); t.value=value||''; return t;
+}
+
+/* ===== 所见即所得富文本编辑器（运营人员无需懂 HTML）===== */
+let richRegistry = [];
+
+// 白名单过滤用户输入的 HTML，只允许 加粗 / 斜体 / 链接 / 换行，并清理危险属性，防止 XSS
+function sanitizeHTML(html){
+  const allowed = { STRONG:1, EM:1, A:1, BR:1 };
+  const root = document.createElement('div');
+  root.innerHTML = html || '';
+  function clean(node){
+    const children = Array.from(node.childNodes);
+    for(const child of children){
+      if(child.nodeType === 3) continue;            // 文本节点保留
+      if(child.nodeType !== 1){ node.removeChild(child); continue; }
+      const tag = child.tagName;
+      if(tag === 'B' || tag === 'I'){               // 规范化 <b>/<i>
+        const norm = document.createElement(tag === 'B' ? 'strong' : 'em');
+        while(child.firstChild) norm.appendChild(child.firstChild);
+        node.replaceChild(norm, child); clean(norm); continue;
+      }
+      if(tag === 'DIV' || tag === 'P'){             // 块级换行统一成 <br>
+        const frag = document.createDocumentFragment();
+        while(child.firstChild) frag.appendChild(child.firstChild);
+        node.insertBefore(document.createElement('br'), child);
+        node.insertBefore(frag, child);
+        node.removeChild(child); clean(node); continue;
+      }
+      if(!allowed[tag]){                            // 非法标签：unwrap 保留文字
+        const frag = document.createDocumentFragment();
+        while(child.firstChild) frag.appendChild(child.firstChild);
+        node.insertBefore(frag, child);
+        node.removeChild(child); clean(node); continue;
+      }
+      if(tag === 'A'){
+        const href = (child.getAttribute('href')||'').trim();
+        if(!/^(https?:|mailto:)/i.test(href)){ child.removeAttribute('href'); }
+        else { child.setAttribute('target','_blank'); child.setAttribute('rel','noopener'); }
+        for(const a of Array.from(child.attributes)){
+          if(a.name!=='href' && a.name!=='target' && a.name!=='rel') child.removeAttribute(a.name);
+        }
+      } else {
+        for(const a of Array.from(child.attributes)) child.removeAttribute(a.name);
+      }
+      clean(child);
+    }
+  }
+  clean(root);
+  let out = root.innerHTML;
+  out = out.replace(/^(<br\s*\/?>)+/i,'').replace(/(<br\s*\/?>)+$/i,'');
+  return out;
+}
+
+function runCmd(editor, cmd, val){
+  editor.focus();
+  document.execCommand(cmd, false, val || null);
+}
+
+// 创建一个富文本编辑器，绑定到数据对象 obj[key]
+function rich(obj, key, placeholder){
+  const wrap = el('div',{class:'rich'});
+  const toolbar = el('div',{class:'rich-toolbar'});
+  const editor = el('div',{class:'rich-editor', contenteditable:'true', 'data-placeholder':placeholder||''});
+  editor.innerHTML = obj[key] || '';
+
+  const bBold = el('button',{class:'rt-btn', type:'button', title:'加粗（选中文字后点击）', html:'<b>B</b>', onmousedown:e=>{e.preventDefault(); runCmd(editor,'bold');}});
+  const bItalic = el('button',{class:'rt-btn', type:'button', title:'斜体', html:'<i>I</i>', onmousedown:e=>{e.preventDefault(); runCmd(editor,'italic');}});
+  const bLink = el('button',{class:'rt-btn', type:'button', title:'插入链接', text:'🔗 链接', onmousedown:e=>{
+    e.preventDefault();
+    const sel = window.getSelection();
+    if(!sel || sel.isCollapsed){ alert('请先选中要变成链接的文字，再点此按钮'); return; }
+    const url = prompt('输入链接地址（以 https:// 或 http:// 或 mailto: 开头）：', 'https://');
+    if(url) runCmd(editor,'createLink', url);
+  }});
+  const bClear = el('button',{class:'rt-btn', type:'button', title:'清除所选文字的格式', text:'⌫ 去格式', onmousedown:e=>{
+    e.preventDefault(); runCmd(editor,'removeFormat');
+    editor.querySelectorAll('strong,em').forEach(n=>{ while(n.firstChild) n.parentNode.insertBefore(n.firstChild,n); n.parentNode.removeChild(n); });
+  }});
+  toolbar.appendChild(bBold); toolbar.appendChild(bItalic); toolbar.appendChild(bLink); toolbar.appendChild(bClear);
+  wrap.appendChild(toolbar); wrap.appendChild(editor);
+  richRegistry.push({ obj, key, el: editor });
+  return wrap;
+}
+
+// 保存前把所有富文本编辑器的内容（已过滤）同步回数据对象
+function syncAllRich(){
+  for(const r of richRegistry){
+    if(!document.contains(r.el)) continue;   // 跳过已被重新渲染替换的旧编辑器
+    r.obj[r.key] = sanitizeHTML(r.el.innerHTML);
+  }
+}
+function inp(value, onInput, ph){
+  const i=el('input',{class:'fld', type:'text', placeholder:ph||'', oninput:e=>{ onInput(e.target.value); }}); i.value=value||''; return i;
+}
+function chk(value, onChange){
+  return el('input',{type:'checkbox', ...(value?{checked:'checked'}:{}), onchange:e=>{ onChange(e.target.checked); }});
+}
+function select(value, options, onChange){
+  const s=el('select',{class:'fld', onchange:e=>{ onChange(e.target.value); }});
+  options.forEach(o=>{ const op=el('option',{value:o.value,text:o.label}); if(o.value===value) op.selected=true; s.appendChild(op); });
+  return s;
+}
+
+function showLoader(show){ $('#loader').classList.toggle('hidden', !show); }
+function toast(msg){ $('#toast').textContent=msg; setTimeout(()=>{$('#toast').textContent=''}, 5000); }
+function showError(msg){ $('#errorBox').innerHTML='<div class="error-box">'+msg+'</div>'; }
+function clearError(){ $('#errorBox').innerHTML=''; }
+
+function switchTab(tab){
+  $$('.nav').forEach(n=>n.classList.toggle('active', n.dataset.tab===tab));
+  $$('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+tab));
+}
+
+/* 上传图片 */
+function fileToBase64(f){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result.split(',')[1]); r.onerror=rej; r.readAsDataURL(f); }); }
+async function uploadImage(item, field, previewImg, fileInput, folder){
+  const f=fileInput.files[0]; if(!f) return;
+  const ext=(f.name.split('.').pop()||'jpg').toLowerCase();
+  const safe=(item.name||'img').replace(/[^\w\u4e00-\u9fa5]/g,'_');
+  const fn=safe+'.'+ext;
+  try{
+    toast('正在上传图片…');
+    const b64=await fileToBase64(f);
+    const r=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:fn,folder:folder||'images/people',data:b64})});
+    const j=await r.json();
+    if(j.ok){ item[field]=j.path; if(previewImg) previewImg.src='/'+j.path+'?t='+Date.now(); toast('✅ 图片已上传'); }
+    else toast('❌ 上传失败：'+j.error);
+  }catch(e){ toast('❌ 上传失败：'+e.message); }
+}
+function uploadButton(item, field, folder){
+  const has=item[field];
+  const preview=has?el('img',{src:'/'+has+'?t='+Date.now(), style:'max-width:120px;max-height:90px;border-radius:6px;border:1px solid var(--line);margin-bottom:6px;display:block'}):el('div',{class:'no-photo', style:'width:120px;height:90px;margin-bottom:6px', text:'暂无图片'});
+  const fileInput=el('input',{type:'file', accept:'image/*', onchange:()=>uploadImage(item,field,preview,fileInput,folder)});
+  const wrap=el('div',{}, preview, el('label',{class:'upload-wrap'}, fileInput, el('span',{class:'upload-btn', text:has?'更换图片':'上传图片'})));
+  return wrap;
+}
+
+/* 段落渲染 */
+function renderParas(list, mountId, countId, name){
+  const mount=$(mountId); mount.innerHTML='';
+  $(countId).textContent='共 '+list.length+' 段';
+  if(!list.length){ mount.appendChild(el('div',{class:'empty',text:'还没有内容，点击上方“添加”按钮创建'})); return; }
+  list.forEach((p,idx)=>{
+    const card=el('div',{class:'card'},
+      el('div',{class:'card-head'},
+        el('span',{class:'card-title',text:name+' #'+(idx+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('确定删除这条'+name+'？')){ list.splice(idx,1); renderParas(list,mountId,countId,name);} }},'删除')
+      ),
+      el('label',{text:'英文（选中文字可点上方按钮加粗 / 插链接）'}), rich(p,'en'),
+      el('label',{text:'中文'}), rich(p,'zh'),
+      el('label',{class:'chk'}, chk(p.strong, v=>p.strong=v), '整段加粗显示')
+    );
+    mount.appendChild(card);
+  });
+}
+function addBio(){ data.bio.push({en:'',zh:'',strong:false}); renderParas(data.bio,'#bio-list','#bio-count','简介'); switchTab('bio'); }
+function addOpp(){ data.opportunities.push({en:'',zh:'',strong:false}); renderParas(data.opportunities,'#opp-list','#opp-count','招聘'); switchTab('opp'); }
+
+/* 首页 */
+function renderHome(){
+  const h=data.home;
+  const card=$('#home-card'); card.innerHTML='';
+  card.appendChild(el('div',{class:'two'},
+    el('div',{}, el('label',{text:'姓名（英）'}), inp(h.name_en, v=>h.name_en=v)),
+    el('div',{}, el('label',{text:'姓名（中）'}), inp(h.name_zh, v=>h.name_zh=v))
+  ));
+  card.appendChild(el('label',{text:'头衔（英）— 可选中文字点“加粗/链接”'}));
+  card.appendChild(rich(h,'title_en'));
+  card.appendChild(el('label',{text:'头衔（中）'}));
+  card.appendChild(rich(h,'title_zh'));
+  card.appendChild(el('label',{text:'头衔整体链接（留空则按上面文字里的链接）'}), inp(h.title_link, v=>h.title_link=v));
+  card.appendChild(el('label',{text:'单位（英）— 回车即换行'}));
+  card.appendChild(rich(h,'affiliation_en'));
+  card.appendChild(el('label',{text:'单位（中）'}));
+  card.appendChild(rich(h,'affiliation_zh'));
+  card.appendChild(el('label',{text:'曾任职务（英）'}));
+  card.appendChild(rich(h,'former_en'));
+  card.appendChild(el('label',{text:'曾任职务（中）'}));
+  card.appendChild(rich(h,'former_zh'));
+  card.appendChild(el('label',{text:'邮箱'}), inp(h.email, v=>h.email=v));
+  card.appendChild(el('label',{text:'头像'}), uploadButton(h, 'photo', 'images'));
+}
+
+/* 导航 */
+function renderNav(){
+  const mount=$('#nav-list'); mount.innerHTML='';
+  $('#nav-count').textContent='共 '+data.nav.length+' 个';
+  data.nav.forEach((n,idx)=>{
+    const row=el('div',{class:'nav-item'},
+      el('div',{style:'flex:0 0 60px'}, el('label',{text:'ID'}), inp(n.id, v=>n.id=v)),
+      el('div',{style:'flex:1'}, el('label',{text:'英文'}), inp(n.en, v=>n.en=v)),
+      el('div',{style:'flex:1'}, el('label',{text:'中文'}), inp(n.zh, v=>n.zh=v)),
+      el('div',{style:'flex:1'}, el('label',{text:'链接'}), inp(n.href, v=>n.href=v)),
+      el('label',{class:'chk'}, chk(n.visible!==false, v=>n.visible=v), '显示')
+    );
+    row.appendChild(el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除导航项 '+n.en+'？')){ data.nav.splice(idx,1); renderNav();} }},'删除'));
+    mount.appendChild(row);
+  });
+}
+function addNav(){ data.nav.push({id:'new',en:'New',zh:'新栏目',href:'#new',visible:true}); renderNav(); }
+
+/* 新闻 */
+function renderNews(){
+  const mount=$('#news-list'); mount.innerHTML='';
+  $('#news-count').textContent='共 '+data.news.items.length+' 条';
+  if(!data.news.items.length){ mount.appendChild(el('div',{class:'empty',text:'暂无新闻'})); return; }
+  data.news.items.forEach((n,idx)=>{
+    const card=el('div',{class:'card'},
+      el('div',{class:'card-head'},
+        el('span',{class:'card-title',text:'新闻 #'+(idx+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('确定删除这条新闻？')){ data.news.items.splice(idx,1); renderNews();} }},'删除')
+      ),
+      el('div',{class:'two'},
+        el('div',{}, el('label',{text:'日期'}), inp(n.date, v=>n.date=v, '如 Aug 2026')),
+        el('div',{}, el('label',{text:'详情链接（可选）'}), inp(n.link, v=>n.link=v, 'https://mp.weixin.qq.com/...'))
+      ),
+      el('label',{text:'英文'}), rich(n,'en'),
+      el('label',{text:'中文'}), rich(n,'zh')
+    );
+    mount.appendChild(card);
+  });
+}
+function addNews(){ data.news.items.unshift({date:'',en:'',zh:'',link:''}); renderNews(); switchTab('news'); toast('已添加一条空新闻'); }
+
+/* 产业影响 */
+function renderImpact(){
+  const imp=data.news.impact;
+  const introCard=$('#impact-intro-card'); introCard.innerHTML='';
+  introCard.appendChild(el('label',{text:'英文简介'}));
+  introCard.appendChild(rich(imp,'intro_en'));
+  introCard.appendChild(el('label',{text:'中文简介'}));
+  introCard.appendChild(rich(imp,'intro_zh'));
+
+  const mount=$('#impact-list'); mount.innerHTML='';
+  $('#impact-count').textContent='共 '+imp.items.length+' 条';
+  if(!imp.items.length){ mount.appendChild(el('div',{class:'empty',text:'暂无产业影响条目'})); return; }
+  imp.items.forEach((it,idx)=>{
+    const card=el('div',{class:'card'},
+      el('div',{class:'card-head'},
+        el('span',{class:'card-title',text:'条目 #'+(idx+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除？')){ imp.items.splice(idx,1); renderImpact();} }},'删除')
+      ),
+      el('div',{class:'two'},
+        el('div',{}, el('label',{text:'年份'}), inp(it.year, v=>it.year=v)),
+        el('div',{})
+      ),
+      el('label',{text:'英文'}), rich(it,'en'),
+      el('label',{text:'中文'}), rich(it,'zh')
+    );
+    mount.appendChild(card);
+  });
+}
+function addImpact(){ data.news.impact.items.push({year:'',en:'',zh:''}); renderImpact(); switchTab('impact'); }
+
+/* 研究方向 */
+function renderResearch(){
+  $('#research-settings').innerHTML='';
+  $('#research-settings').appendChild(el('label',{class:'chk'}, chk(data.research.visible, v=>data.research.visible=v), '在网站显示研究方向栏目'));
+
+  const mount=$('#research-list'); mount.innerHTML='';
+  $('#research-count').textContent='共 '+data.research.slides.length+' 项';
+  if(!data.research.slides.length){ mount.appendChild(el('div',{class:'empty',text:'暂无研究方向轮播项'})); return; }
+  data.research.slides.forEach((s,idx)=>{
+    const card=el('div',{class:'card'},
+      el('div',{class:'card-head'},
+        el('span',{class:'card-title',text:'轮播 #'+(idx+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除该研究方向？')){ data.research.slides.splice(idx,1); renderResearch();} }},'删除')
+      ),
+      el('div',{class:'two'},
+        el('div',{}, el('label',{text:'标题（英）'}), inp(s.title_en, v=>s.title_en=v)),
+        el('div',{}, el('label',{text:'标题（中）'}), inp(s.title_zh, v=>s.title_zh=v))
+      ),
+      el('label',{text:'描述（英）'}), rich(s,'desc_en'),
+      el('label',{text:'描述（中）'}), rich(s,'desc_zh'),
+      el('label',{text:'图片'}), uploadButton(s, 'img', 'images/pubs'),
+      el('label',{text:'图片 alt 文本'}), inp(s.alt, v=>s.alt=v)
+    );
+    mount.appendChild(card);
+  });
+}
+function addResearch(){ data.research.slides.push({img:'',alt:'',title_en:'',title_zh:'',desc_en:'',desc_zh:''}); renderResearch(); switchTab('research'); }
+
+/* 成员 */
+function renderPeople(){
+  const peopleIntro=$('#people-intro-card'); peopleIntro.innerHTML='';
+  peopleIntro.appendChild(el('label',{text:'团队简介（英）'}));
+  peopleIntro.appendChild(rich(data.people.intro,'en'));
+  peopleIntro.appendChild(el('label',{text:'团队简介（中）'}));
+  peopleIntro.appendChild(rich(data.people.intro,'zh'));
+
+  const mount=$('#people-list'); mount.innerHTML='';
+  const total=data.people.groups.reduce((s,g)=>s+g.members.length,0);
+  $('#people-count').textContent=total+' 人 / '+data.people.groups.length+' 组';
+
+  data.people.groups.forEach((g,gi)=>{
+    const group=el('div',{class:'group-card'},
+      el('div',{class:'group-head'},
+        el('span',{class:'card-title',text:'分组 #'+(gi+1)+' '+(g.title_zh||g.title_en)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除整个分组？')){ data.people.groups.splice(gi,1); renderPeople();} }},'删除分组')
+      ),
+      el('div',{class:'group-title-row'},
+        el('div',{}, el('label',{text:'分组名（英）'}), inp(g.title_en, v=>g.title_en=v)),
+        el('div',{}, el('label',{text:'分组名（中）'}), inp(g.title_zh, v=>g.title_zh=v))
+      )
+    );
+    const grid=el('div',{class:'member-grid'});
+    if(!g.members.length) grid.appendChild(el('div',{class:'empty',text:'该分组暂无成员'}));
+    g.members.forEach((mem,mi)=>{
+      const card=el('div',{class:'member-card'},
+        el('div',{class:'photo-col'}, uploadButton(mem,'photo','images/people')),
+        el('div',{class:'member-fields'},
+          el('label',{text:'姓名'}), inp(mem.name, v=>mem.name=v, '姓名'),
+          el('label',{text:'头衔（英）'}), inp(mem.role_en, v=>mem.role_en=v),
+          el('label',{text:'头衔（中）'}), inp(mem.role_zh, v=>mem.role_zh=v),
+          el('button',{class:'del-member', onclick:()=>{ if(confirm('删除成员 '+mem.name+'？')){ g.members.splice(mi,1); renderPeople();} }},'删除该成员')
+        )
+      );
+      grid.appendChild(card);
+    });
+    group.appendChild(grid);
+    group.appendChild(el('button',{class:'btn-add outline', style:'margin-top:10px', onclick:()=>{ g.members.push({name:'',role_en:'',role_zh:'',photo:''}); renderPeople(); }},'+ 在该分组添加成员'));
+    mount.appendChild(group);
+  });
+}
+function addGroup(){ data.people.groups.push({title_en:'New Group',title_zh:'新分组',members:[]}); renderPeople(); switchTab('people'); }
+
+/* 论文 */
+function renderPublications(){
+  const p=data.publications;
+  $('#pub-settings').innerHTML='';
+  $('#pub-settings').appendChild(el('div',{class:'two'},
+    el('div',{}, el('label',{text:'栏目标题（英）'}), inp(p.title.en, v=>p.title.en=v)),
+    el('div',{}, el('label',{text:'栏目标题（中）'}), inp(p.title.zh, v=>p.title.zh=v))
+  ));
+  $('#pub-settings').appendChild(el('label',{text:'提示文字（英）'}), inp(p.hint.en, v=>p.hint.en=v));
+  $('#pub-settings').appendChild(el('label',{text:'提示文字（中）'}), inp(p.hint.zh, v=>p.hint.zh=v));
+
+  const mount=$('#pub-list'); mount.innerHTML='';
+  $('#pub-group-count').textContent='共 '+p.groups.length+' 组';
+
+  p.groups.forEach((g,gi)=>{
+    const group=el('div',{class:'group-card'},
+      el('div',{class:'group-head'},
+        el('span',{class:'card-title',text:'分组 #'+(gi+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除论文分组？')){ p.groups.splice(gi,1); renderPublications();} }},'删除分组')
+      ),
+      el('div',{class:'group-title-row'},
+        el('div',{}, el('label',{text:'分组名（英）'}), inp(g.title_en, v=>g.title_en=v)),
+        el('div',{}, el('label',{text:'分组名（中）'}), inp(g.title_zh, v=>g.title_zh=v))
+      )
+    );
+    if(!g.papers.length) group.appendChild(el('div',{class:'empty',text:'该分组暂无论文'}));
+    g.papers.forEach((paper,pi)=>{
+      const links=el('div',{class:'paper-links-row'});
+      paper.links.forEach((lnk,li)=>{
+        links.appendChild(el('span',{}, el('input',{class:'fld', style:'width:70px', value:lnk.text, oninput:e=>lnk.text=e.target.value}), el('input',{class:'fld', style:'width:180px', value:lnk.href, oninput:e=>lnk.href=e.target.value}), el('button',{class:'btn-del', onclick:()=>{ paper.links.splice(li,1); renderPublications();}},'删除')));
+      });
+      links.appendChild(el('button',{class:'btn-add outline', style:'padding:4px 10px;font-size:12px', onclick:()=>{ paper.links.push({text:'DOI',href:''}); renderPublications();}},'+ 链接'));
+
+      const card=el('div',{class:'paper-card'},
+        el('div',{class:'card-head'},
+          el('span',{class:'card-title',text:'论文 #'+(pi+1)}),
+          el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除该论文？')){ g.papers.splice(pi,1); renderPublications();} }},'删除论文')
+        ),
+        el('label',{text:'引用信息（可加粗 / 斜体，选中文字点上方按钮）'}), rich(paper,'cite'),
+        el('label',{text:'链接'}), links,
+        el('label',{text:'备注（英，可选）'}), rich(paper,'note_en'),
+        el('label',{text:'备注（中）'}), rich(paper,'note_zh'),
+        el('label',{text:'配图'}), uploadButton(paper,'figure','images/pubs'),
+        el('label',{text:'配图 alt'}), inp(paper.figure_alt, v=>paper.figure_alt=v)
+      );
+      group.appendChild(card);
+    });
+    group.appendChild(el('button',{class:'btn-add outline', style:'margin-top:10px', onclick:()=>{ g.papers.push({cite:'',links:[],note_en:'',note_zh:'',figure:'',figure_alt:''}); renderPublications(); }},'+ 添加论文'));
+    mount.appendChild(group);
+  });
+}
+function addPubGroup(){ data.publications.groups.push({title_en:'New Group',title_zh:'新分组',papers:[]}); renderPublications(); switchTab('publications'); }
+
+/* 教学 */
+function renderTeaching(){
+  const mount=$('#teaching-list'); mount.innerHTML='';
+  $('#teaching-count').textContent='共 '+data.teaching.length+' 门';
+  if(!data.teaching.length){ mount.appendChild(el('div',{class:'empty',text:'暂无课程'})); return; }
+  data.teaching.forEach((t,idx)=>{
+    const card=el('div',{class:'card'},
+      el('div',{class:'card-head'},
+        el('span',{class:'card-title',text:'课程 #'+(idx+1)}),
+        el('button',{class:'btn-del', onclick:()=>{ if(confirm('删除该课程？')){ data.teaching.splice(idx,1); renderTeaching();} }},'删除')
+      ),
+      el('div',{class:'two'},
+        el('div',{}, el('label',{text:'课程名（英）'}), inp(t.title_en, v=>t.title_en=v)),
+        el('div',{}, el('label',{text:'课程名（中）'}), inp(t.title_zh, v=>t.title_zh=v))
+      ),
+      el('div',{class:'two'},
+        el('div',{}, el('label',{text:'标签（英）'}), inp(t.badge_en, v=>t.badge_en=v)),
+        el('div',{}, el('label',{text:'标签（中）'}), inp(t.badge_zh, v=>t.badge_zh=v))
+      ),
+      el('label',{text:'描述（英）'}), rich(t,'desc_en'),
+      el('label',{text:'描述（中）'}), rich(t,'desc_zh')
+    );
+    mount.appendChild(card);
+  });
+}
+function addTeaching(){ data.teaching.push({title_en:'',title_zh:'',badge_en:'',badge_zh:'',desc_en:'',desc_zh:''}); renderTeaching(); switchTab('teaching'); }
+
+/* 页脚 */
+function renderFooter(){
+  const f=data.footer;
+  const card=$('#footer-card'); card.innerHTML='';
+  card.appendChild(el('div',{class:'two'},
+    el('div',{}, el('label',{text:'名称（英）'}), inp(f.name_en, v=>f.name_en=v)),
+    el('div',{}, el('label',{text:'名称（中）'}), inp(f.name_zh, v=>f.name_zh=v))
+  ));
+  card.appendChild(el('label',{text:'单位（英）'}));
+  card.appendChild(rich(f,'affiliation_en'));
+  card.appendChild(el('label',{text:'单位（中）'}));
+  card.appendChild(rich(f,'affiliation_zh'));
+  card.appendChild(el('label',{text:'联系邮箱'}), inp(f.contact_email, v=>f.contact_email=v));
+  card.appendChild(el('label',{text:'版权（英）'}), inp(f.copyright_en, v=>f.copyright_en=v));
+  card.appendChild(el('label',{text:'版权（中）'}), inp(f.copyright_zh, v=>f.copyright_zh=v));
+  card.appendChild(el('label',{text:'Powered by'}), inp(f.powered, v=>f.powered=v));
+}
+
+/* 数据校验 */
+function validate(){
+  if(!data) return '数据未加载';
+  if(!data.home || !data.home.name_en || !data.home.name_zh) return '首页 PI 姓名不能为空';
+  if(!Array.isArray(data.nav) || !data.nav.length) return '导航栏目至少保留一项';
+  const ids=data.nav.map(n=>n.id);
+  if(new Set(ids).size!==ids.length) return '导航栏目 ID 不能重复';
+  for(const n of data.nav){
+    if(!n.id || !n.href || !n.en || !n.zh) return '导航栏目信息不完整（ID/链接/中英文名称）';
+    if(!/^#/.test(n.href)) return '导航链接必须以 # 开头：'+n.en;
+    if(/\s/.test(n.id)) return '导航 ID 不能包含空格：'+n.id;
+  }
+  if(!Array.isArray(data.people.groups) || !data.people.groups.length) return '团队成员至少保留一个分组';
+  for(const g of data.people.groups){
+    if(!g.title_en && !g.title_zh) return '存在未命名分组';
+    for(const m of g.members){
+      if(!m.name) return '分组“'+(g.title_zh||g.title_en)+'”中存在未填写姓名的成员';
+    }
+  }
+  for(let i=0;i<data.news.items.length;i++){
+    const item=data.news.items[i];
+    if(!item.date || (!item.en && !item.zh)) return '新闻 #'+(i+1)+' 缺少日期或内容';
+  }
+  return '';
+}
+
+/* 保存 */
+async function save(){
+  const btn=$('#saveBtn'); btn.disabled=true; const old=btn.textContent; btn.textContent='保存中…';
+  clearError();
+  syncAllRich();            // 先把富文本编辑器内容（已过滤）同步回数据
+  const err=validate();
+  if(err){ showError(err); btn.disabled=false; btn.textContent=old; return; }
+  try{
+    const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const txt=await r.text();
+    let j; try{j=JSON.parse(txt);}catch{j={ok:false,error:'服务器返回异常：'+txt.slice(0,200)};}
+    if(j.ok){
+      originalData=JSON.stringify(data);
+      toast('✅ 已保存并重新生成前端');
+      const pv=window.open('','site_preview'); if(pv) try{pv.location.reload();}catch{}
+    } else {
+      showError('保存失败：'+(j.error||'未知错误'));
+    }
+  }catch(e){ showError('保存失败：'+e.message); }
+  finally{ btn.disabled=false; btn.textContent=old; }
+}
+
+window.addEventListener('beforeunload', e=>{
+  if(data && JSON.stringify(data)!==originalData){
+    e.preventDefault();
+    e.returnValue='';
+  }
+});
+
+// 自动检测任何数据变更（增删改）并提示未保存
+setInterval(()=>{
+  if(!data) return;
+  const changed = JSON.stringify(data)!==originalData;
+  const d=$('#dirtyMark');
+  if(d) d.textContent = changed ? '● 有未保存的更改' : '';
+}, 1000);
+
+/* 初始化 */
+async function init(){
+  showLoader(true);
+  try{
+    const r=await fetch(API); if(!r.ok) throw new Error('HTTP '+r.status);
+    data=await r.json();
+    originalData=JSON.stringify(data);
+    renderHome();
+    renderNav();
+    renderParas(data.bio,'#bio-list','#bio-count','简介');
+    renderParas(data.opportunities,'#opp-list','#opp-count','招聘');
+    renderNews();
+    renderImpact();
+    renderResearch();
+    renderPeople();
+    renderPublications();
+    renderTeaching();
+    renderFooter();
+    clearError();
+  }catch(e){
+    showError('无法加载内容数据，请确认本地服务已启动（node admin/server.js）。<br>错误：'+e.message);
+  }finally{
+    showLoader(false);
+  }
+}
+
+$('#saveBtn').addEventListener('click', save);
+init();
+</script>
+</body>
+</html>
