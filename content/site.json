@@ -85,13 +85,19 @@
       "strong": false
     },
     {
-      "en": "Please send your CV, transcripts, and a short description of your research interests to <a href=\"mailto:zhibo.pang@pku.edu.cn\">zhibo.pang@pku.edu.cn</a>.",
-      "zh": "请将个人简历、成绩单与简短的研究兴趣说明发送至 <a href=\"mailto:zhibo.pang@pku.edu.cn\">zhibo.pang@pku.edu.cn</a>。",
+      "en": "Please send your CV, transcripts, and a short description of your research interests to <a href=\"mailto:zhibo.pang@pku.edu.cn\" target=\"_blank\" rel=\"noopener\">zhibo.pang@pku.edu.cn</a>.",
+      "zh": "请将个人简历、成绩单与简短的研究兴趣说明发送至 <a href=\"mailto:zhibo.pang@pku.edu.cn\" target=\"_blank\" rel=\"noopener\">zhibo.pang@pku.edu.cn</a>。",
       "strong": false
     }
   ],
   "news": {
     "items": [
+      {
+        "date": "Aug 2026",
+        "en": "www",
+        "zh": "呜呜呜呜",
+        "link": ""
+      },
       {
         "date": "Aug 2026",
         "en": "We are hiring <strong>senior algorithm interns</strong> in embodied world models and physical intelligence.",

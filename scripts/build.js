@@ -71,7 +71,14 @@ function renderNews(news) {
   const items = news.items.map(n => {
     const link = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">Read more →</a>' : '';
     const linkZh = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">查看详情 →</a>' : '';
-    return '                <li><span class="news-date">' + esc(n.date) + '</span> <span class="en">' + n.en + link + '</span><span class="zh">' + n.zh + linkZh + '</span></li>';
+    const img = n.image
+      ? '<div class="news-thumb">' +
+          (n.link ? '<a href="' + esc(n.link) + '" target="_blank" rel="noopener">' : '') +
+          '<img src="' + esc(n.image) + '" alt="' + esc(n.image_alt || '') + '" loading="lazy">' +
+          (n.link ? '</a>' : '') +
+        '</div>'
+      : '';
+    return '                <li>' + img + '<div class="news-body"><span class="news-date">' + esc(n.date) + '</span> <span class="en">' + n.en + link + '</span><span class="zh">' + n.zh + linkZh + '</span></div></li>';
   }).join('\n');
 
   const impactItems = news.impact.items.map(it =>

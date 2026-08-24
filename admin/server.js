@@ -219,6 +219,16 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+server.on('error', (e) => {
+  if (e.code === 'EADDRINUSE') {
+    console.error('错误：端口 ' + PORT + ' 已被占用。');
+    console.error('请先关闭其他已启动的后台窗口，或打开任务管理器结束 node.exe 进程，再重新启动。');
+  } else {
+    console.error('启动失败：', e.message);
+  }
+  process.exit(1);
+});
+
 server.listen(PORT, () => {
   console.log('本地后台已启动：');
   console.log('  编辑后台  ->  http://localhost:' + PORT + '/admin');

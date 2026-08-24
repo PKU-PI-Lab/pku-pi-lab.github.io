@@ -355,7 +355,7 @@ function switchTab(tab){
 
 /* 上传图片 */
 function fileToBase64(f){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result.split(',')[1]); r.onerror=rej; r.readAsDataURL(f); }); }
-async function uploadImage(item, field, previewImg, fileInput, folder){
+async function uploadImage(item, field, previewImg, fileInput, folder, onChange){
   const f=fileInput.files[0]; if(!f) return;
   const ext=(f.name.split('.').pop()||'jpg').toLowerCase();
   const safe=(item.name||'img').replace(/[^\w\u4e00-\u9fa5]/g,'_');
@@ -365,15 +365,19 @@ async function uploadImage(item, field, previewImg, fileInput, folder){
     const b64=await fileToBase64(f);
     const r=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:fn,folder:folder||'images/people',data:b64})});
     const j=await r.json();
-    if(j.ok){ item[field]=j.path; if(previewImg) previewImg.src='/'+j.path+'?t='+Date.now(); toast('✅ 图片已上传'); }
+    if(j.ok){ item[field]=j.path; if(previewImg) previewImg.src='/'+j.path+'?t='+Date.now(); toast('✅ 图片已上传'); if(onChange) onChange(); }
     else toast('❌ 上传失败：'+j.error);
   }catch(e){ toast('❌ 上传失败：'+e.message); }
 }
-function uploadButton(item, field, folder){
+function uploadButton(item, field, folder, onChange){
   const has=item[field];
   const preview=has?el('img',{src:'/'+has+'?t='+Date.now(), style:'max-width:120px;max-height:90px;border-radius:6px;border:1px solid var(--line);margin-bottom:6px;display:block'}):el('div',{class:'no-photo', style:'width:120px;height:90px;margin-bottom:6px', text:'暂无图片'});
-  const fileInput=el('input',{type:'file', accept:'image/*', onchange:()=>uploadImage(item,field,preview,fileInput,folder)});
-  const wrap=el('div',{}, preview, el('label',{class:'upload-wrap'}, fileInput, el('span',{class:'upload-btn', text:has?'更换图片':'上传图片'})));
+  const fileInput=el('input',{type:'file', accept:'image/*', onchange:()=>uploadImage(item,field,preview,fileInput,folder,onChange)});
+  const controls=el('div',{style:'display:flex;gap:8px;align-items:center'}, el('label',{class:'upload-wrap'}, fileInput, el('span',{class:'upload-btn', text:has?'更换图片':'上传图片'})));
+  if(has){
+    controls.appendChild(el('button',{class:'btn-del', style:'font-size:12px;padding:4px 10px', onclick:()=>{ if(confirm('确定移除这张图片？')){ item[field]=''; if(onChange) onChange(); }}},'清除'));
+  }
+  const wrap=el('div',{}, preview, controls);
   return wrap;
 }
 
@@ -457,12 +461,14 @@ function renderNews(){
         el('div',{}, el('label',{text:'详情链接（可选）'}), inp(n.link, v=>n.link=v, 'https://mp.weixin.qq.com/...'))
       ),
       el('label',{text:'英文'}), rich(n,'en'),
-      el('label',{text:'中文'}), rich(n,'zh')
+      el('label',{text:'中文'}), rich(n,'zh'),
+      el('label',{text:'配图（可选，不上传则不显示）'}), uploadButton(n,'image','images/news',()=>renderNews()),
+      el('label',{text:'配图 alt 文本（可选）'}), inp(n.image_alt||'', v=>n.image_alt=v)
     );
     mount.appendChild(card);
   });
 }
-function addNews(){ data.news.items.unshift({date:'',en:'',zh:'',link:''}); renderNews(); switchTab('news'); toast('已添加一条空新闻'); }
+function addNews(){ data.news.items.unshift({date:'',en:'',zh:'',link:'',image:'',image_alt:''}); renderNews(); switchTab('news'); toast('已添加一条空新闻'); }
 
 /* 产业影响 */
 function renderImpact(){
