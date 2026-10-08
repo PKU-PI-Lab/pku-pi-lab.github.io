@@ -15,7 +15,6 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { build } = require('../scripts/build.js');
 
 const SITE = path.resolve(__dirname, '..'); // .../site
 const ADMIN = __dirname; // .../site/admin
@@ -23,6 +22,14 @@ const CONTENT = path.join(SITE, 'content', 'site.json');
 const HTML = path.join(SITE, 'index.html');
 const PORT = process.env.PORT || 8080;
 const MAX_BODY = 30 * 1024 * 1024;
+
+// 每次保存时重新加载构建脚本：require 有模块缓存，服务长期运行时若不清缓存，
+// 会一直用启动时加载的旧版 build.js，导致后台新功能（如栏目隐藏）不生效。
+function runBuild() {
+  const buildPath = require.resolve('../scripts/build.js');
+  delete require.cache[buildPath];
+  require('../scripts/build.js').build();
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -138,7 +145,7 @@ const server = http.createServer(async (req, res) => {
       backup(HTML);
       fs.writeFileSync(CONTENT, JSON.stringify(data, null, 2) + '\n', 'utf8');
       try {
-        build();
+        runBuild();
       } catch (e) {
         // 如果生成失败，尝试回滚 content 文件
         try { fs.copyFileSync(CONTENT + '.bak', CONTENT); } catch {}
