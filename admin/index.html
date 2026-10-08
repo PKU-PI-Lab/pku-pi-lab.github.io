@@ -123,7 +123,7 @@
 <div class="layout">
   <aside>
     <div class="nav active" data-tab="home" onclick="switchTab('home')">🏠 首页信息</div>
-    <div class="nav" data-tab="nav" onclick="switchTab('nav')">🧭 导航栏目</div>
+    <div class="nav" data-tab="nav" onclick="switchTab('nav')">🧭 导航与显示</div>
     <div class="nav" data-tab="bio" onclick="switchTab('bio')">📄 实验室简介</div>
     <div class="nav" data-tab="opp" onclick="switchTab('opp')">🚀 招聘</div>
     <div class="nav" data-tab="news" onclick="switchTab('news')">📰 新闻</div>
@@ -145,8 +145,11 @@
     </section>
 
     <section class="panel" id="panel-nav">
-      <h2 class="page-title">导航栏目</h2>
-      <p class="page-desc">增删导航条目、修改名称、控制是否显示。ID 对应页面锚点，链接请以 # 开头。</p>
+      <h2 class="page-title">导航与栏目显示</h2>
+      <p class="page-desc">修改导航栏左侧网站名称；用显示开关控制各栏目在前端是否展示（隐藏后导航入口也会自动隐藏）。</p>
+      <div class="card" id="brand-card"></div>
+      <div class="card" id="section-switch-card"></div>
+      <div class="section-divider"></div>
       <div class="toolbar"><span class="count" id="nav-count"></span><button class="btn-add" onclick="addNav()">+ 添加栏目</button></div>
       <div id="nav-list"></div>
     </section>
@@ -182,8 +185,7 @@
 
     <section class="panel" id="panel-research">
       <h2 class="page-title">研究方向</h2>
-      <p class="page-desc">控制研究方向栏目是否显示，并管理轮播内容。</p>
-      <div class="card" id="research-settings"></div>
+      <p class="page-desc">管理研究方向轮播内容。栏目是否显示，请到「导航与显示」页的开关中控制。</p>
       <div class="toolbar"><span class="count" id="research-count"></span><button class="btn-add" onclick="addResearch()">+ 添加轮播项</button></div>
       <div id="research-list"></div>
     </section>
@@ -428,7 +430,36 @@ function renderHome(){
 }
 
 /* 导航 */
+const SECTION_DEFS=[
+  ['bio','实验室简介'],
+  ['opportunities','招聘'],
+  ['news','新闻动态'],
+  ['impact','产业影响（新闻内子块）'],
+  ['research','研究方向'],
+  ['people','团队成员'],
+  ['publications','论文发表'],
+  ['teaching','教学']
+];
 function renderNav(){
+  // 网站名称（导航栏左侧品牌）
+  if(!data.brand) data.brand={en:'',zh:''};
+  const bc=$('#brand-card'); bc.innerHTML='';
+  bc.appendChild(el('div',{class:'card-title',text:'网站名称（导航栏左侧）'}));
+  bc.appendChild(el('div',{class:'two'},
+    el('div',{}, el('label',{text:'英文'}), inp(data.brand.en, v=>data.brand.en=v)),
+    el('div',{}, el('label',{text:'中文'}), inp(data.brand.zh, v=>data.brand.zh=v))
+  ));
+
+  // 栏目显示开关
+  if(!data.sections) data.sections={};
+  const sc=$('#section-switch-card'); sc.innerHTML='';
+  sc.appendChild(el('div',{class:'card-title',text:'栏目显示开关（控制前端各模块是否显示）'}));
+  SECTION_DEFS.forEach(([key,label])=>{
+    if(data.sections[key]===undefined) data.sections[key]=true;
+    sc.appendChild(el('label',{class:'chk'}, chk(data.sections[key]!==false, v=>data.sections[key]=v), '显示 '+label));
+  });
+  sc.appendChild(el('p',{class:'hint',text:'提示：隐藏某栏目后，导航栏对应入口会自动隐藏；「产业影响」随「新闻动态」一起显示/隐藏。'}));
+
   const mount=$('#nav-list'); mount.innerHTML='';
   $('#nav-count').textContent='共 '+data.nav.length+' 个';
   data.nav.forEach((n,idx)=>{
@@ -502,9 +533,6 @@ function addImpact(){ data.news.impact.items.push({year:'',en:'',zh:''}); render
 
 /* 研究方向 */
 function renderResearch(){
-  $('#research-settings').innerHTML='';
-  $('#research-settings').appendChild(el('label',{class:'chk'}, chk(data.research.visible, v=>data.research.visible=v), '在网站显示研究方向栏目'));
-
   const mount=$('#research-list'); mount.innerHTML='';
   $('#research-count').textContent='共 '+data.research.slides.length+' 项';
   if(!data.research.slides.length){ mount.appendChild(el('div',{class:'empty',text:'暂无研究方向轮播项'})); return; }

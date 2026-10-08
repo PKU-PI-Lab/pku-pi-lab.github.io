@@ -30,8 +30,12 @@ function replaceRegion(html, markerRe, replacement) {
 }
 
 // ---- Render helpers ----
-function renderNav(nav) {
-  const visible = nav.filter(n => n.visible !== false);
+function renderBrand(brand) {
+  return esc(brand.en) + ' <span class="nav-brand-cn">' + esc(brand.zh) + '</span>';
+}
+
+function renderNav(nav, sections) {
+  const visible = nav.filter(n => n.visible !== false && !(sections && sections[n.id] === false));
   return visible.map((n, i) => '                <a href="' + esc(n.href) + '"' + (i === 0 ? ' class="active"' : '') + '>' + spanPair(n.en, n.zh) + '</a>').join('\n');
 }
 
@@ -67,7 +71,7 @@ function renderParas(paras) {
   }).join('\n');
 }
 
-function renderNews(news) {
+function renderNews(news, sections) {
   const items = news.items.map(n => {
     const link = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">Read more →</a>' : '';
     const linkZh = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">查看详情 →</a>' : '';
@@ -85,11 +89,8 @@ function renderNews(news) {
     '                <li><span class="impact-year">' + esc(it.year) + '</span> <span class="en">' + it.en + '</span><span class="zh">' + it.zh + '</span></li>'
   ).join('\n');
 
-  return `<section class="news-section" id="news">
-            <h2 class="section-title">📰 ${spanPair('News', '新闻动态')}</h2>
-            <ul class="news-list">
-${items}
-            </ul>
+  const showImpact = !(sections && sections.impact === false);
+  const impactBlock = showImpact ? `
 
             <h3 class="news-sub">${spanPair('🏭 Industrial Impact', '🏭 产业影响')}</h3>
             <p class="impact-intro">
@@ -97,7 +98,13 @@ ${items}
             </p>
             <ul class="impact-list">
 ${impactItems}
-            </ul>
+            </ul>` : '';
+
+  return `<section class="news-section" id="news">
+            <h2 class="section-title">📰 ${spanPair('News', '新闻动态')}</h2>
+            <ul class="news-list">
+${items}
+            </ul>${impactBlock}
         </section>`;
 }
 
@@ -107,9 +114,7 @@ function renderResearch(research) {
                         <h3>${spanPair(s.title_en, s.title_zh)}</h3>
                         <p>${spanPair(s.desc_en, s.desc_zh)}</p>
                     </div>`).join('\n');
-  const hidden = research.visible === false ? ' style="display:none;"' : '';
-  return `        <!-- ===== Research (carousel) ===== -->
-        <section class="research-section" id="research"${hidden}>
+  return `<section class="research-section" id="research">
             <h2 class="section-title">🔬 ${spanPair('Research', '研究方向')}</h2>
             <div class="research-carousel" id="researchCarousel">
                 <div class="carousel-track">
@@ -202,17 +207,32 @@ function build() {
   const data = readData();
   let html = readHtml();
 
-  html = replaceRegion(html, /(?<=<div class="nav-links">)\s*<a href="#home"[\s\S]*?<\/a>\s*(?=<\/div>\s*<button id="langToggle")/, '\n' + renderNav(data.nav) + '\n');
+  const secs = data.sections || {};
+
+  html = replaceRegion(html, /(<div class="nav-brand">)[\s\S]*?(<\/div>)/, (m, p1) => p1 + renderBrand(data.brand || { en: '', zh: '' }) + '</div>');
+  html = replaceRegion(html, /(?<=<div class="nav-links">)\s*<a href="#home"[\s\S]*?<\/a>\s*(?=<\/div>\s*<button id="langToggle")/, '\n' + renderNav(data.nav, secs) + '\n');
   html = replaceRegion(html, /(<!-- ===== Principal Investigator \/ Home ===== -->\s*)<section class="profile" id="home">[\s\S]*?<\/section>/, '$1' + renderHome(data.home));
-  html = replaceRegion(html, /(<section class="bio">)[\s\S]*?(<\/section>)/, '$1\n            <h2 class="section-title">' + spanPair('About the Lab', '实验室简介') + '</h2>\n' + renderParas(data.bio) + '\n        $2');
-  html = replaceRegion(html, /(<section class="opportunities-section" id="opportunities">\s*<h2 class="section-title">)[\s\S]*?(<\/section>)/,
-    '$1🚀 ' + spanPair('Opportunities', '招聘') + '</h2>\n' + renderParas(data.opportunities) + '\n        $2');
-  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section class="news-section" id="news">[\s\S]*?<\/section>/, '$1' + renderNews(data.news));
-  html = replaceRegion(html, /(<!-- ===== Research \(carousel\) ===== -->\s*)<section class="research-section" id="research"[^>]*>[\s\S]*?<\/section>/, '$1' + renderResearch(data.research));
+  html = replaceRegion(html, /<section class="bio">[\s\S]*?<\/section>/,
+    '<section class="bio" id="bio">\n            <h2 class="section-title">' + spanPair('About the Lab', '实验室简介') + '</h2>\n' + renderParas(data.bio) + '\n        </section>');
+  html = replaceRegion(html, /(<!-- ===== Opportunities ===== -->\s*)<section class="opportunities-section" id="opportunities">[\s\S]*?<\/section>/,
+    '$1<section class="opportunities-section" id="opportunities">\n            <h2 class="section-title">🚀 ' + spanPair('Opportunities', '招聘') + '</h2>\n' + renderParas(data.opportunities) + '\n        </section>');
+  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section class="news-section" id="news">[\s\S]*?<\/section>/, '$1' + renderNews(data.news, secs));
+  html = replaceRegion(html, /(?:[ \t]*<!-- ===== Research \(carousel\) ===== -->\s*)+<section class="research-section" id="research"[^>]*>[\s\S]*?<\/section>/,
+    '\n\n        <!-- ===== Research (carousel) ===== -->\n        ' + renderResearch(data.research));
   html = replaceRegion(html, /(<!-- ===== People ===== -->\s*)<section class="people-section" id="people">[\s\S]*?<\/section>/, '$1' + renderPeople(data.people));
   html = replaceRegion(html, /(<!-- ===== Publications ===== -->\s*)<section class="publications" id="publications">[\s\S]*?<\/section>/, '$1' + renderPublications(data.publications));
   html = replaceRegion(html, /(<!-- ===== Teaching ===== -->\s*)<section class="teaching-section" id="teaching">[\s\S]*?<\/section>/, '$1' + renderTeaching(data.teaching));
   html = replaceRegion(html, /(<footer class="footer">)[\s\S]*?(<\/footer>)/, '$1\n' + renderFooter(data.footer).replace(/<footer class="footer">|<\/footer>/g, '') + '    $2');
+
+  // ---- 栏目显示开关：隐藏的 section 加 display:none ----
+  ['bio', 'opportunities', 'news', 'research', 'people', 'publications', 'teaching'].forEach(id => {
+    if (secs[id] === false) {
+      html = html.replace(new RegExp('(<section\\b[^>]*\\b' + id + '"[^>]*?)>'), (m, p1) => p1 + ' style="display:none;">');
+    }
+  });
+  // 隐藏栏目前的分隔线一并隐藏（允许中间隔着注释），避免页面留下孤立横线
+  html = html.replace(/<hr class="divider">\s*(?=(?:<!--[\s\S]*?-->\s*)*<section\b[^>]*style="display:none;")/g, '');
+  html = html.replace(/(<hr class="divider">)[ \t]*\n[ \t]*(<hr class="divider">)/g, '$1');
 
   fs.writeFileSync(htmlPath, html, 'utf8');
   return { ok: true };

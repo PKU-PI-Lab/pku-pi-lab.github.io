@@ -1,4 +1,18 @@
 {
+  "brand": {
+    "en": "PKU Physical Intelligence Lab",
+    "zh": "北京大学物理智能实验室"
+  },
+  "sections": {
+    "bio": true,
+    "opportunities": true,
+    "news": true,
+    "impact": true,
+    "research": false,
+    "people": true,
+    "publications": true,
+    "teaching": true
+  },
   "nav": [
     {
       "id": "home",
@@ -92,6 +106,14 @@
   ],
   "news": {
     "items": [
+      {
+        "date": "1111",
+        "en": "1111",
+        "zh": "1111",
+        "link": "111",
+        "image": "",
+        "image_alt": ""
+      },
       {
         "date": "Aug 2026",
         "en": "www",
@@ -195,7 +217,6 @@
     }
   },
   "research": {
-    "visible": false,
     "slides": [
       {
         "img": "images/pubs/res_embodied.jpg",
