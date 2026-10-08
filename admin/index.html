@@ -34,8 +34,11 @@
   .panel{display:none;max-width:960px;margin:0 auto}
   .panel.active{display:block}
 
-  .page-title{font-size:18px;font-weight:600;margin:0 0 6px}
+  .page-title{font-size:18px;font-weight:600;margin:0}
   .page-desc{font-size:13px;color:var(--muted);margin:0 0 16px}
+  .title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .section-toggle{display:inline-flex;flex-shrink:0}
+  .section-toggle .btn-add{font-size:13px;padding:6px 12px}
 
   .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
   .btn-add{background:var(--blue);color:#fff;border:none;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
@@ -155,28 +158,28 @@
     </section>
 
     <section class="panel" id="panel-bio">
-      <h2 class="page-title">实验室简介</h2>
+      <div class="title-row"><h2 class="page-title">实验室简介</h2><span class="section-toggle" id="toggle-bio"></span></div>
       <p class="page-desc">修改 About the Lab / 实验室简介 的中英文段落。</p>
       <div class="toolbar"><span class="count" id="bio-count"></span><button class="btn-add" onclick="addBio()">+ 添加段落</button></div>
       <div id="bio-list"></div>
     </section>
 
     <section class="panel" id="panel-opp">
-      <h2 class="page-title">招聘</h2>
+      <div class="title-row"><h2 class="page-title">招聘</h2><span class="section-toggle" id="toggle-opp"></span></div>
       <p class="page-desc">修改 Opportunities / 加入我们 的招聘信息。</p>
       <div class="toolbar"><span class="count" id="opp-count"></span><button class="btn-add" onclick="addOpp()">+ 添加招聘条目</button></div>
       <div id="opp-list"></div>
     </section>
 
     <section class="panel" id="panel-news">
-      <h2 class="page-title">新闻动态</h2>
+      <div class="title-row"><h2 class="page-title">新闻动态</h2><span class="section-toggle" id="toggle-news"></span></div>
       <p class="page-desc">新增、删除或编辑新闻。新添加的新闻会显示在最前面。</p>
       <div class="toolbar"><span class="count" id="news-count"></span><button class="btn-add" onclick="addNews()">+ 添加新闻</button></div>
       <div id="news-list"></div>
     </section>
 
     <section class="panel" id="panel-impact">
-      <h2 class="page-title">产业影响</h2>
+      <div class="title-row"><h2 class="page-title">产业影响</h2><span class="section-toggle" id="toggle-impact"></span></div>
       <p class="page-desc">修改 Industrial Impact / 产业影响 的简介与年度条目。</p>
       <div class="card" id="impact-intro-card"></div>
       <div class="toolbar"><span class="count" id="impact-count"></span><button class="btn-add" onclick="addImpact()">+ 添加年度条目</button></div>
@@ -184,14 +187,14 @@
     </section>
 
     <section class="panel" id="panel-research">
-      <h2 class="page-title">研究方向</h2>
-      <p class="page-desc">管理研究方向轮播内容。栏目是否显示，请到「导航与显示」页的开关中控制。</p>
+      <div class="title-row"><h2 class="page-title">研究方向</h2><span class="section-toggle" id="toggle-research"></span></div>
+      <p class="page-desc">管理研究方向轮播内容。要整模块在前端隐藏/显示，点右上角「隐藏整个模块」按键即可。</p>
       <div class="toolbar"><span class="count" id="research-count"></span><button class="btn-add" onclick="addResearch()">+ 添加轮播项</button></div>
       <div id="research-list"></div>
     </section>
 
     <section class="panel" id="panel-people">
-      <h2 class="page-title">团队成员</h2>
+      <div class="title-row"><h2 class="page-title">团队成员</h2><span class="section-toggle" id="toggle-people"></span></div>
       <p class="page-desc">按分组管理成员：改姓名、头衔、上传头像，或新增/删除成员与分组。</p>
       <div class="card" id="people-intro-card"></div>
       <div class="toolbar"><span class="count" id="people-count"></span><button class="btn-add" onclick="addGroup()">+ 添加分组</button></div>
@@ -199,7 +202,7 @@
     </section>
 
     <section class="panel" id="panel-publications">
-      <h2 class="page-title">论文发表</h2>
+      <div class="title-row"><h2 class="page-title">论文发表</h2><span class="section-toggle" id="toggle-publications"></span></div>
       <p class="page-desc">管理论文分组与每篇论文的信息、链接、配图。</p>
       <div class="card" id="pub-settings"></div>
       <div class="toolbar"><span class="count" id="pub-group-count"></span><button class="btn-add" onclick="addPubGroup()">+ 添加分组</button></div>
@@ -207,7 +210,7 @@
     </section>
 
     <section class="panel" id="panel-teaching">
-      <h2 class="page-title">教学</h2>
+      <div class="title-row"><h2 class="page-title">教学</h2><span class="section-toggle" id="toggle-teaching"></span></div>
       <p class="page-desc">管理课程列表。</p>
       <div class="toolbar"><span class="count" id="teaching-count"></span><button class="btn-add" onclick="addTeaching()">+ 添加课程</button></div>
       <div id="teaching-list"></div>
@@ -440,6 +443,47 @@ const SECTION_DEFS=[
   ['publications','论文发表'],
   ['teaching','教学']
 ];
+// 设置栏目显示状态（与“导航与显示”页及各模块编辑页的按键共享同一份 data.sections 数据）
+function setSectionVisible(key, val){
+  if(!data.sections) data.sections={};
+  data.sections[key]=val;
+  if($('#section-switch-card')) renderSectionSwitch(); // 同步刷新集中开关页
+  refreshAllToggles();                                 // 同步刷新各模块编辑页的按键
+}
+// 在“导航与显示”页中渲染栏目开关（与各模块编辑页的隐藏按键联动）
+function renderSectionSwitch(){
+  if(!data.sections) data.sections={};
+  const sc=$('#section-switch-card'); if(!sc) return; sc.innerHTML='';
+  sc.appendChild(el('div',{class:'card-title',text:'栏目显示开关（控制前端各模块是否显示）'}));
+  SECTION_DEFS.forEach(([key,label])=>{
+    if(data.sections[key]===undefined) data.sections[key]=true;
+    sc.appendChild(el('label',{class:'chk'}, chk(data.sections[key]!==false, v=>setSectionVisible(key, v)), '显示 '+label));
+  });
+  sc.appendChild(el('p',{class:'hint',text:'提示：隐藏某栏目后，导航栏对应入口会自动隐藏；也可在各模块自己的编辑页标题旁点「隐藏整个模块」按键。'}));
+}
+const sectionToggleBtns={};   // 记录各模块编辑页的隐藏按键，便于双向同步
+// 在各模块编辑页标题旁挂载“隐藏/显示整个模块”按键
+function mountSectionToggle(span, key){
+  if(!span) return;
+  const btn=el('button',{class:'btn-add outline', type:'button', onclick:()=>{
+    setSectionVisible(key, data.sections?.[key]===false); // 取反当前状态
+    refreshToggleBtn(btn, key);
+  }});
+  refreshToggleBtn(btn, key);
+  sectionToggleBtns[key]=btn;
+  span.innerHTML='';
+  span.appendChild(btn);
+}
+// 同步所有模块编辑页的隐藏按键文案/配色（与集中开关页保持一致）
+function refreshAllToggles(){
+  for(const k in sectionToggleBtns){ if(sectionToggleBtns[k]) refreshToggleBtn(sectionToggleBtns[k], k); }
+}
+function refreshToggleBtn(btn, key){
+  const hidden = data.sections?.[key]===false;
+  btn.textContent = hidden ? '👁 显示此模块' : '🙈 隐藏整个模块';
+  btn.style.color = hidden ? 'var(--ok)' : 'var(--danger)';
+  btn.style.borderColor = hidden ? 'var(--ok)' : 'var(--danger)';
+}
 function renderNav(){
   // 网站名称（导航栏左侧品牌）
   if(!data.brand) data.brand={en:'',zh:''};
@@ -450,15 +494,8 @@ function renderNav(){
     el('div',{}, el('label',{text:'中文'}), inp(data.brand.zh, v=>data.brand.zh=v))
   ));
 
-  // 栏目显示开关
-  if(!data.sections) data.sections={};
-  const sc=$('#section-switch-card'); sc.innerHTML='';
-  sc.appendChild(el('div',{class:'card-title',text:'栏目显示开关（控制前端各模块是否显示）'}));
-  SECTION_DEFS.forEach(([key,label])=>{
-    if(data.sections[key]===undefined) data.sections[key]=true;
-    sc.appendChild(el('label',{class:'chk'}, chk(data.sections[key]!==false, v=>data.sections[key]=v), '显示 '+label));
-  });
-  sc.appendChild(el('p',{class:'hint',text:'提示：隐藏某栏目后，导航栏对应入口会自动隐藏；「产业影响」随「新闻动态」一起显示/隐藏。'}));
+  // 栏目显示开关（抽取为独立函数，便于与各模块编辑页的隐藏按键联动）
+  renderSectionSwitch();
 
   const mount=$('#nav-list'); mount.innerHTML='';
   $('#nav-count').textContent='共 '+data.nav.length+' 个';
@@ -779,6 +816,15 @@ async function init(){
     renderPublications();
     renderTeaching();
     renderFooter();
+    // 各模块编辑页标题旁挂载“隐藏整个模块”按键（与“导航与显示”页开关共享数据）
+    mountSectionToggle($('#toggle-bio'),'bio');
+    mountSectionToggle($('#toggle-opp'),'opportunities');
+    mountSectionToggle($('#toggle-news'),'news');
+    mountSectionToggle($('#toggle-impact'),'impact');
+    mountSectionToggle($('#toggle-research'),'research');
+    mountSectionToggle($('#toggle-people'),'people');
+    mountSectionToggle($('#toggle-publications'),'publications');
+    mountSectionToggle($('#toggle-teaching'),'teaching');
     clearError();
   }catch(e){
     showError('无法加载内容数据，请确认本地服务已启动（node admin/server.js）。<br>错误：'+e.message);

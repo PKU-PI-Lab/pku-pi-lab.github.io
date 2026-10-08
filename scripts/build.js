@@ -207,21 +207,25 @@ function build() {
   const data = readData();
   let html = readHtml();
 
+  // 先清除上一轮构建残留的 style="display:none;"（可能有重复），否则分区替换正则
+  // 无法匹配、已隐藏的栏目将永远无法再显示或编辑（隐藏→取消隐藏会失效）。随后按当前开关重新注入。
+  html = html.replace(/ style="display:none;"/g, '');
+
   const secs = data.sections || {};
 
   html = replaceRegion(html, /(<div class="nav-brand">)[\s\S]*?(<\/div>)/, (m, p1) => p1 + renderBrand(data.brand || { en: '', zh: '' }) + '</div>');
   html = replaceRegion(html, /(?<=<div class="nav-links">)\s*<a href="#home"[\s\S]*?<\/a>\s*(?=<\/div>\s*<button id="langToggle")/, '\n' + renderNav(data.nav, secs) + '\n');
   html = replaceRegion(html, /(<!-- ===== Principal Investigator \/ Home ===== -->\s*)<section class="profile" id="home">[\s\S]*?<\/section>/, '$1' + renderHome(data.home));
-  html = replaceRegion(html, /<section class="bio">[\s\S]*?<\/section>/,
+  html = replaceRegion(html, /<section\b[^>]*\bid="bio"[^>]*>[\s\S]*?<\/section>/,
     '<section class="bio" id="bio">\n            <h2 class="section-title">' + spanPair('About the Lab', '实验室简介') + '</h2>\n' + renderParas(data.bio) + '\n        </section>');
-  html = replaceRegion(html, /(<!-- ===== Opportunities ===== -->\s*)<section class="opportunities-section" id="opportunities">[\s\S]*?<\/section>/,
+  html = replaceRegion(html, /(<!-- ===== Opportunities ===== -->\s*)<section\b[^>]*\bid="opportunities"[^>]*>[\s\S]*?<\/section>/,
     '$1<section class="opportunities-section" id="opportunities">\n            <h2 class="section-title">🚀 ' + spanPair('Opportunities', '招聘') + '</h2>\n' + renderParas(data.opportunities) + '\n        </section>');
-  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section class="news-section" id="news">[\s\S]*?<\/section>/, '$1' + renderNews(data.news, secs));
-  html = replaceRegion(html, /(?:[ \t]*<!-- ===== Research \(carousel\) ===== -->\s*)+<section class="research-section" id="research"[^>]*>[\s\S]*?<\/section>/,
+  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section\b[^>]*\bid="news"[^>]*>[\s\S]*?<\/section>/, '$1' + renderNews(data.news, secs));
+  html = replaceRegion(html, /(?:[ \t]*<!-- ===== Research \(carousel\) ===== -->\s*)+<section\b[^>]*\bid="research"[^>]*>[\s\S]*?<\/section>/,
     '\n\n        <!-- ===== Research (carousel) ===== -->\n        ' + renderResearch(data.research));
-  html = replaceRegion(html, /(<!-- ===== People ===== -->\s*)<section class="people-section" id="people">[\s\S]*?<\/section>/, '$1' + renderPeople(data.people));
-  html = replaceRegion(html, /(<!-- ===== Publications ===== -->\s*)<section class="publications" id="publications">[\s\S]*?<\/section>/, '$1' + renderPublications(data.publications));
-  html = replaceRegion(html, /(<!-- ===== Teaching ===== -->\s*)<section class="teaching-section" id="teaching">[\s\S]*?<\/section>/, '$1' + renderTeaching(data.teaching));
+  html = replaceRegion(html, /(<!-- ===== People ===== -->\s*)<section\b[^>]*\bid="people"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPeople(data.people));
+  html = replaceRegion(html, /(<!-- ===== Publications ===== -->\s*)<section\b[^>]*\bid="publications"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPublications(data.publications));
+  html = replaceRegion(html, /(<!-- ===== Teaching ===== -->\s*)<section\b[^>]*\bid="teaching"[^>]*>[\s\S]*?<\/section>/, '$1' + renderTeaching(data.teaching));
   html = replaceRegion(html, /(<footer class="footer">)[\s\S]*?(<\/footer>)/, '$1\n' + renderFooter(data.footer).replace(/<footer class="footer">|<\/footer>/g, '') + '    $2');
 
   // ---- 栏目显示开关：隐藏的 section 加 display:none ----

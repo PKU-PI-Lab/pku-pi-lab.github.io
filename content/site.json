@@ -4,10 +4,10 @@
     "zh": "北京大学物理智能实验室"
   },
   "sections": {
-    "bio": true,
+    "bio": false,
     "opportunities": true,
     "news": true,
-    "impact": true,
+    "impact": false,
     "research": false,
     "people": true,
     "publications": true,
