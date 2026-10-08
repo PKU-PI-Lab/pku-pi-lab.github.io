@@ -15,8 +15,8 @@ set "NODE_CMD="
 where node >nul 2>nul && set "NODE_CMD=node"
 
 if not defined NODE_CMD (
-  if exist "C:\Users\ASUS\.workbuddy\binaries\node\versions\22.22.2\node.exe" (
-    set "NODE_CMD=C:\Users\ASUS\.workbuddy\binaries\node\versions\22.22.2\node.exe"
+  if exist "C:\Users\ASUS\.workbuddy\binaries\node\versions\22.22.2-6\node.exe" (
+    set "NODE_CMD=C:\Users\ASUS\.workbuddy\binaries\node\versions\22.22.2-6\node.exe"
   )
 )
 
