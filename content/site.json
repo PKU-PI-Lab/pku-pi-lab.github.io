@@ -4,7 +4,7 @@
     "zh": "北京大学工业物理智能实验室"
   },
   "sections": {
-    "bio": false,
+    "bio": true,
     "opportunities": true,
     "news": true,
     "impact": false,
@@ -15,53 +15,39 @@
   },
   "nav": [
     {
-      "id": "home",
-      "en": "Home",
-      "zh": "首页",
       "href": "#home",
-      "visible": true
+      "en": "Home",
+      "zh": "首页"
     },
     {
-      "id": "Researchdirectionnities",
-      "en": "Research direction",
-      "zh": "研究方向",
-      "href": "#Research direction",
-      "visible": true
+      "href": "#bio",
+      "en": "Research Directions",
+      "zh": "研究方向"
     },
     {
-      "id": "Workinternshipopportunities",
-      "en": "Work internship opportunities",
-      "zh": "工作实习机会",
-      "href": "#Work internship opportunities",
-      "visible": true
+      "href": "#opportunities",
+      "en": "Work & Internship Opportunities",
+      "zh": "工作实习机会"
     },
     {
-      "id": "news",
-      "en": "Dynamics",
-      "zh": "动态",
-      "href": "#Dynamics",
-      "visible": true
+      "href": "#news",
+      "en": "News",
+      "zh": "动态"
     },
     {
-      "id": "people",
-      "en": "People",
-      "zh": "团队",
       "href": "#people",
-      "visible": true
+      "en": "People",
+      "zh": "团队"
     },
     {
-      "id": "publications",
-      "en": "Publications",
-      "zh": "论文发表",
       "href": "#publications",
-      "visible": true
+      "en": "Publications",
+      "zh": "论文发表"
     },
     {
-      "id": "teaching",
-      "en": "Teaching",
-      "zh": "教学",
       "href": "#teaching",
-      "visible": true
+      "en": "Teaching",
+      "zh": "教学"
     }
   ],
   "home": {
@@ -70,45 +56,29 @@
     "name_zh": "庞智博",
     "title_en": "School of Advanced Manufacturing and Robotics, Peking University, Tenured Professor, PhD Supervisor, Head of the Industrial Physics Intelligence Laboratory.",
     "title_zh": "北京大学先进制造与机器人学院机器人科学与工程系，长聘教授，博士生导师，工业物理智能实验室负责人。",
-    "title_link": "https://www.pku.edu.cn",
     "affiliation_en": "",
     "affiliation_zh": "<a href=\"https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm\" target=\"_blank\" rel=\"noopener\">庞智博_北京大学先进制造与机器人学院</a><br><a href=\"https://scholar.google.com/citations?hl=zh-CN&amp;user=S14M7yMAAAAJ\" target=\"_blank\" rel=\"noopener\">‪Zhibo Pang‬ - ‪Google 学术搜索‬</a>",
     "former_en": "",
     "former_zh": "",
-    "email": "zhibo.pang@pku.edu.cn"
+    "email": ""
   },
   "bio": [
     {
-      "en": "We are a frontier research team co-founded by master’s and PhD researchers from <strong>Peking University, Tsinghua University, Stanford University, the University of California, Berkeley, and the Institute of Automation, Chinese Academy of Sciences</strong>. Our core members have long cultivated deep expertise in <strong>embodied intelligence, world models, and robot learning</strong>, and are dedicated to building <strong>next-generation intelligent systems for the real physical world</strong>.",
-      "zh": "我们是一支由<strong>北京大学、清华大学、斯坦福大学、加州大学伯克利分校及中国科学院自动化研究所</strong>硕博士研究人员共同组建的前沿科研团队，核心成员长期深耕<strong>具身智能、世界模型与机器人学习</strong>，致力于构建<strong>面向真实物理世界的下一代智能系统</strong>。",
-      "strong": false
-    },
-    {
-      "en": "We focus on developing <strong>next-generation embodied intelligent systems for the real physical world</strong>. We aim to build <strong>embodied world models</strong> capable of understanding spatial structures, perceiving physical interactions, predicting environmental dynamics, and sustaining continuous learning through action — endowing robots with authentic <strong>perception, reasoning, prediction, and interaction capabilities</strong> for the real world.",
-      "zh": "致力于研究<strong>面向真实物理世界的下一代具身智能系统</strong>。我们希望构建能够理解空间结构、感知物理交互、预测环境变化，并通过行动持续学习的<strong>具身世界模型</strong>，使机器人真正具备对现实世界的<strong>感知、推理、预测与交互能力</strong>。",
-      "strong": false
-    },
-    {
-      "en": "The team centers its research on <strong>embodied AI world models and physical intelligence</strong>, carrying out cutting-edge work across key directions including <strong>geometric representation, tactile and force sensing, 4D spatio-temporal modeling, and physics-grounded representation learning</strong>. We are now opening applications for <strong>Senior Algorithm Interns</strong>: you will work alongside our team to explore high-impact foundational problems in embodied intelligence and physical intelligence, and drive <strong>rigorous real-world validation and deployment of research outcomes on actual robotic systems</strong>.",
-      "zh": "团队重点关注<strong>具身智能世界模型与物理智能</strong>，并围绕<strong>几何表征、触觉与力觉、4D时空建模、物理表征</strong>学习等方向开展前沿研究。现招聘<strong>高级算法实习生</strong>，与团队共同探索具身智能与物理智能领域的重要问题，并推动研究成果在<strong>真实机器人系统中的验证与落地</strong>。",
-      "strong": false
+      "en": "His current research interests include <strong><span class=\"red\">multimodal physical intelligence models </span></strong>(RSI/VLM/VLA/WAM, etc.), efficient physical AI, safe physical AI, robotic systems, dexterous hands, AI for PDEs, physics-informed neural networks (PINNs), high-computing-power controllers, and integrated cloud-computing and control, among others.",
+      "zh": "他目前的研究兴趣包括，<strong><span class=\"red\">多模态物理智能模型</span></strong>（RSI/VLM/VLA/WAM等）、高效物理AI、安全物理AI、机器人系统、灵巧手、AI4PDE、物理信息神经网路（PINNs）、高算力控制器、网算控一体化等。",
+      "strong": true
     }
   ],
   "opportunities": [
     {
-      "en": "His current research interests include multimodal physical intelligence models (RSI/VLM/VLA/WAM, etc.), efficient physical AI, safe physical AI, robotic systems, dexterous hands, AI for PDEs, physics-informed neural networks (PINNs), high-computing-power controllers, and integrated cloud-computing and control, among others.",
-      "zh": "他目前的研究兴趣包括，<strong>多模态物理智能模型</strong>（RSI/VLM/VLA/WAM等）、高效物理AI、安全物理AI、机器人系统、灵巧手、AI4PDE、物理信息神经网路（PINNs）、高算力控制器、网算控一体化等。",
-      "strong": false
-    },
-    {
       "en": "The laboratory has long-term recruitment for <strong>postdoctoral researchers, engineers, master's and doctoral interns</strong>, and<strong> undergraduate interns</strong>. At the same time, according to Peking University's enrollment plan, there are several enrollment slots for master's and doctoral students. In addition, the laboratory also collaborates with many domestic and international universities, providing several opportunities for jointly trained master's and doctoral students.",
-      "zh": "实验室长期招收<strong>博士后、工程师、硕博实习生</strong>和<strong>本科实习生</strong>。 同时根据北京大学招生计划，有若干硕士生和博士生招生指标。 除此之外，实验室还与多所国内外高校合作，有若干联合培养硕士生和博士生机会。",
-      "strong": false
+      "zh": "实验室长期招收<strong>博士后、工程师、硕博实习生</strong>和<strong>本科实习生</strong>。同时根据北京大学招生计划，有若干硕士生和博士生招生指标。除此之外，实验室还与多所国内外高校合作，有若干联合培养硕士生和博士生机会。",
+      "strong": true
     },
     {
       "en": "The laboratory has numerous real projects focused on scenarios such as <strong>AI infrastructure, industrial robotics, autonomous laboratories, advanced manufacturing, healthcare, urban management,</strong> and<strong> energy and power</strong>. It is well-equipped, has a harmonious team atmosphere, and provides good training conditions for beginners. PhD, master's, and undergraduate students are welcome to join, to explore and grow together.",
       "zh": "实验室有较多面向<strong>AI基建、工业机器人、自主实验室、高端制造、医疗康养、城市管理</strong>和<strong>能源电力</strong>等场景的真实项目，设备资源充足，团队氛围融洽，新手培养条件较好，欢迎博士生、硕士生、本科生加入，共同探索，共同成长。",
-      "strong": false
+      "strong": true
     },
     {
       "en": "Please send your CV, transcripts, and a short description of your research interests to <a>gpkupilab@pku.edu.cn</a>",
@@ -120,92 +90,33 @@
     "items": [
       {
         "date": "Oct 2026",
-        "en": "New Opportunity for Peking University Graduation Projects｜Enter the field of humanoid robots and delve into cutting-edge embodied intelligence models.",
-        "zh": "北大<strong>毕设新机会</strong>｜入局人形机器人，深耕具身智能前沿模型。",
-        "link": "https://mp.weixin.qq.com/s/tjubBPzC5deTaR6_YNSsWQ",
-        "image": "",
-        "image_alt": ""
+        "en": "New Opportunity for Peking University Graduation Projects｜Enter the field of humanoid robots and delve into cutting-edge embodied intelligence models. <a href=\"https://mp.weixin.qq.com/s/tjubBPzC5deTaR6_YNSsWQ\" target=\"_blank\" rel=\"noopener\">Read more →</a>",
+        "zh": "北大<strong>毕设新机会</strong>｜入局人形机器人，深耕具身智能前沿模型。 <a href=\"https://mp.weixin.qq.com/s/tjubBPzC5deTaR6_YNSsWQ\" target=\"_blank\" rel=\"noopener\">查看详情 →</a>",
+        "link": "https://mp.weixin.qq.com/s/tjubBPzC5deTaR6_YNSsWQ"
       },
       {
         "date": "Oct 2026",
-        "en": "Peking University professor Pang Zhibo appeared in an interview on CGTN.",
-        "zh": "<strong>北大教授庞智博登上 CGTN</strong> 专访。",
-        "link": "https://www.cgtn.com/tv/replay?id=DCcFHAA",
-        "image": "",
-        "image_alt": ""
+        "en": "Peking University professor Pang Zhibo appeared in an interview on CGTN. <a href=\"https://www.cgtn.com/tv/replay?id=DCcFHAA\" target=\"_blank\" rel=\"noopener\">Read more →</a>",
+        "zh": "<strong>北大教授庞智博登上 CGTN</strong> 专访。 <a href=\"https://www.cgtn.com/tv/replay?id=DCcFHAA\" target=\"_blank\" rel=\"noopener\">查看详情 →</a>",
+        "link": "https://www.cgtn.com/tv/replay?id=DCcFHAA"
       },
       {
-        "date": "Sept 2026",
-        "en": "Peking University 2027 MEM Online Admissions Briefing Opens.",
-        "zh": "<strong>北大 2027MEM 线上招生说明会</strong>开启。",
-        "link": "https://mp.weixin.qq.com/s/U7mIcrDUqv0QSPOOyr8BEA",
-        "image": "",
-        "image_alt": ""
-      },
-      {
-        "date": "Aug 2026",
-        "en": "We are hiring <strong>senior algorithm interns</strong> in embodied world models and physical intelligence.",
-        "zh": "招聘<strong>高级算法实习生</strong>（具身智能世界模型与物理智能方向）。",
-        "link": "https://mp.weixin.qq.com/s/226br_KKHisW7bzcBw3rfw"
-      },
-      {
-        "date": "Jun 2026",
-        "en": "The <strong>PKU Physical Intelligence Lab summer internship program</strong> is now open.",
-        "zh": "<strong>北京大学物理智能实验室暑期实习招聘</strong>启动。",
-        "link": "https://mp.weixin.qq.com/s/-1n6IeBsIVHHkoz3u780AA"
+        "date": "Sep 2026",
+        "en": "Peking University 2027 MEM Online Admissions Briefing Opens. <a href=\"https://mp.weixin.qq.com/s/U7mIcrDUqv0QSPOOyr8BEA\" target=\"_blank\" rel=\"noopener\">Read more →</a>",
+        "zh": "<strong>北大 2027MEM 线上招生说明会</strong>开启。 <a href=\"https://mp.weixin.qq.com/s/U7mIcrDUqv0QSPOOyr8BEA\" target=\"_blank\" rel=\"noopener\">查看详情 →</a>",
+        "link": "https://mp.weixin.qq.com/s/U7mIcrDUqv0QSPOOyr8BEA"
       },
       {
         "date": "Oct 2025",
-        "en": "Prof. Zhibo Pang joins Peking University as a Tenured Professor and founds the PKU Physical Intelligence Lab.<a href=\"https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm\" target=\"_blank\" rel=\"noopener\">Learn more...</a>",
-        "zh": "庞智博教授加入北京大学任长聘教授，创立北京大学工业物理智能实验室。",
+        "en": "Prof. Zhibo Pang joins Peking University as a Tenured Professor and founds the PKU Physical Intelligence Lab.<a href=\"https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm\" target=\"_blank\" rel=\"noopener\">Learn more...</a> <a href=\"https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm\" target=\"_blank\" rel=\"noopener\">Read more →</a>",
+        "zh": "庞智博教授加入北京大学任长聘教授，创立北京大学工业物理智能实验室。 <a href=\"https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm\" target=\"_blank\" rel=\"noopener\">查看详情 →</a>",
         "link": "https://amr.pku.edu.cn/jzyg/szdw/P/2a0b83b7eedb480293ee6eccdf490ef7.htm"
       }
     ],
     "impact": {
-      "intro_en": "Prof. Pang's innovations have been adopted by world-leading industrial automation products, generating output value of hundreds of millions of euros across the power, process, discrete, and building automation industries.",
-      "intro_zh": "庞智博教授的创新成果已被全球领先的工业自动化产品采用，在电力、流程、离散与楼宇自动化等行业创造产值超数亿欧元。",
-      "items": [
-        {
-          "year": "2025",
-          "en": "Led software &amp; communication technologies of the ABB Ability 800xA HI safety controller — the world's first DCS product supporting the OPC UA Safety protocol (DCS world No.1 market share).",
-          "zh": "领导 ABB Ability 800xA HI 安全控制器的软件与通信技术——全球首款支持 OPC UA Safety 协议的 DCS 产品（DCS 全球市场份额第一）。"
-        },
-        {
-          "year": "2023",
-          "en": "Cloud-Fog Automation became a core selling point of ABB's new-generation robot controller OmniCore.",
-          "zh": "云雾自动化成为 ABB 新一代机器人控制器 OmniCore 的核心卖点。"
-        },
-        {
-          "year": "2022",
-          "en": "Lead author of ABB's vision whitepaper for process-industry control systems.",
-          "zh": "ABB 流程工业控制系统愿景白皮书首席作者。"
-        },
-        {
-          "year": "2019",
-          "en": "Led software &amp; communication of ABB Mobile YuMi — the world's first mobile dual-arm collaborative robot, which brought ABB into the healthcare and e-commerce logistics robot markets (endorsed by Karolinska Hospital, JD, Amazon, Volkswagen, Walmart).",
-          "zh": "领导 ABB Mobile YuMi 的软件与通信——全球首款移动式双臂协作机器人，助 ABB 进入医疗与电商物流机器人市场（获卡罗琳斯卡医院、京东、亚马逊、大众、沃尔玛认可）。"
-        },
-        {
-          "year": "2018",
-          "en": "Led Hitachi Energy Tropos wireless technology — one of the few wireless networks for power &amp; energy infrastructure in the industry.",
-          "zh": "领导日立能源 Tropos 无线技术——业内少数面向电力与能源基础设施的无线网络之一。"
-        },
-        {
-          "year": "2017",
-          "en": "Led Hitachi Energy WirelessHP — the world's first hybrid wireless-optical UHVDC control technology (HVDC world No.1 market share).",
-          "zh": "领导日立能源 WirelessHP——全球首个混合无线–光 UHVDC 控制技术（HVDC 全球市场份额第一）。"
-        },
-        {
-          "year": "2016",
-          "en": "Led communication &amp; software of ABB free@home — a premium building automation &amp; security brand with millions of installations; one of the world's largest Thread ecosystems.",
-          "zh": "领导 ABB free@home 的通信与软件——拥有数百万部署的高端楼宇自动化与安全品牌，全球最大的 Thread 生态之一。"
-        },
-        {
-          "year": "2012",
-          "en": "Led ABB WirelessHART process automation instrumentation — the world's first wireless standard for process automation.",
-          "zh": "领导 ABB WirelessHART 流程自动化仪表——全球首个面向流程自动化的无线标准。"
-        }
-      ]
+      "intro_en": "",
+      "intro_zh": "",
+      "items": []
     }
   },
   "research": {
@@ -217,37 +128,13 @@
         "title_zh": "具身智能模型与机器人学习",
         "desc_en": "Multimodal embodied foundation models (VLA / world models / PAM), imitation and reinforcement learning for contact-rich manipulation, sim-to-real transfer, and reliable long-horizon task planning through physics-semantics-driven agent clusters (PySAC).",
         "desc_zh": "多模态具身基础模型（VLA / 世界模型 / PAM）、面向富接触操作的模仿与强化学习、仿真到真实的迁移，以及通过物理语义驱动的智能体集群（PySAC）实现可靠的长程任务规划。"
-      },
-      {
-        "img": "images/pubs/res_pinn.jpg",
-        "alt": "Physics-informed machine learning",
-        "title_en": "Physics-Informed Machine Learning",
-        "title_zh": "物理信息机器学习",
-        "desc_en": "Physics-informed neural networks (PINNs), neural operators for large-scale multi-scale PDE solving, and mechanism–data fusion models that bring physical semantics into learning-based control.",
-        "desc_zh": "物理信息神经网络（PINNs）、面向大规模多尺度 PDE 求解的神经算子，以及将物理语义引入学习型控制的机理–数据融合模型。"
-      },
-      {
-        "img": "images/pubs/res_cfa.jpg",
-        "alt": "Cloud-Fog Automation architecture",
-        "title_en": "Cloud-Fog Automation &amp; Industrial eCPS",
-        "title_zh": "云雾自动化与工业信息物理系统",
-        "desc_en": "Cloud-Fog Automation (CFA): software-defined, intelligence-native industrial control infrastructure with communication–computing–control co-design, virtualized controllers, converged 5G/6G networks, and functional safety.",
-        "desc_zh": "云雾自动化（CFA）：智能原生的软件定义工业控制基础设施，通信–计算–控制协同设计、虚拟化控制器、融合的 5G/6G 网络与功能安全。"
-      },
-      {
-        "img": "images/pubs/res_robots.jpg",
-        "alt": "Precision machining robotic deployment",
-        "title_en": "Robot Systems &amp; Industrial Deployment",
-        "title_zh": "机器人系统与工业部署",
-        "desc_en": "High-dynamic dexterous robotic systems, dexterous hands, embodied toolchains (ETC), embodied model libraries (EML), and edge controllers (ECC) — deployed as reusable process packages for flexible precision manufacturing in semiconductor, aerospace, rail-transit, and new-energy equipment.",
-        "desc_zh": "高动态灵巧机器人系统、灵巧手、具身工具链（ETC）、具身模型库（EML）与边缘控制器（ECC）——作为可复用的工艺包部署于半导体、航空航天、轨道交通与新能源装备的柔性精密制造。"
       }
     ]
   },
   "people": {
     "intro": {
-      "en": "\\",
-      "zh": "\\"
+      "en": "",
+      "zh": ""
     },
     "groups": [
       {
@@ -256,9 +143,9 @@
         "members": [
           {
             "name": "庞智博",
-            "role_en": "Tenured Professor / Doctoral Supervisor,",
-            "role_zh": "长聘教授/博导",
-            "photo": "images/people/庞智博.jpg"
+            "photo": "images/people/庞智博.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -268,9 +155,9 @@
         "members": [
           {
             "name": "张乐",
-            "role_en": "Associate Professor · Fusion Intelligence Algorithms",
-            "role_zh": "副教授 · 聚变智能算法",
-            "photo": "images/people/张乐.jpg"
+            "photo": "images/people/张乐.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -280,9 +167,9 @@
         "members": [
           {
             "name": "王鹤钦",
-            "role_en": "Project Management",
-            "role_zh": "项目管理",
-            "photo": "images/people/王鹤钦.jpg"
+            "photo": "images/people/王鹤钦.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -292,9 +179,9 @@
         "members": [
           {
             "name": "司远航",
-            "role_en": "Joint Postdoctoral Training · Junsheng Electronics",
-            "role_zh": "联培博士后 · 钧胜电子",
-            "photo": "images/people/司远航_20261028_132626_sqf7.png"
+            "photo": "images/people/司远航_20261028_132626_sqf7.png",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -304,100 +191,99 @@
         "members": [
           {
             "name": "姚泊先",
-            "role_en": "Ph.D. Student · Cable Manipulation",
-            "role_zh": "博士生 · 线缆操作",
-            "photo": "images/people/姚泊先.jpg"
+            "photo": "images/people/姚泊先.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王子琪",
-            "role_en": "Engineering Ph.D. · ENN Science & Technology",
-            "role_zh": "工程博士生 · 新奥科技",
-            "photo": "images/people/王子琪.jpg"
+            "photo": "images/people/王子琪.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "陈小华",
-            "role_en": "Engineering PhD Student · Xin'ao Technology",
-            "role_zh": "工程博士生 · 新奥科技",
-            "photo": "images/people/陈小华_20261028_132723_7x38.jpg"
+            "photo": "images/people/陈小华_20261028_132723_7x38.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王鸣晗",
-            "role_en": "Engineering Ph.D. · China Development Bank",
-            "role_zh": "工程博士生 · 国家开发银行",
             "photo": "images/people/王鸣晗.jpg",
-            "visible": true
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "张博",
-            "role_en": "Joint Training Engineering PhD Student · ePyBot",
-            "role_zh": "联培工程博士生 · 一湃智能",
-            "photo": "images/people/张博.png"
+            "photo": "images/people/张博.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "胡东晓",
-            "role_en": "Joint Ph.D. · Policy Learning",
-            "role_zh": "联培博士生 · 策略学习",
-            "photo": "images/people/胡东晓.jpg"
+            "photo": "images/people/胡东晓.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "马富裕",
-            "role_en": "Joint Ph.D. · Embodied Simulation",
-            "role_zh": "联培博士生 · 具身仿真",
-            "photo": "images/people/马富裕.jpg"
+            "photo": "images/people/马富裕.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "周兆龙",
-            "role_en": "Joint Ph.D. · Collision Avoidance",
-            "role_zh": "联培博士生 · 防碰撞",
-            "photo": "images/people/周兆龙.jpg"
+            "photo": "images/people/周兆龙.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "汪圭旭",
-            "role_en": "Joint Ph.D. · Efficient Embodiment",
-            "role_zh": "联培博士生 · 高效具身",
-            "photo": "images/people/汪圭旭.jpg"
+            "photo": "images/people/汪圭旭.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "罗翼晨",
-            "role_en": "Joint Ph.D. · Physics-Informed Neural Networks",
-            "role_zh": "联培博士生 · PINN",
-            "photo": "images/people/罗翼晨.jpg"
+            "photo": "images/people/罗翼晨.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "刘一甲",
-            "role_en": "Joint Ph.D. · 5G/6G Wireless",
-            "role_zh": "联培博士生 · 5G/6G 无线通信",
-            "photo": "images/people/刘一甲.jpg"
+            "photo": "images/people/刘一甲.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "曾杨航",
-            "role_en": "Joint Ph.D. · Industrial Safety",
-            "role_zh": "联培博士生 · 工业安全",
-            "photo": "images/people/曾杨航.jpg"
+            "photo": "images/people/曾杨航.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "刘元浩",
-            "role_en": "Joint Ph.D. · Multimodal Control",
-            "role_zh": "联培博士生 · 多模态控制",
-            "photo": "images/people/刘元浩.jpg"
+            "photo": "images/people/刘元浩.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王一雯",
-            "role_en": "Joint Ph.D. · Spatial Reasoning",
-            "role_zh": "联培博士生 · 空间推理",
-            "photo": "images/people/王一雯.jpg"
+            "photo": "images/people/王一雯.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "宋东昊",
-            "role_en": "Joint Ph.D. · Multimodal Learning",
-            "role_zh": "联培博士生 · 多模态学习",
-            "photo": "images/people/宋东昊.jpg"
+            "photo": "images/people/宋东昊.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "张粟",
-            "role_en": "Joint Ph.D. · Embodied Simulation",
-            "role_zh": "联培博士生 · 具身仿真",
-            "photo": "images/people/张粟.jpg"
+            "photo": "images/people/张粟.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -407,99 +293,99 @@
         "members": [
           {
             "name": "朱佩禹",
-            "role_en": "Master Student · Cable Manipulation",
-            "role_zh": "硕士生 · 线缆操作",
-            "photo": "images/people/朱佩禹.jpg"
+            "photo": "images/people/朱佩禹.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "韩萱",
-            "role_en": "Master Student · Pharmaceutical Unpackaging",
-            "role_zh": "硕士生 · 药品拆封",
-            "photo": "images/people/韩萱.jpg"
+            "photo": "images/people/韩萱.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "周奕辰",
-            "role_en": "Master's Student · Multimodal Control",
-            "role_zh": "硕士生 · 多模态控制",
-            "photo": "images/people/周奕辰_20261028_140601_j6hf.jpg"
+            "photo": "images/people/周奕辰_20261028_140601_j6hf.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "杨怡帆",
-            "role_en": "Master Student · Cable Manipulation",
-            "role_zh": "硕士生 · 线缆操作",
-            "photo": "images/people/杨怡帆.jpg"
+            "photo": "images/people/杨怡帆.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "叶鲁亮",
-            "role_en": "Master Student · Cable Manipulation",
-            "role_zh": "硕士生 · 线缆操作",
-            "photo": "images/people/叶鲁亮.jpg"
+            "photo": "images/people/叶鲁亮.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "张翔",
-            "role_en": "Master Student · Cable Manipulation",
-            "role_zh": "硕士生 · 线缆操作",
-            "photo": "images/people/张翔.jpg"
+            "photo": "images/people/张翔.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "陈柯润",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/陈柯润.jpg"
+            "photo": "images/people/陈柯润.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "杨光宇",
-            "role_en": "Joint Master · Live-Object Grasping",
-            "role_zh": "联培硕士生 · 活体抓取",
-            "photo": "images/people/杨光宇.jpg"
+            "photo": "images/people/杨光宇.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "邓俊豪",
-            "role_en": "Joint Master · Semantic Extraction",
-            "role_zh": "联培硕士生 · 语义提取",
-            "photo": "images/people/邓俊豪.jpg"
+            "photo": "images/people/邓俊豪.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "廖锦锋",
-            "role_en": "Joint Master · Data Synthesis",
-            "role_zh": "联培硕士生 · 数据合成",
-            "photo": "images/people/廖锦锋.jpg"
+            "photo": "images/people/廖锦锋.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王维兵",
-            "role_en": "Joint Master · Data Synthesis",
-            "role_zh": "联培硕士生 · 数据合成",
-            "photo": "images/people/王维兵.jpg"
+            "photo": "images/people/王维兵.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "李佳俊",
-            "role_en": "Joint Master · Data Generation",
-            "role_zh": "联培硕士生 · 数据生成",
-            "photo": "images/people/李佳俊.jpg"
+            "photo": "images/people/李佳俊.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "杨宇星",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/杨宇星.png"
+            "photo": "images/people/杨宇星.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王涛",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/王涛.jpg"
+            "photo": "images/people/王涛.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "徐俊东",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/徐俊东.jpg"
+            "photo": "images/people/徐俊东.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "陈俊宇",
-            "role_en": "Joint Training Master's Student · Emergency Rescue Robot",
-            "role_zh": "联培硕士生 · 急救机器人",
-            "photo": "images/people/陈俊生_20261028_140349_s2o7.jpg"
+            "photo": "images/people/陈俊生_20261028_140349_s2o7.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -509,98 +395,63 @@
         "members": [
           {
             "name": "李天琳",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科生 · 药品拆封",
-            "photo": "images/people/李天琳.jpg"
+            "photo": "images/people/李天琳.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "金子诺",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科生 · 药品拆封",
-            "photo": "images/people/金子诺.jpg"
+            "photo": "images/people/金子诺.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "詹淑涵",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科生 · 药品拆封",
-            "photo": "images/people/詹淑涵.jpg"
+            "photo": "images/people/詹淑涵.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "薛雨宸",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科生 · 药品拆封",
-            "photo": "images/people/薛雨宸.jpg"
+            "photo": "images/people/薛雨宸.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "刘鑫",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科生 · 药品拆封",
-            "photo": "images/people/刘鑫.jpg"
+            "photo": "images/people/刘鑫.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "朱玺谕",
-            "role_en": "Undergraduate Intern · Live-Object Grasping",
-            "role_zh": "本科生 · 活体抓取",
-            "photo": "images/people/朱玺谕.jpg"
+            "photo": "images/people/朱玺谕.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "左天佑",
-            "role_en": "Undergraduate Intern · Self-Evolving Hand",
-            "role_zh": "本科生 · 自演化手",
-            "photo": "images/people/左天佑.jpg"
-          },
-          {
-            "name": "娄云帆",
-            "role_en": "Research Intern · Live-Object Grasping",
-            "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/娄云帆.jpg",
-            "visible": false
-          },
-          {
-            "name": "乔卓然",
-            "role_en": "Research Intern · Live-Object Grasping",
-            "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/乔卓然.jpg",
-            "visible": false
-          },
-          {
-            "name": "李梦迪",
-            "role_en": "Research Intern · Cable Manipulation",
-            "role_zh": "科研实习生 · 线缆操作",
-            "photo": "images/people/李梦迪.jpg",
-            "visible": false
-          },
-          {
-            "name": "丁文杰",
-            "role_en": "Research Intern · Live-Object Grasping",
-            "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/丁文杰.jpg",
-            "visible": false
-          },
-          {
-            "name": "谭华烨",
-            "role_en": "Research Intern · Fusion Intelligence Algorithms",
-            "role_zh": "科研实习生 · 聚变智能算法",
-            "photo": "images/people/谭华烨.jpg",
-            "visible": false
+            "photo": "images/people/左天佑.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "王梓淳",
+            "photo": "images/people/王梓淳_20261028_133455_2w46.jpg",
             "role_en": "",
-            "role_zh": "",
-            "photo": "images/people/王梓淳_20261028_133455_2w46.jpg"
+            "role_zh": ""
           },
           {
             "name": "孙尔东",
+            "photo": "images/people/孙尔东_20261028_133513_q59p.jpg",
             "role_en": "",
-            "role_zh": "",
-            "photo": "images/people/孙尔东_20261028_133513_q59p.jpg"
+            "role_zh": ""
           },
           {
             "name": "张鹏来",
+            "photo": "images/people/张鹏来_20261028_143730_449o.png",
             "role_en": "",
-            "role_zh": "",
-            "photo": "images/people/张鹏来_20261028_143730_449o.png"
+            "role_zh": ""
           }
         ]
       },
@@ -610,33 +461,33 @@
         "members": [
           {
             "name": "娄云帆",
-            "role_en": "Project Intern · Live Capture",
-            "role_zh": "项目实习生 · 活体抓取",
-            "photo": "images/people/娄云帆.png"
+            "photo": "images/people/娄云帆.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "乔卓然",
-            "role_en": "Project Intern · Live Capture",
-            "role_zh": "项目实习生 · 活体抓取",
-            "photo": "images/people/乔卓然.png"
+            "photo": "images/people/乔卓然.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "朱冠林",
-            "role_en": "Project Intern · Simulation",
-            "role_zh": "项目实习生 · 仿真",
-            "photo": "images/people/朱冠林.png"
+            "photo": "images/people/朱冠林.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "李梦迪",
-            "role_en": "Project Intern · Cable Operations",
-            "role_zh": "项目实习生 · 线缆操作",
-            "photo": "images/people/李梦迪.png"
+            "photo": "images/people/李梦迪.png",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "黄新凯",
-            "role_en": "Project Intern · Ping An Embodied",
-            "role_zh": "项目实习生 · 平安具身",
-            "photo": "images/people/黄新凯_20261028_143607_nzo5.jpg"
+            "photo": "images/people/黄新凯_20261028_143607_nzo5.jpg",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       },
@@ -646,15 +497,15 @@
         "members": [
           {
             "name": "陈亦哲",
-            "role_en": "M.S. · ePyBot",
-            "role_zh": "硕士 · 一湃智能",
-            "photo": "images/people/陈亦哲.jpg"
+            "photo": "images/people/陈亦哲.jpg",
+            "role_en": "",
+            "role_zh": ""
           },
           {
             "name": "周思文",
-            "role_en": "M.S. · Tashi Zhihang",
-            "role_zh": "硕士 · 它石智航",
-            "photo": "images/people/周思文.png"
+            "photo": "images/people/周思文.png",
+            "role_en": "",
+            "role_zh": ""
           }
         ]
       }
@@ -662,7 +513,7 @@
   },
   "publications": {
     "title": {
-      "en": "Some papers",
+      "en": "Selected Publications",
       "zh": "部分论文"
     },
     "hint": {
@@ -675,399 +526,110 @@
         "title_zh": "",
         "papers": [
           {
-            "cite": "Y. Lou et al., \"DynamicWAM: Dual-Path Motion Conditioning for World–Action Models in Dynamic Manipulation,\" Forty-First AAAI Conference on Artificial Intelligence (AAAI), 2027, under review.",
+            "cite": "Y. Lou et al., \"DynamicWAM: Dual-Path Motion Conditioning for World–Action Models in Dynamic Manipulation,\" Forty-First AAAI Conference on Artificial Intelligence (AAAI), 2027.",
+            "links": [
+              {
+                "href": "https://arxiv.org/abs/2608.00793",
+                "text": "arXiv"
+              }
+            ],
             "note_en": "Dual-path motion conditioning lifts the DOMINO benchmark success rate from 29.3% (previous SOTA) to 38.2%.",
             "note_zh": "双路径运动条件将 DOMINO 基准成功率从此前 SOTA 的 29.3% 提升至 38.2%。",
-            "links": [
-              {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2608.00793"
-              }
-            ],
-            "figure": "images/pubs/pub_dynamicwam.jpg",
-            "figure_alt": "DynamicWAM architecture"
+            "figure": "images/pubs/pub_dynamicwam.jpg"
           },
           {
-            "cite": "M. Li et al., \"PS-DLO: Property- and Spatially Aware Deformable Linear Object Manipulation Policy\" in IEEE International Conference on Robotics and Automation (ICRA) 2027 under review",
+            "cite": "M. Li et al., \"PS-DLO: Property- and Spatially Aware Deformable Linear Object Manipulation Policy\" in IEEE International Conference on Robotics and Automation (ICRA) 2027.",
+            "links": [
+              {
+                "href": "https://arxiv.org/abs/2610.34147",
+                "text": "arXiv"
+              }
+            ],
             "note_en": "Improves precision from ±1.2 to ±0.15 via encoder debiasing and visual–trajectory cross-attention.",
             "note_zh": "通过编码器去偏与视觉–轨迹交叉注意力，将精度从 ±1.2 提升至 ±0.15。",
-            "links": [
-              {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2610.34147"
-              }
-            ],
-            "figure": "images/pubs/TRACE_framework_20261028_154843_k63h.png",
-            "figure_alt": "TRACE framework"
+            "figure": "images/pubs/TRACE_framework_20261028_154843_k63h.png"
           },
           {
-            "cite": "X. Han et al. \"ForceBench: Benchmarking Force Integration for Robotic Manipulation.\" in IEEE International Conference on Robotics and Automation (ICRA) 2027 under review",
+            "cite": "X. Han et al. \"ForceBench: Benchmarking Force Integration for Robotic Manipulation.\" in IEEE International Conference on Robotics and Automation (ICRA) 2027.",
             "links": [
               {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2610.19604"
+                "href": "https://arxiv.org/abs/2610.19604",
+                "text": "arXiv"
               }
             ],
             "note_en": "",
             "note_zh": "",
-            "figure": "images/pubs/Edge_enabled_robot_sensing_com_20261028_155930_zq6u.png",
-            "figure_alt": "Edge-enabled robot sensing-communication-control framework",
-            "visible": true
+            "figure": "images/pubs/Edge_enabled_robot_sensing_com_20261028_155930_zq6u.png"
           },
           {
             "cite": "Y. Fu et al., \"CableSort: Force-Guided Dual-Arm Sorting of Stacked Cables,\" RSS 2026 DAROMA Workshop, 2026.",
-            "note_en": "Instance-mask IoU improved from 0.36 to 0.93 over the strongest segmentation baseline, with 48% end-to-end sorting success.",
-            "note_zh": "相较最强分割基线，实例掩码 IoU 由 0.36 提升至 0.93，端到端分拣成功率达 48%。",
             "links": [
               {
-                "text": "PDF",
-                "href": "https://rss2026-beyond-rigidity.github.io/accepted_papers/3_CableSort_Force_Guided_Dual_.pdf"
+                "href": "https://rss2026-beyond-rigidity.github.io/accepted_papers/3_CableSort_Force_Guided_Dual_.pdf",
+                "text": "PDF"
               }
             ],
-            "figure": "images/pubs/pub_cablesort.jpg",
-            "figure_alt": "CableSort system"
+            "note_en": "Instance-mask IoU improved from 0.36 to 0.93 over the strongest segmentation baseline, with 48% end-to-end sorting success.",
+            "note_zh": "相较最强分割基线，实例掩码 IoU 由 0.36 提升至 0.93，端到端分拣成功率达 48%。",
+            "figure": "images/pubs/pub_cablesort.jpg"
           },
           {
             "cite": "D. Hu et al., \"Spectral-Temporal Conditioning: A Frequency-Domain Framework for Robust Robotic Imitation Learning\" in IEEE Transactions on Consumer Electronics, 2026.",
+            "links": [
+              {
+                "href": "https://doi.org/10.1109/TCE.2026.3692732",
+                "text": "DOI"
+              }
+            ],
             "note_en": "Frequency-domain policy learning lifts long-horizon success rate from 3% to 36%.",
             "note_zh": "频域策略学习将长程任务成功率从 3% 提升至 36%。",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/TCE.2026.3692732"
-              }
-            ],
-            "figure": "images/pubs/pub_tempact.jpg",
-            "figure_alt": "Temp-ACT framework",
-            "visible": true
-          },
-          {
-            "cite": "Y. Chen et al., \"TCSC: Time-Consistent Synchronization and Completion for Bridging the Temporal Sim-to-Real Gap in Embodied Intelligence,\" in <em>IEEE Transactions on Consumer Electronics</em>, 2026.",
-            "note_en": "Wasserstein-aware causal synchronization raises task success from ~68% to 75%.",
-            "note_zh": "基于 Wasserstein 的因果同步将任务成功率从约 68% 提升至 75%。",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/TCE.2026.3698831"
-              }
-            ],
-            "figure": "images/pubs/pub_tcsc.jpg",
-            "figure_alt": "TCSC framework",
-            "visible": false
+            "figure": "images/pubs/pub_tempact.jpg"
           },
           {
             "cite": "F. Ma et al., \"Embodied Artificial Intelligence-Driven Integrated Development Environment for Industrial Automation Systems: Requirements and Framework,\" in IEEE Industrial Electronics Magazine, 2026.",
-            "note_en": "",
-            "note_zh": "",
             "links": [
               {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/MIE.2026.3694206"
+                "href": "https://doi.org/10.1109/MIE.2026.3694206",
+                "text": "DOI"
               }
             ],
-            "figure": "images/pubs/pub_ide.jpg",
-            "figure_alt": "Embodied AI-driven IDE architecture",
-            "visible": true
-          },
-          {
-            "cite": "Y. Liu et al., \"VistaCo: Synergizing Visual Attention and Task Cognition in Robot Visuomotor Policy Learning,\" <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.",
-            "note_en": "Real-world success rate improved from 44.5% to 67.5%.",
-            "note_zh": "真实场景成功率由 44.5% 提升至 67.5%。",
-            "links": [],
-            "figure": "images/pubs/pub_vistaco.jpg",
-            "figure_alt": "VistaCo framework",
-            "visible": false
-          },
-          {
-            "cite": "D. Song et al., \"RegGraft: Region-Aware Block Reuse in Diffusion Transformers,\" <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.",
-            "note_en": "25% improvement in diffusion training efficiency via cross-domain block grafting.",
-            "note_zh": "通过跨域模块嫁接，扩散训练效率提升 25%。",
-            "links": [],
-            "figure": "images/pubs/pub_reggraft.jpg",
-            "figure_alt": "RegGraft method",
-            "visible": false
-          },
-          {
-            "cite": "F. Ma et al., \"PhyGen: Physics-Informed Repair Fields for Generated Robot Demonstrations,\" <em>Forty-First AAAI Conference on Artificial Intelligence (AAAI)</em>, 2027, under review.",
-            "note_en": "Rigid-body demonstration generation yield raised from 55.6% to 93.5%.",
-            "note_zh": "刚体示范生成良率由 55.6% 提升至 93.5%。",
-            "links": [],
-            "figure": "images/pubs/pub_phygen.jpg",
-            "figure_alt": "PhyGen pipeline",
-            "visible": false
-          },
-          {
-            "cite": "\"ViPS: Visuomotor Policy-to-Servo Coordination for Precision Industrial Manipulation,\" <em>IEEE Transactions on Industrial Cyber-Physical Systems (TICPS)</em>, under review.",
-            "note_en": "Installation success rate improved from 35% to 78%.",
-            "note_zh": "装配成功率由 35% 提升至 78%。",
-            "links": [],
-            "figure": "images/pubs/pub_vips.jpg",
-            "figure_alt": "ViPS architecture",
-            "visible": false
-          },
-          {
-            "cite": "\"UPST: Unified Pose-Stream Teleoperation for Heterogeneous Robot Control and Demonstration Generation,\" submitted to <em>IEEE Industrial Electronics Magazine</em>, 2026.",
-            "note_en": "Unified pose-stream teleoperation cuts task time by 24.5% over the VR baseline and raises ACT success from 69.5% to 76.8%.",
-            "note_zh": "统一位姿流遥操作相较 VR 基线缩短任务时间 24.5%，并将 ACT 成功率由 69.5% 提升至 76.8%。",
-            "links": [],
-            "figure": "images/pubs/pub_upst.jpg",
-            "figure_alt": "UPST teleoperation pipeline",
-            "visible": false
-          },
-          {
-            "cite": "\"CRAFT: A Cloud-Fog Automation Synergistic Framework Empowered by Embodied AI in Precision Manufacturing,\" <em>Robotics and Computer-Integrated Manufacturing (RCIM)</em>, under review.",
-            "note_en": "Cloud–fog–edge task execution lifts real-factory success from 39.5% to 76.5% with ~7× longer continuous autonomous operation.",
-            "note_zh": "云–雾–边协同执行将真实工厂成功率由 39.5% 提升至 76.5%，连续自主运行时间延长约 7 倍。",
-            "links": [
-              {
-                "text": "ssrn",
-                "href": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6962791"
-              }
-            ],
-            "figure": "images/pubs/CRAFT_framework_20261012_145245_lk21.png",
-            "figure_alt": "CRAFT framework",
-            "visible": false
-          },
-          {
-            "cite": "J. Deng et al., \"STEAM: Structured Temporal Episode Annotation for Manipulation in Embodied Robots,\" <em>IAI</em>, 2026.",
             "note_en": "",
             "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_steam.jpg",
-            "figure_alt": "STEAM annotation pipeline",
-            "visible": false
-          },
-          {
-            "cite": "Y. Li et al., \"DCP-ACQ: Reliable Control and Data Acquisition for Embodied Intelligence,\" <em>IAI</em>, 2026.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_dcpacq.jpg",
-            "figure_alt": "DCP-ACQ system",
-            "visible": false
-          },
-          {
-            "cite": "W. Wang et al., \"MP-GOP: Mobile Photogrammetric Reconstruction and Geometric Optimization,\" submitted to <em>IAI</em>, 2026.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_mpgop.jpg",
-            "figure_alt": "MP-GOP reconstruction pipeline",
-            "visible": false
-          },
-          {
-            "cite": "J. Liao et al., \"GES-Bench: Simulation-Readiness Evaluation for Single-View 3D Generation,\" submitted to <em>IAI</em>, 2026.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_gesbench.jpg",
-            "figure_alt": "GES-Bench evaluation",
-            "visible": false
-          },
-          {
-            "cite": "L. Zhang et al., \"Action Prompt Integration in Large Language Models for Time Series Forecasting in Process Industrial Systems\" (APiLLM), in <em>Advanced Engineering Informatics</em>, 2026.",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1016/j.aei.2026.105033"
-              }
-            ],
-            "note_en": "Action-aware attention reduces average MSE and MAE by 18.6% and 10.7% over the SOTA method.",
-            "note_zh": "",
-            "figure": "images/pubs/APiLLM_architecture_20261010_120310_rwhi.jpg",
-            "figure_alt": "APiLLM architecture",
-            "visible": false
+            "figure": "images/pubs/pub_ide.jpg"
           },
           {
             "cite": "Y. Luo, J. Wang, et al., \"MMET: A Multi-Input and Multi-Scale Transformer for Efficient PDEs Solving,\" in International Joint Conference on Artificial Intelligence (IJCAI), 2025.",
             "links": [
               {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2506.17230"
+                "href": "https://arxiv.org/abs/2506.17230",
+                "text": "arXiv"
               },
               {
-                "text": "Code",
-                "href": "https://github.com/YichenLuo-0/MMET"
+                "href": "https://github.com/YichenLuo-0/MMET",
+                "text": "Code"
               }
             ],
             "note_en": "",
             "note_zh": "",
-            "figure": "images/pubs/MMET_neural_operator_20261028_160139_mfhr.png",
-            "figure_alt": "MMET neural operator",
-            "visible": true
+            "figure": "images/pubs/MMET_neural_operator_20261028_160139_mfhr.png"
           },
           {
             "cite": "Y. Luo, P. Zhu, et al., \"Mitigating Gradient Pathology in PINNs through Aligned Constraint\", in International Conference on Machine Learning (ICML), 2026.",
             "links": [
               {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2605.25001"
+                "href": "https://arxiv.org/abs/2605.25001",
+                "text": "arXiv"
               },
               {
-                "text": "Code",
-                "href": "https://github.com/YichenLuo-0/CAML"
+                "href": "https://github.com/YichenLuo-0/CAML",
+                "text": "Code"
               }
             ],
             "note_en": "",
             "note_zh": "",
-            "figure": "images/pubs/pub_caml.jpg",
-            "figure_alt": "CAML method",
-            "visible": true
-          },
-          {
-            "cite": "",
-            "links": [
-              {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2610.19604"
-              }
-            ],
-            "note_en": "",
-            "note_zh": "",
-            "figure": "",
-            "figure_alt": "",
-            "visible": false
+            "figure": "images/pubs/pub_caml.jpg"
           }
         ]
-      },
-      {
-        "title_en": "",
-        "title_zh": "",
-        "papers": [
-          {
-            "cite": "Y. Luo, D. Hu, et al., \"Derivative Cheating in Fusion-Based PINNs: Understanding and Preventing,\" Conference on Neural Information Processing Systems (NeurIPS), 2026, under review.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/Derivative_cheating_analysis_20261012_145635_2k1s.png",
-            "figure_alt": "Derivative cheating analysis",
-            "visible": false
-          }
-        ],
-        "visible": true
-      },
-      {
-        "title_en": "Cloud-Fog Automation &amp; Industrial Communications",
-        "title_zh": "云雾自动化与工业通信",
-        "papers": [
-          {
-            "cite": "J. Jin, K. Yu, J. Kua, N. Zhang, <strong>Z. Pang*</strong>, and Q.-L. Han*, \"Cloud-Fog Automation: Vision, Enabling Technologies, and Future Research Directions,\" in <em>IEEE Transactions on Industrial Informatics</em>, vol. 20, no. 2, pp. 1039–1054, 2024.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/TII.2023.3272696"
-              }
-            ],
-            "figure": "images/pubs/pub_cfa_tii2023.jpg",
-            "figure_alt": "Cloud-Fog Automation vision"
-          },
-          {
-            "cite": "H. Lv, <strong>Z. Pang*</strong>, et al., \"Cloud–Fog Automation: Heterogeneous Applications Over New-Generation Infrastructure of Virtualized Computing and Converged Networks,\" in <em>IEEE Industrial Electronics Magazine</em>, 2024.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/MIE.2024.3407051"
-              }
-            ],
-            "figure": "images/pubs/pub_cfa_iem2024.jpg",
-            "figure_alt": "CFA heterogeneous applications"
-          },
-          {
-            "cite": "M. Zhan, <strong>Z. Pang*</strong>, et al., \"Joint Error Detection and Correction for Safety Communication: Reducing the Alarm Rate of Transmitted Safety Messages,\" in <em>IEEE Industrial Electronics Magazine</em>, 2024.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/MIE.2024.3416901"
-              }
-            ],
-            "figure": "images/pubs/pub_jedec.jpg",
-            "figure_alt": "JEDeC safety communication"
-          },
-          {
-            "cite": "M. Zhan et al., \"High Throughput Joint Error Detection and Correction Based on GRAND-MO and CRC,\" in <em>IEEE Transactions on Consumer Electronics</em>, 2024.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/TCE.2024.3394910"
-              }
-            ],
-            "figure": "images/pubs/pub_grandmo_tce.jpg",
-            "figure_alt": "GRAND-MO decoding"
-          },
-          {
-            "cite": "M. Zhan et al., \"Noise Error Pattern Generation Based on Successive Addition-Subtraction for GRAND-MO,\" in <em>IEEE Communications Letters</em>, vol. 26, no. 4, pp. 743–747, Apr. 2022.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.1109/LCOMM.2022.3148302"
-              },
-              {
-                "text": "arXiv",
-                "href": "https://arxiv.org/abs/2111.00695"
-              }
-            ],
-            "figure": "images/pubs/pub_grandmo_cl.jpg",
-            "figure_alt": "GRAND-MO noise error patterns"
-          },
-          {
-            "cite": "Y. Liu, <strong>Z. Pang</strong>, et al., \"RL-Based Joint Latency Optimization for Software-Defined Wireless Cloud Fog Automation,\" in <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, 2025.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_indin2025.jpg",
-            "figure_alt": "RL-based latency optimization"
-          },
-          {
-            "cite": "Y. Liu, <strong>Z. Pang</strong>, and Y. Ding, \"CFA-OpenRAN: An Integrated Communication, Computing, and Control Architecture for Wireless Cloud Fog Automation Based on O-RAN,\" in <em>the 22nd IEEE International Conference on Industrial Informatics (INDIN)</em>, Beijing, China, Aug. 2024.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [],
-            "figure": "images/pubs/pub_openran.jpg",
-            "figure_alt": "CFA-OpenRAN architecture"
-          },
-          {
-            "cite": "K. B. Lee, R. Candell, H.-P. Bernhard, D. Cavalcanti, <strong>Z. Pang</strong>, and I. Val, \"Reliable, High-Performance Wireless Systems for Factory Automation,\" <em>NIST Interagency/Internal Report (NISTIR) 8317</em>, Sep. 2020.",
-            "note_en": "",
-            "note_zh": "",
-            "links": [
-              {
-                "text": "DOI",
-                "href": "https://doi.org/10.6028/NIST.IR.8317"
-              },
-              {
-                "text": "PDF",
-                "href": "https://nvlpubs.nist.gov/nistpubs/ir/2020/NIST.IR.8317.pdf"
-              }
-            ],
-            "figure": "images/pubs/pub_nistir.jpg",
-            "figure_alt": "Wireless factory automation testbed"
-          },
-          {
-            "cite": "MMET:AMulti-Input and Multi-Scale Transformer for Efficient PDEs Solving",
-            "links": [
-              {
-                "text": "aixiv",
-                "href": "https://arxiv.org/abs/2506.17230"
-              }
-            ],
-            "note_en": "",
-            "note_zh": "",
-            "figure": "images/pubs/figure_20261028_153321_ji6o.png",
-            "figure_alt": "",
-            "visible": true
-          }
-        ],
-        "visible": false
       }
     ]
   },
@@ -1077,16 +639,16 @@
       "title_zh": "机器人具身智能系统开发实践基础",
       "badge_en": "(Class in session)",
       "badge_zh": "（开课中）",
-      "desc_en": "A practice-oriented course covering the complete process of robot embodied intelligence development, divided into four units: task simulation, data collection, model training, and inference deployment.<a href=\"https://pku-pi-lab.github.io/EAI-course/\" target=\"_blank\" rel=\"noopener\">Learn more...</a>",
-      "desc_zh": "一门面向实践的课程，覆盖机器人具身智能开发的完整流程，分为四个单元：任务仿真、数据采集、模型训练与推理部署。<a href=\"https://pku-pi-lab.github.io/EAI-course/\" target=\"_blank\" rel=\"noopener\">查看详情......</a>"
+      "desc_en": "",
+      "desc_zh": ""
     },
     {
       "title_en": "Physical Intelligence Development Training Camp",
       "title_zh": "物理智能开发训练营",
       "badge_en": "(Student Engineering &amp; Science Innovation Association)",
       "badge_zh": "（学生工程与科创协会）",
-      "desc_en": "A hands-on training camp that connects classroom learning with industry deployment, strengthening students' practical abilities in physical intelligent engineering.",
-      "desc_zh": "一门连接课堂学习与产业部署的动手训练营，强化学生的物理智能工程实践能力。"
+      "desc_en": "",
+      "desc_zh": ""
     }
   ],
   "footer": {
@@ -1094,9 +656,7 @@
     "name_zh": "北京大学物理智能实验室",
     "affiliation_en": "School of Advanced Manufacturing and Robotics, Peking University",
     "affiliation_zh": "北京大学先进制造与机器人学院",
-    "contact_en": "<a href=\"mailto:zhibo.pang@pku.edu.cn\">zhibo.pang@pku.edu.cn</a>",
-    "contact_zh": "<a href=\"mailto:zhibo.pang@pku.edu.cn\">zhibo.pang@pku.edu.cn</a>",
-    "contact_email": "zhibo.pang@pku.edu.cn",
+    "contact_email": "gpkupilab@pku.edu.cn",
     "copyright_en": "All rights reserved.",
     "copyright_zh": "保留所有权利。",
     "powered": "Powered by GitHub Pages"
