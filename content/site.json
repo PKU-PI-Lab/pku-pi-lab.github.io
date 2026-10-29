@@ -71,8 +71,8 @@
   ],
   "opportunities": [
     {
-      "en": "The laboratory has long-term recruitment for <strong>postdoctoral researchers, engineers, master's and doctoral interns</strong>, and<strong> undergraduate interns</strong>. At the same time, according to Peking University's enrollment plan, there are several enrollment slots for master's and doctoral students. In addition, the laboratory also collaborates with many domestic and international universities, providing several opportunities for jointly trained master's and doctoral students.",
-      "zh": "实验室长期招收<strong>博士后、工程师、硕博实习生</strong>和<strong>本科实习生</strong>。同时根据北京大学招生计划，有若干硕士生和博士生招生指标。除此之外，实验室还与多所国内外高校合作，有若干联合培养硕士生和博士生机会。",
+      "en": "The laboratory has long-term recruitment for <strong>postdoctoral researchers, engineers, master's and doctoral interns</strong>, and<strong> undergraduate students</strong>. At the same time, according to Peking University's enrollment plan, there are several enrollment slots for master's and doctoral students. In addition, the laboratory also collaborates with many domestic and international universities, providing several opportunities for jointly trained master's and doctoral students.",
+      "zh": "实验室长期招收<strong>博士后、工程师、硕博实习生</strong>和<strong>本科生</strong>。同时根据北京大学招生计划，有若干硕士生和博士生招生指标。除此之外，实验室还与多所国内外高校合作，有若干联合培养硕士生和博士生机会。",
       "strong": false
     },
     {
@@ -217,7 +217,7 @@
             "name": "姚泊先",
             "photo": "images/people/姚泊先.jpg",
             "role_en": "Ph.D. Student · Cable Manipulation",
-            "role_zh": "博士生线缆操作"
+            "role_zh": "博士生 · 线缆操作"
           },
           {
             "name": "王子琪",
@@ -420,61 +420,61 @@
           {
             "name": "李天琳",
             "photo": "images/people/李天琳.jpg",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科实习生 · 药品拆封"
+            "role_en": "Undergraduate Student · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "金子诺",
             "photo": "images/people/金子诺.jpg",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科实习生 · 药品拆封"
+            "role_en": "Undergraduate Student · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "詹淑涵",
             "photo": "images/people/詹淑涵.jpg",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科实习生 · 药品拆封"
+            "role_en": "Undergraduate Student · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "薛雨宸",
             "photo": "images/people/薛雨宸.jpg",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科实习生 · 药品拆封"
+            "role_en": "Undergraduate Student · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "刘鑫",
             "photo": "images/people/刘鑫.jpg",
-            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
-            "role_zh": "本科实习生 · 药品拆封"
+            "role_en": "Undergraduate Student · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "朱玺谕",
             "photo": "images/people/朱玺谕.jpg",
-            "role_en": "Undergraduate Intern · Live-Object Grasping",
-            "role_zh": "本科实习生 · 活体抓取"
+            "role_en": "Undergraduate Student · Live-Object Grasping",
+            "role_zh": "本科生 · 活体抓取"
           },
           {
             "name": "左天佑",
             "photo": "images/people/左天佑.jpg",
-            "role_en": "Undergraduate Intern · Self-Evolving Hand",
-            "role_zh": "本科实习生 · 自演化手"
+            "role_en": "Undergraduate Student · Self-Evolving Hand",
+            "role_zh": "本科生 · 自演化手"
           },
           {
             "name": "王梓淳",
             "photo": "images/people/王梓淳_20261028_133455_2w46.jpg",
-            "role_en": "Undergraduate Intern · Drug Unsealing",
+            "role_en": "Undergraduate Student · Drug Unsealing",
             "role_zh": "本科生 · 药品拆封"
           },
           {
             "name": "孙尔东",
             "photo": "images/people/孙尔东_20261028_133513_q59p.jpg",
-            "role_en": "Undergraduate Intern · Cable Handling",
+            "role_en": "Undergraduate Student · Cable Handling",
             "role_zh": "本科生 · 线缆操作"
           },
           {
             "name": "张鹏来",
             "photo": "images/people/张鹏来_20261028_143730_449o.png",
-            "role_en": "Undergraduate Intern · Optical Module Operation",
+            "role_en": "Undergraduate Student · Optical Module Operation",
             "role_zh": "本科生 · 光模块操作"
           }
         ]
