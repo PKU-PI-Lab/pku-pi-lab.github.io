@@ -622,12 +622,12 @@ body.lang-zh .en { display: none; }
     align-items: stretch;
 }
 
-/* 小分组并排：两个 ≤2 人的分组共处同一水平线，紧贴彼此、不再各占半行留大空隙 */
+/* 小分组并排：两个 ≤2 人的分组紧贴彼此（左对齐、小间距），不再各占半行留大空隙 */
 .people-row {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .people-row .people-block {
@@ -636,13 +636,12 @@ body.lang-zh .en { display: none; }
     min-width: 0;
 }
 
-/* 并排分组内的网格：每个成员占位与主网格 8 列的单格一致；卡片定宽，避免空列把宽度撑开 */
+/* 并排分组内的网格：按成员数量自动排成定宽列，空列不占位，卡片不拉伸 */
 .people-row .people-grid {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.people-row .member-card {
-    width: 120px;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 120px;
+    gap: 1rem;
 }
 
 .pi-grid {

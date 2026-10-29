@@ -254,18 +254,18 @@
   },
   "people": {
     "intro": {
-      "en": "The PKU Physical Intelligence Lab brings together a strong, multidisciplinary team spanning principal investigators, visiting scholars, Ph.D. and master students, research interns, and project management. Below are the talented individuals driving our research forward.",
-      "zh": "北京大学物理智能实验室汇聚了一支实力雄厚的多学科团队，包括学术带头人、访问学者、博士与硕士研究生、科研实习生及项目管理。以下是为我们研究注入动力的优秀人才。"
+      "en": "\\",
+      "zh": "\\"
     },
     "groups": [
       {
-        "title_en": "Principal Investigator",
-        "title_zh": "首席研究员",
+        "title_en": "Academic Leader",
+        "title_zh": "学术带头人",
         "members": [
           {
             "name": "庞智博",
-            "role_en": "Tenured Professor · Principal Investigator",
-            "role_zh": "长聘教授 · 学术带头人",
+            "role_en": "Tenured Professor / Doctoral Supervisor,",
+            "role_zh": "长聘教授/博导",
             "photo": "images/people/庞智博.jpg"
           }
         ]
@@ -279,6 +279,30 @@
             "role_en": "Associate Professor · Fusion Intelligence Algorithms",
             "role_zh": "副教授 · 聚变智能算法",
             "photo": "images/people/张乐.jpg"
+          }
+        ]
+      },
+      {
+        "title_en": "Project Management",
+        "title_zh": "项目管理",
+        "members": [
+          {
+            "name": "王鹤钦",
+            "role_en": "Project Management",
+            "role_zh": "项目管理",
+            "photo": "images/people/王鹤钦.jpg"
+          }
+        ]
+      },
+      {
+        "title_en": "Postdoctoral researcher",
+        "title_zh": "博士后",
+        "members": [
+          {
+            "name": "司远航",
+            "role_en": "Joint Postdoctoral Training · Junsheng Electronics",
+            "role_zh": "联培博士后 · 钧胜电子",
+            "photo": "images/people/司远航_20261028_132626_sqf7.png"
           }
         ]
       },
@@ -299,10 +323,23 @@
             "photo": "images/people/王子琪.jpg"
           },
           {
+            "name": "陈小华",
+            "role_en": "Engineering PhD Student · Xin'ao Technology",
+            "role_zh": "工程博士生 · 新奥科技",
+            "photo": "images/people/陈小华_20261028_132723_7x38.jpg"
+          },
+          {
             "name": "王鸣晗",
             "role_en": "Engineering Ph.D. · China Development Bank",
             "role_zh": "工程博士生 · 国家开发银行",
-            "photo": "images/people/王鸣晗.jpg"
+            "photo": "images/people/王鸣晗.jpg",
+            "visible": true
+          },
+          {
+            "name": "张博",
+            "role_en": "Joint Training Engineering PhD Student · ePyBot",
+            "role_zh": "联培工程博士生 · 一湃智能",
+            "photo": "images/people/张博.png"
           },
           {
             "name": "胡东晓",
@@ -389,6 +426,12 @@
             "photo": "images/people/韩萱.jpg"
           },
           {
+            "name": "周奕辰",
+            "role_en": "Master's Student · Multimodal Control",
+            "role_zh": "硕士生 · 多模态控制",
+            "photo": "images/people/周奕辰_20261028_140601_j6hf.jpg"
+          },
+          {
             "name": "杨怡帆",
             "role_en": "Master Student · Cable Manipulation",
             "role_zh": "硕士生 · 线缆操作",
@@ -443,16 +486,16 @@
             "photo": "images/people/李佳俊.jpg"
           },
           {
+            "name": "杨宇星",
+            "role_en": "Joint Master · Embodied Simulation",
+            "role_zh": "联培硕士生 · 具身仿真",
+            "photo": "images/people/杨宇星.png"
+          },
+          {
             "name": "王涛",
             "role_en": "Joint Master · Embodied Simulation",
             "role_zh": "联培硕士生 · 具身仿真",
             "photo": "images/people/王涛.jpg"
-          },
-          {
-            "name": "王晨城",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/王晨城.jpg"
           },
           {
             "name": "徐俊东",
@@ -461,100 +504,147 @@
             "photo": "images/people/徐俊东.jpg"
           },
           {
-            "name": "杨宇星",
-            "role_en": "Joint Master · Embodied Simulation",
-            "role_zh": "联培硕士生 · 具身仿真",
-            "photo": "images/people/杨宇星.jpg"
+            "name": "陈俊宇",
+            "role_en": "Joint Training Master's Student · Emergency Rescue Robot",
+            "role_zh": "联培硕士生 · 急救机器人",
+            "photo": "images/people/陈俊生_20261028_140349_s2o7.jpg"
           }
         ]
       },
       {
-        "title_en": "Research Interns",
-        "title_zh": "科研实习生",
+        "title_en": "Undergraduate student",
+        "title_zh": "本科生",
         "members": [
           {
             "name": "李天琳",
-            "role_en": "Research Intern · Pharmaceutical Unpackaging",
-            "role_zh": "科研实习生 · 药品拆封",
+            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封",
             "photo": "images/people/李天琳.jpg"
           },
           {
             "name": "金子诺",
-            "role_en": "Research Intern · Pharmaceutical Unpackaging",
-            "role_zh": "科研实习生 · 药品拆封",
+            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封",
             "photo": "images/people/金子诺.jpg"
           },
           {
             "name": "詹淑涵",
-            "role_en": "Research Intern · Pharmaceutical Unpackaging",
-            "role_zh": "科研实习生 · 药品拆封",
+            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封",
             "photo": "images/people/詹淑涵.jpg"
           },
           {
             "name": "薛雨宸",
-            "role_en": "Research Intern · Pharmaceutical Unpackaging",
-            "role_zh": "科研实习生 · 药品拆封",
+            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封",
             "photo": "images/people/薛雨宸.jpg"
           },
           {
             "name": "刘鑫",
-            "role_en": "Research Intern · Pharmaceutical Unpackaging",
-            "role_zh": "科研实习生 · 药品拆封",
+            "role_en": "Undergraduate Intern · Pharmaceutical Unpackaging",
+            "role_zh": "本科生 · 药品拆封",
             "photo": "images/people/刘鑫.jpg"
           },
           {
             "name": "朱玺谕",
-            "role_en": "Research Intern · Live-Object Grasping",
-            "role_zh": "科研实习生 · 活体抓取",
+            "role_en": "Undergraduate Intern · Live-Object Grasping",
+            "role_zh": "本科生 · 活体抓取",
             "photo": "images/people/朱玺谕.jpg"
           },
           {
             "name": "左天佑",
-            "role_en": "Research Intern · Self-Evolving Hand",
-            "role_zh": "科研实习生 · 自演化手",
+            "role_en": "Undergraduate Intern · Self-Evolving Hand",
+            "role_zh": "本科生 · 自演化手",
             "photo": "images/people/左天佑.jpg"
-          },
-          {
-            "name": "丁文杰",
-            "role_en": "Research Intern · Live-Object Grasping",
-            "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/丁文杰.jpg"
           },
           {
             "name": "娄云帆",
             "role_en": "Research Intern · Live-Object Grasping",
             "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/娄云帆.jpg"
+            "photo": "images/people/娄云帆.jpg",
+            "visible": false
           },
           {
             "name": "乔卓然",
             "role_en": "Research Intern · Live-Object Grasping",
             "role_zh": "科研实习生 · 活体抓取",
-            "photo": "images/people/乔卓然.jpg"
+            "photo": "images/people/乔卓然.jpg",
+            "visible": false
           },
           {
             "name": "李梦迪",
             "role_en": "Research Intern · Cable Manipulation",
             "role_zh": "科研实习生 · 线缆操作",
-            "photo": "images/people/李梦迪.jpg"
+            "photo": "images/people/李梦迪.jpg",
+            "visible": false
+          },
+          {
+            "name": "丁文杰",
+            "role_en": "Research Intern · Live-Object Grasping",
+            "role_zh": "科研实习生 · 活体抓取",
+            "photo": "images/people/丁文杰.jpg",
+            "visible": false
           },
           {
             "name": "谭华烨",
             "role_en": "Research Intern · Fusion Intelligence Algorithms",
             "role_zh": "科研实习生 · 聚变智能算法",
-            "photo": "images/people/谭华烨.jpg"
+            "photo": "images/people/谭华烨.jpg",
+            "visible": false
+          },
+          {
+            "name": "王梓淳",
+            "role_en": "",
+            "role_zh": "",
+            "photo": "images/people/王梓淳_20261028_133455_2w46.jpg"
+          },
+          {
+            "name": "孙尔东",
+            "role_en": "",
+            "role_zh": "",
+            "photo": "images/people/孙尔东_20261028_133513_q59p.jpg"
+          },
+          {
+            "name": "张鹏来",
+            "role_en": "",
+            "role_zh": "",
+            "photo": "images/people/张鹏来_20261028_143730_449o.png"
           }
         ]
       },
       {
-        "title_en": "Project Management",
-        "title_zh": "项目管理",
+        "title_en": "Project Intern",
+        "title_zh": "项目实习生",
         "members": [
           {
-            "name": "王鹤钦",
-            "role_en": "Project Management",
-            "role_zh": "项目管理",
-            "photo": "images/people/王鹤钦.jpg"
+            "name": "娄云帆",
+            "role_en": "Project Intern · Live Capture",
+            "role_zh": "项目实习生 · 活体抓取",
+            "photo": "images/people/娄云帆.png"
+          },
+          {
+            "name": "乔卓然",
+            "role_en": "Project Intern · Live Capture",
+            "role_zh": "项目实习生 · 活体抓取",
+            "photo": "images/people/乔卓然.png"
+          },
+          {
+            "name": "朱冠林",
+            "role_en": "Project Intern · Simulation",
+            "role_zh": "项目实习生 · 仿真",
+            "photo": "images/people/朱冠林.png"
+          },
+          {
+            "name": "李梦迪",
+            "role_en": "Project Intern · Cable Operations",
+            "role_zh": "项目实习生 · 线缆操作",
+            "photo": "images/people/李梦迪.png"
+          },
+          {
+            "name": "黄新凯",
+            "role_en": "Project Intern · Ping An Embodied",
+            "role_zh": "项目实习生 · 平安具身",
+            "photo": "images/people/黄新凯_20261028_143607_nzo5.jpg"
           }
         ]
       },
@@ -563,16 +653,16 @@
         "title_zh": "校友",
         "members": [
           {
+            "name": "陈亦哲",
+            "role_en": "M.S. · ePyBot",
+            "role_zh": "硕士 · 一湃智能",
+            "photo": "images/people/陈亦哲.jpg"
+          },
+          {
             "name": "周思文",
             "role_en": "M.S. · Tashi Zhihang",
             "role_zh": "硕士 · 它石智航",
-            "photo": "images/people/周思文.jpg"
-          },
-          {
-            "name": "陈亦哲",
-            "role_en": "M.S. · Yipai Intelligence",
-            "role_zh": "硕士 · 一湃智能",
-            "photo": "images/people/陈亦哲.jpg"
+            "photo": "images/people/周思文.png"
           }
         ]
       }
