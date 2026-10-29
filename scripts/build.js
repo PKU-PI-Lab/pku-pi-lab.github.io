@@ -16,6 +16,42 @@ function spanPair(en, zh) {
   return '<span class="en">' + en + '</span><span class="zh">' + zh + '</span>';
 }
 
+// 成员头衔：按「 · 」拆成「学历 + 方向」两行，去掉中间的 ·
+// 例：「联培硕士生 · 语义提取」→ 第一行「联培硕士生」、第二行「语义提取」
+// 中英文各自拆分并保留语言切换；无「·」的（如 PI、访问学者、项目管理）只显示单行。
+function renderMemberRole(en, zh) {
+  const splitRole = (s) => {
+    const str = String(s == null ? '' : s);
+    const i = str.indexOf(' · ');
+    return i === -1 ? [str] : [str.slice(0, i), str.slice(i + 3)];
+  };
+  const enParts = splitRole(en);
+  const zhParts = splitRole(zh);
+  const n = Math.max(enParts.length, zhParts.length);
+  const lines = [];
+  for (let k = 0; k < n; k++) {
+    const e = enParts[k] || '';
+    const z = zhParts[k] || '';
+    lines.push('<span class="role-line"><span class="en">' + esc(e) + '</span><span class="zh">' + esc(z) + '</span></span>');
+  }
+  return lines.join('');
+}
+
+// ---- 导航 ↔ 区块标题联动 ----
+// 区块大标题自动取自导航栏对应项（按 href 匹配，如 #news → id 为 news 的区块）。
+// 这样在后台改导航栏文字，正文区块标题会跟着变，避免"导航改了、内容区还是旧标题"。
+function navTitles(data) {
+  const map = {};
+  (data.nav || []).forEach(n => {
+    if (n && n.href && n.visible !== false) map[n.href.replace(/^#/, '')] = { en: n.en, zh: n.zh };
+  });
+  return map;
+}
+
+function titleFor(titles, id, fbEn, fbZh) {
+  return titles[id] ? spanPair(titles[id].en, titles[id].zh) : spanPair(fbEn, fbZh);
+}
+
 function readData() {
   return JSON.parse(fs.readFileSync(contentPath, 'utf8'));
 }
@@ -56,10 +92,10 @@ function renderHome(home) {
                 <h1>${esc(home.name_en)} <span class="name-cn">${esc(home.name_zh)}</span></h1>
                 <p class="title">${spanPair(titleEn, titleZh)}</p>
                 <p class="affiliation">${spanPair(home.affiliation_en, home.affiliation_zh)}</p>
-                <p class="affiliation">${spanPair(home.former_en, home.former_zh)}</p>
+                <p class="affiliation">${spanPair(home.former_en, home.former_zh)}</p>${home.email ? `
                 <div class="social-links">
                     <a href="mailto:${esc(home.email)}" title="Email">✉️ ${esc(home.email)}</a>
-                </div>
+                </div>` : ''}
             </div>
         </section>`;
 }
@@ -71,7 +107,7 @@ function renderParas(paras) {
   }).join('\n');
 }
 
-function renderNews(news, sections) {
+function renderNews(news, titles, sections) {
   const items = news.items.map(n => {
     const link = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">Read more →</a>' : '';
     const linkZh = n.link ? ' <a href="' + esc(n.link) + '" target="_blank" rel="noopener">查看详情 →</a>' : '';
@@ -101,7 +137,7 @@ ${impactItems}
             </ul>` : '';
 
   return `<section class="news-section" id="news">
-            <h2 class="section-title">📰 ${spanPair('News', '新闻动态')}</h2>
+            <h2 class="section-title">📰 ${titleFor(titles, 'news', 'News', '新闻动态')}</h2>
             <ul class="news-list">
 ${items}
             </ul>${impactBlock}
@@ -127,43 +163,80 @@ ${slides}
         </section>`;
 }
 
-function renderPeople(people) {
-  const groups = people.groups.map((g, i) => {
-    const members = g.members.map(m => `                <div class="member-card">
+function renderPeople(people, titles) {
+  // visible===false 的成员/分组在前端隐藏（数据保留在 site.json，后台可随时恢复）
+  const groups = people.groups
+    .filter(g => g.visible !== false && g.members.some(m => m.visible !== false));
+
+  // 小分组并排：连续两个都 ≤2 人的分组放在同一水平线上（如 访问学者 / 项目管理），
+  // 避免各占一整行、页面被拉得又长又空。
+  const SMALL = 2;
+  const rows = []; // 每项 = {group} 或 {pair:[g1,g2]}
+  for (let i = 0; i < groups.length; i++) {
+    const g = groups[i];
+    const n = g.members.filter(m => m.visible !== false).length;
+    // i>0：学术带头人（第一组）始终独占一行，不参与并排
+    if (i > 0 && n <= SMALL && i + 1 < groups.length) {
+      const g2 = groups[i + 1];
+      const n2 = g2.members.filter(m => m.visible !== false).length;
+      if (n2 <= SMALL) { rows.push({ pair: [g, g2] }); i++; continue; }
+    }
+    rows.push({ group: g });
+  }
+
+  const blocks = rows.map(row => {
+    const renderGroup = (g, i) => {
+      const members = g.members.filter(m => m.visible !== false).map(m => `                <div class="member-card">
                     <img src="${esc(m.photo)}" alt="${esc(m.name)}">
                     <div class="member-info">
                         <span class="member-name">${esc(m.name)}</span>
-                        <span class="member-role">${spanPair(m.role_en, m.role_zh)}</span>
+                        <span class="member-role">${renderMemberRole(m.role_en, m.role_zh)}</span>
                     </div>
                 </div>`).join('\n');
-    const gridClass = i === 0 ? 'people-grid pi-grid' : 'people-grid';
-    return `            <h3 class="people-subtitle">${spanPair(g.title_en, g.title_zh)}</h3>
+      const gridClass = i === 0 ? 'people-grid pi-grid' : 'people-grid';
+      return `            <div class="people-block">
+            <h3 class="people-subtitle">${spanPair(g.title_en, g.title_zh)}</h3>
             <div class="${gridClass}">
 ${members}
+            </div>
             </div>`;
+    };
+    if (row.pair) {
+      const firstIdx = groups.indexOf(row.pair[0]);
+      return `            <div class="people-row">\n` +
+        row.pair.map((g, k) => renderGroup(g, firstIdx + k)).join('\n') +
+        `\n            </div>`;
+    }
+    return renderGroup(row.group, groups.indexOf(row.group));
   }).join('\n\n');
 
-  return `<section class="people-section" id="people">
-            <h2 class="section-title">👥 ${spanPair('People', '团队')}</h2>
-            <p class="people-intro">
+  // 团队简介为空时不渲染，避免残留占位字符
+  const intro = (people.intro && (String(people.intro.en || '').trim() || String(people.intro.zh || '').trim()))
+    ? `            <p class="people-intro">
                 ${spanPair(people.intro.en, people.intro.zh)}
-            </p>
+            </p>\n` : '';
 
-${groups}
+  return `<section class="people-section" id="people">
+            <h2 class="section-title">👥 ${titleFor(titles, 'people', 'People', '团队')}</h2>
+${intro}${blocks}
         </section>`;
 }
 
-function renderPublications(pubs) {
-  const groups = pubs.groups.map(g => {
-    const papers = g.papers.map(p => {
+function renderPublications(pubs, titles) {
+  // visible===false 的论文/分组在前端隐藏（数据保留在 site.json，后台可随时恢复）
+  const groups = pubs.groups
+    .filter(g => g.visible !== false && g.papers.some(p => p.visible !== false))
+    .map(g => {
+    const papers = g.papers.filter(p => p.visible !== false).map(p => {
       const links = p.links.map(l => '<a href="' + esc(l.href) + '" target="_blank" rel="noopener">' + esc(l.text) + '</a>').join('');
       const note = p.note_en ? `\n                        <p class="paper-note">${spanPair(p.note_en, p.note_zh)}</p>` : '';
+      // 没有配图时不渲染 figure 容器，避免出现 <img src=""> 碎图
+      const fig = p.figure ? `\n                    <div class="paper-figure"><img src="${esc(p.figure)}" alt="${esc(p.figure_alt)}" loading="lazy"></div>` : '';
       return `                <div class="paper-card">
                     <div class="paper-info">
                         <p class="paper-cite">${p.cite}</p>
                         ${links ? `<p class="paper-links">${links}</p>` : ''}${note}
-                    </div>
-                    <div class="paper-figure"><img src="${esc(p.figure)}" alt="${esc(p.figure_alt)}" loading="lazy"></div>
+                    </div>${fig}
                 </div>`;
     }).join('\n');
     return `            <h3 class="pub-group">${spanPair(g.title_en, g.title_zh)}</h3>
@@ -180,13 +253,13 @@ ${groups}
         </section>`;
 }
 
-function renderTeaching(teaching) {
+function renderTeaching(teaching, titles) {
   const items = teaching.map(t => `                <li>
                     <strong>${spanPair(t.title_en, t.title_zh)}</strong> ${spanPair(t.badge_en, t.badge_zh)}
                     <br><span class="teaching-desc">${spanPair(t.desc_en, t.desc_zh)}</span>
                 </li>`).join('\n');
   return `<section class="teaching-section" id="teaching">
-            <h2 class="section-title">🎓 ${spanPair('Teaching', '教学')}</h2>
+            <h2 class="section-title">🎓 ${titleFor(titles, 'teaching', 'Teaching', '教学')}</h2>
             <ul class="teaching-list">
 ${items}
             </ul>
@@ -212,20 +285,21 @@ function build() {
   html = html.replace(/ style="display:none;"/g, '');
 
   const secs = data.sections || {};
+  const titles = navTitles(data);
 
   html = replaceRegion(html, /(<div class="nav-brand">)[\s\S]*?(<\/div>)/, (m, p1) => p1 + renderBrand(data.brand || { en: '', zh: '' }) + '</div>');
   html = replaceRegion(html, /(?<=<div class="nav-links">)\s*<a href="#home"[\s\S]*?<\/a>\s*(?=<\/div>\s*<button id="langToggle")/, '\n' + renderNav(data.nav, secs) + '\n');
   html = replaceRegion(html, /(<!-- ===== Principal Investigator \/ Home ===== -->\s*)<section class="profile" id="home">[\s\S]*?<\/section>/, '$1' + renderHome(data.home));
   html = replaceRegion(html, /<section\b[^>]*\bid="bio"[^>]*>[\s\S]*?<\/section>/,
-    '<section class="bio" id="bio">\n            <h2 class="section-title">' + spanPair('About the Lab', '实验室简介') + '</h2>\n' + renderParas(data.bio) + '\n        </section>');
+    '<section class="bio" id="bio">\n            <h2 class="section-title">🔬 ' + titleFor(titles, 'bio', 'Research Directions', '研究方向') + '</h2>\n' + renderParas(data.bio) + '\n        </section>');
   html = replaceRegion(html, /(<!-- ===== Opportunities ===== -->\s*)<section\b[^>]*\bid="opportunities"[^>]*>[\s\S]*?<\/section>/,
-    '$1<section class="opportunities-section" id="opportunities">\n            <h2 class="section-title">🚀 ' + spanPair('Opportunities', '招聘') + '</h2>\n' + renderParas(data.opportunities) + '\n        </section>');
-  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section\b[^>]*\bid="news"[^>]*>[\s\S]*?<\/section>/, '$1' + renderNews(data.news, secs));
+    '$1<section class="opportunities-section" id="opportunities">\n            <h2 class="section-title">🚀 ' + titleFor(titles, 'opportunities', 'Opportunities', '招聘') + '</h2>\n' + renderParas(data.opportunities) + '\n        </section>');
+  html = replaceRegion(html, /(<!-- ===== News \(includes Industrial Impact\) ===== -->\s*)<section\b[^>]*\bid="news"[^>]*>[\s\S]*?<\/section>/, '$1' + renderNews(data.news, titles, secs));
   html = replaceRegion(html, /(?:[ \t]*<!-- ===== Research \(carousel\) ===== -->\s*)+<section\b[^>]*\bid="research"[^>]*>[\s\S]*?<\/section>/,
     '\n\n        <!-- ===== Research (carousel) ===== -->\n        ' + renderResearch(data.research));
-  html = replaceRegion(html, /(<!-- ===== People ===== -->\s*)<section\b[^>]*\bid="people"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPeople(data.people));
-  html = replaceRegion(html, /(<!-- ===== Publications ===== -->\s*)<section\b[^>]*\bid="publications"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPublications(data.publications));
-  html = replaceRegion(html, /(<!-- ===== Teaching ===== -->\s*)<section\b[^>]*\bid="teaching"[^>]*>[\s\S]*?<\/section>/, '$1' + renderTeaching(data.teaching));
+  html = replaceRegion(html, /(<!-- ===== People ===== -->\s*)<section\b[^>]*\bid="people"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPeople(data.people, titles));
+  html = replaceRegion(html, /(<!-- ===== Publications ===== -->\s*)<section\b[^>]*\bid="publications"[^>]*>[\s\S]*?<\/section>/, '$1' + renderPublications(data.publications, titles));
+  html = replaceRegion(html, /(<!-- ===== Teaching ===== -->\s*)<section\b[^>]*\bid="teaching"[^>]*>[\s\S]*?<\/section>/, '$1' + renderTeaching(data.teaching, titles));
   html = replaceRegion(html, /(<footer class="footer">)[\s\S]*?(<\/footer>)/, '$1\n' + renderFooter(data.footer).replace(/<footer class="footer">|<\/footer>/g, '') + '    $2');
 
   // ---- 栏目显示开关：隐藏的 section 加 display:none ----

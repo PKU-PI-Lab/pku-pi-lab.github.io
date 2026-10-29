@@ -45,6 +45,11 @@ a:hover {
     text-decoration: underline;
 }
 
+/* 后台「标红」功能：以实验室主题红显示被选中的文字（与导航/标题红一致） */
+.red {
+    color: var(--pku-red);
+}
+
 /* ========== Navbar ========== */
 .navbar {
     display: flex;
@@ -611,14 +616,60 @@ body.lang-zh .en { display: none; }
 
 .people-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.6rem 1.2rem;
+    grid-template-columns: repeat(8, 1fr); /* 一行 8 人：整体观感体现团队规模 */
+    gap: 1.4rem 1rem;
     margin-bottom: 1.8rem;
     align-items: stretch;
 }
 
+/* 小分组并排：两个 ≤2 人的分组共处同一水平线，紧贴彼此、不再各占半行留大空隙 */
+.people-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.people-row .people-block {
+    flex: 0 0 auto;
+    width: fit-content;
+    min-width: 0;
+}
+
+/* 并排分组内的网格：每个成员占位与主网格 8 列的单格一致；卡片定宽，避免空列把宽度撑开 */
+.people-row .people-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.people-row .member-card {
+    width: 120px;
+}
+
 .pi-grid {
-    grid-template-columns: repeat(1, minmax(180px, 220px));
+    grid-template-columns: minmax(120px, 140px); /* 学术带头人：仅比普通成员微微大一点 */
+}
+
+.pi-grid .member-card img {
+    height: auto; /* 保持 3:4 比例，不使用固定高度 */
+}
+
+/* 成员大网格（非 PI 行）：小卡片下的字号与图片适配，保证文字清晰 */
+.people-grid:not(.pi-grid) .member-card img {
+    height: auto; /* 让 aspect-ratio 生效，避免窄卡片被固定高度裁成细条 */
+}
+
+.people-grid:not(.pi-grid) .member-name {
+    font-size: 0.85rem;
+}
+
+.people-grid:not(.pi-grid) .member-role {
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.people-grid:not(.pi-grid) .member-info {
+    min-height: 0;
+    margin-top: 0.5rem;
 }
 
 .member-card {
@@ -667,6 +718,11 @@ body.lang-zh .en { display: none; }
     font-size: 0.75rem;
     line-height: 1.35;
     color: var(--ink-faint);
+}
+
+/* 头衔两行：第一行学历、第二行方向（中间 · 已去除） */
+.member-role .role-line {
+    display: block;
 }
 
 /* ========== Teaching ========== */
@@ -802,13 +858,17 @@ body.lang-zh .en { display: none; }
     }
 
     .people-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.2rem 0.9rem;
     }
 
+    .people-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
     .pi-grid {
-        max-width: 100%;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: minmax(120px, 140px);
     }
 
     .member-list {
