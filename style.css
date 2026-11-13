@@ -36,6 +36,12 @@ body {
     font-size: 15px;
 }
 
+/* Prevent native image dragging while preserving clicks and touch gestures. */
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
 a {
     color: var(--pku-red);
     text-decoration: none;
@@ -650,6 +656,11 @@ body.lang-zh .en { display: none; }
 
 .pi-grid .member-card img {
     height: auto; /* 保持 3:4 比例，不使用固定高度 */
+}
+
+/* 庞智博照片：鼠标悬停时隐藏光标，移开后恢复。 */
+.pi-grid .member-card img[src="images/people/庞智博.jpg"] {
+    cursor: none;
 }
 
 /* 成员大网格（非 PI 行）：小卡片下的字号与图片适配，保证文字清晰 */
