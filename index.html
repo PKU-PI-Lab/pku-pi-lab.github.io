@@ -1033,13 +1033,6 @@
             });
         })();
 
-        // ===== Click any publication figure to view it full-size =====
-        document.querySelectorAll('.paper-figure img').forEach(function (img) {
-            img.addEventListener('click', function () {
-                window.open(img.src, '_blank', 'noopener');
-            });
-        });
-
         // ===== Scroll-spy: highlight active nav link =====
         (function () {
             var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
