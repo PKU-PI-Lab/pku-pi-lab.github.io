@@ -73,324 +73,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- ===== Research (carousel) ===== -->
         <section class="research-section" id="research" style="display:none;">
             <h2 class="section-title">🔬 <span class="en">Research</span><span class="zh">研究方向</span></h2>
@@ -692,20 +374,20 @@
                         <span class="member-role"><span class="role-line"><span class="en">Master's Student (Joint Training)</span><span class="zh">联培硕士生</span></span><span class="role-line"><span class="en">Agents &amp; Embodied Simulation</span><span class="zh">Agent与具身仿真</span></span></span>
                     </div>
                 </div>
-                <div class="member-card">
+                <!-- <div class="member-card">
                     <img src="images/people/陈柯润.jpg" alt="陈柯润">
                     <div class="member-info">
                         <span class="member-name"><span class="en">Kerun Chen</span><span class="zh">陈柯润</span></span>
                         <span class="member-role"><span class="role-line"><span class="en">Master's Student (Joint Training)</span><span class="zh">联培硕士生</span></span><span class="role-line"><span class="en">Embodied Simulation</span><span class="zh">具身仿真</span></span></span>
                     </div>
-                </div>
-                <div class="member-card">
+                </div> -->
+                <!-- <div class="member-card">
                     <img src="images/people/徐俊东.jpg" alt="徐俊东">
                     <div class="member-info">
                         <span class="member-name"><span class="en">Jundong Xu</span><span class="zh">徐俊东</span></span>
                         <span class="member-role"><span class="role-line"><span class="en">Master's Student (Joint Training)</span><span class="zh">联培硕士生</span></span><span class="role-line"><span class="en">Embodied Simulation</span><span class="zh">具身仿真</span></span></span>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="member-card">
                     <img src="images/people/陈俊生_20261028_140349_s2o7.jpg" alt="陈俊宇">
                     <div class="member-info">
@@ -792,7 +474,7 @@
                     <img src="images/people/朱冠林.png" alt="朱冠林">
                     <div class="member-info">
                         <span class="member-name"><span class="en">Guanlin Zhu</span><span class="zh">朱冠林</span></span>
-                        <span class="member-role"><span class="role-line"><span class="en">Project Intern</span><span class="zh">项目实习生</span></span><span class="role-line"><span class="en">Embodied Simulation &amp; Teleoperation</span><span class="zh">具身仿真与遥操作</span></span></span>
+                        <span class="member-role"><span class="role-line"><span class="en">Project Intern</span><span class="zh">项目实习生</span></span><span class="role-line"><span class="en">Ping An Embodied</span><span class="zh">平安具身</span></span></span>
                     </div>
                 </div>
                 <div class="member-card">
@@ -1042,7 +724,16 @@
         function onScroll() {
                 var pos = window.scrollY + spyOffset;
                 var current = sections[0];
-            sections.forEach(function (s) { if (s.offsetTop <= pos) current = s; });
+            // 页面已滚到底部时，强制高亮最后一个区块。
+            // 末尾区块（教学）较短，永远无法滚到导航栏下方，
+            // 否则点击它跳转后不会被判定为当前区块。
+            var docHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+            var atBottom = (window.innerHeight + window.scrollY) >= (docHeight - 2);
+            if (atBottom && sections.length) {
+                current = sections[sections.length - 1];
+            } else {
+                sections.forEach(function (s) { if (s.offsetTop <= pos) current = s; });
+            }
             links.forEach(function (a) { a.classList.remove('active'); });
             if (current && map[current.id]) map[current.id].classList.add('active');
         }
