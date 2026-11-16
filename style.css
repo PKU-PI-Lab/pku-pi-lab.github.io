@@ -622,6 +622,28 @@ body.lang-zh .en { display: none; }
     border-left: 4px solid var(--pku-red);
 }
 
+.alumni-subtitle {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.alumni-destinations {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 100%;
+}
+
+.alumni-destinations img {
+    display: block;
+    width: auto;
+    height: 1em;
+    object-fit: contain;
+}
+
 .people-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /* 一行 8 人：整体观感体现团队规模 */
