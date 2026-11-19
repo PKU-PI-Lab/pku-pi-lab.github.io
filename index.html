@@ -50,7 +50,7 @@
         <section class="opportunities-section" id="opportunities">
             <h2 class="section-title">🚀 <span class="en">Work & Internship Opportunities</span><span class="zh">工作实习机会</span></h2>
             <p><span class="en">The laboratory has long-term recruitment for <strong>postdoctoral researchers, engineers, master's and doctoral interns</strong>, and<strong> undergraduate students</strong>. At the same time, according to Peking University's enrollment plan, there are several enrollment slots for master's and doctoral students. In addition, the laboratory also collaborates with many domestic and international universities, providing several opportunities for jointly trained master's and doctoral students.</span><span class="zh">实验室长期招收<strong>博士后、工程师、硕博实习生</strong>和<strong>本科生</strong>。同时根据北京大学招生计划，有若干硕士生和博士生招生指标。除此之外，实验室还与多所国内外高校合作，有若干联合培养硕士生和博士生机会。</span></p>
-            <p><span class="en">The laboratory has numerous real projects focused on scenarios such as <strong>AI infrastructure, industrial robotics, autonomous laboratories, advanced manufacturing, healthcare, urban management,</strong> and<strong> energy and power</strong>. It is well-equipped, has a harmonious team atmosphere, and provides good training conditions for beginners. PhD, master's, and undergraduate students are welcome to join, to explore and grow together.</span><span class="zh">实验室有较多面向<strong>AI基建、工业机器人、自主实验室、高端制造、医疗康养、城市管理</strong>和<strong>能源电力</strong>等场景的真实项目，设备资源充足，团队氛围融洽，新手培养条件较好，欢迎博士生、硕士生、本科生加入，共同探索，共同成长。</span></p>
+            <p><span class="en">The laboratory has numerous real projects focused on scenarios such as <strong>AI infrastructure, industrial robotics, autonomous laboratories, advanced manufacturing, healthcare, urban management,</strong> and<strong> energy and power</strong>. It is well-equipped, has a harmonious team atmosphere, and provides good training conditions for beginners. PhD, master's, and undergraduate students are welcome to join, to explore and grow together.</span><span class="zh">实验室有较多面向<strong>AI基建、工业机器人、自主实验室、高端制造、医疗康养、城市管理</strong>和<strong>能源电力</strong>等场景的真实项目，设备资源充足，团队氛围较融洽，新手培养条件较好，欢迎博士生、硕士生、本科生加入，共同探索，共同成长。</span></p>
             <p><span class="en">Please send your CV, transcripts, and a short description of your research interests to <a>gpkupilab@pku.edu.cn</a></span><span class="zh">请将个人简历、成绩单与简短的研究兴趣说明发送至 <a href="mailto:zhibo.pang@pku.edu.cn" target="_blank" rel="noopener">gpkupilab@pku.edu.cn</a>。</span></p>
         </section>
 
@@ -199,9 +199,9 @@
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="images/people/汪圭旭.jpg" alt="汪圭旭">
+                    <img src="images/people/汪圭旭.jpg" alt="汪垚旭">
                     <div class="member-info">
-                        <span class="member-name"><span class="en">Guixu Wang</span><span class="zh">汪圭旭</span></span>
+                        <span class="member-name"><span class="en">Yaoxu Wang</span><span class="zh">汪垚旭</span></span>
                         <span class="member-role"><span class="role-line"><span class="en">Ph.D. Student (Joint Training)</span><span class="zh">联培博士生</span></span><span class="role-line"><span class="en">Efficient Embodied AI &amp; AI Infrastructure</span><span class="zh">高效具身与AI Infra</span></span></span>
                     </div>
                 </div>
@@ -379,7 +379,7 @@
                         <span class="member-role"><span class="role-line"><span class="en">Undergraduate Student</span><span class="zh">本科生</span></span><span class="role-line"><span class="en">Tactile Perception</span><span class="zh">触觉感知</span></span></span>
                     </div>
                 </div>
-                <div class="member-card">
+                <!-- <div class="member-card">
                     <img src="images/people/李天琳.jpg" alt="李天琳">
                     <div class="member-info">
                         <span class="member-name"><span class="en">Tianlin Li</span><span class="zh">李天琳</span></span>
@@ -392,7 +392,7 @@
                         <span class="member-name"><span class="en">Zinuo Jin</span><span class="zh">金子诺</span></span>
                         <span class="member-role"><span class="role-line"><span class="en">Undergraduate Student</span><span class="zh">本科生</span></span><span class="role-line"><span class="en">Force Sensing</span><span class="zh">力觉感知</span></span></span>
                     </div>
-                </div>
+                </div> -->
                 <div class="member-card">
                     <img src="images/people/詹淑涵.jpg" alt="詹淑涵">
                     <div class="member-info">
@@ -729,6 +729,210 @@
             });
         });
     })();
+
+    // ===== 彩蛋：连续点击头像 5 次，全屏放烟花 =====
+    (function () {
+        var avatar = document.querySelector('.avatar');
+        if (!avatar) return;
+
+        var CLICKS_NEEDED = 5;
+        var RESET_MS = 1200;   // 超过这个间隔没再点，计数归零
+        var clicks = 0;
+        var lastClick = 0;
+
+        avatar.addEventListener('click', function () {
+            var now = Date.now();
+            clicks = (now - lastClick > RESET_MS) ? 1 : clicks + 1;
+            lastClick = now;
+
+            // 每次点击微微弹一下，作为「你在点什么」的反馈
+            avatar.classList.remove('bump');
+            void avatar.offsetWidth;
+            avatar.classList.add('bump');
+            avatar.addEventListener('animationend', function handler() {
+                avatar.classList.remove('bump');
+                avatar.removeEventListener('animationend', handler);
+            });
+
+            if (clicks >= CLICKS_NEEDED) {
+                clicks = 0;
+                launchFireworks();
+            }
+        });
+
+        function launchFireworks() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            var canvas = document.createElement('canvas');
+            canvas.className = 'fireworks-canvas';
+            var ctx = canvas.getContext('2d');
+            document.body.appendChild(canvas);
+
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var W = canvas.clientWidth;
+            var H = canvas.clientHeight;
+            canvas.width = W * dpr;
+            canvas.height = H * dpr;
+            ctx.scale(dpr, dpr);
+
+            // 实验室主题色：北大红 + 金 + 暖白
+            var PALETTE = ['#94070A', '#C8102E', '#E8B04B', '#F2D27A', '#FFFFFF', '#FF6B6B'];
+
+            var rockets = [];
+            var particles = [];
+            var sparks = [];
+            var start = performance.now();
+            var DURATION = 5200;   // 整场烟花时长
+            var lastLaunch = 0;
+            var rafId;
+
+            function rand(min, max) { return min + Math.random() * (max - min); }
+
+            function launchRocket() {
+                var x = rand(W * 0.12, W * 0.88);
+                rockets.push({
+                    x: x,
+                    y: H + 10,
+                    vx: rand(-0.5, 0.5),
+                    vy: rand(-11.5, -8.5),
+                    targetY: rand(H * 0.12, H * 0.45),
+                    color: PALETTE[(Math.random() * PALETTE.length) | 0],
+                    trail: []
+                });
+            }
+
+            function explode(r) {
+                var count = 46 + ((Math.random() * 26) | 0);
+                var speed = rand(2.4, 4.6);
+                var baseColor = r.color;
+                // 一部分粒子用配色里的其他颜色，让爆炸更有层次
+                for (var i = 0; i < count; i++) {
+                    var angle = (Math.PI * 2 * i) / count + rand(-0.06, 0.06);
+                    var spd = speed * rand(0.55, 1.15);
+                    var useBase = Math.random() < 0.62;
+                    particles.push({
+                        x: r.x,
+                        y: r.y,
+                        vx: Math.cos(angle) * spd,
+                        vy: Math.sin(angle) * spd,
+                        life: 1,
+                        decay: rand(0.0075, 0.0145),
+                        color: useBase ? baseColor : PALETTE[(Math.random() * PALETTE.length) | 0],
+                        size: rand(1.2, 2.6)
+                    });
+                }
+                // 中心闪光
+                for (var j = 0; j < 12; j++) {
+                    var a2 = rand(0, Math.PI * 2);
+                    var s2 = rand(0.4, 1.6);
+                    sparks.push({
+                        x: r.x, y: r.y,
+                        vx: Math.cos(a2) * s2,
+                        vy: Math.sin(a2) * s2,
+                        life: 1, decay: 0.03,
+                        color: '#FFF7E0', size: rand(1, 2.2)
+                    });
+                }
+            }
+
+            function frame(now) {
+                var elapsed = now - start;
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.16)';
+                ctx.fillRect(0, 0, W, H);
+                ctx.globalCompositeOperation = 'lighter';
+
+                // 发射节奏：先密后疏
+                var launchGap = elapsed < DURATION * 0.62 ? 220 : 480;
+                if (elapsed < DURATION - 900 && now - lastLaunch > launchGap) {
+                    lastLaunch = now;
+                    launchRocket();
+                    if (elapsed < DURATION * 0.35) launchRocket();
+                }
+
+                // 火箭
+                for (var i = rockets.length - 1; i >= 0; i--) {
+                    var r = rockets[i];
+                    r.trail.push({ x: r.x, y: r.y });
+                    if (r.trail.length > 6) r.trail.shift();
+
+                    r.x += r.vx;
+                    r.y += r.vy;
+                    r.vy += 0.16;
+
+                    ctx.beginPath();
+                    ctx.arc(r.x, r.y, 1.8, 0, Math.PI * 2);
+                    ctx.fillStyle = r.color;
+                    ctx.fill();
+
+                    // 尾迹
+                    for (var t = 0; t < r.trail.length; t++) {
+                        var p = r.trail[t];
+                        var alpha = (t / r.trail.length) * 0.45;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 1.4 * (t / r.trail.length), 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(255, 226, 160, ' + alpha + ')';
+                        ctx.fill();
+                    }
+
+                    if (r.y <= r.targetY || r.vy >= 0) {
+                        explode(r);
+                        rockets.splice(i, 1);
+                    }
+                }
+
+                // 爆炸粒子
+                for (var k = particles.length - 1; k >= 0; k--) {
+                    var q = particles[k];
+                    q.x += q.vx;
+                    q.y += q.vy;
+                    q.vx *= 0.985;
+                    q.vy *= 0.985;
+                    q.vy += 0.035;          // 轻微重力，让花瓣下落
+                    q.life -= q.decay;
+                    if (q.life <= 0) { particles.splice(k, 1); continue; }
+                    ctx.beginPath();
+                    ctx.arc(q.x, q.y, q.size * q.life, 0, Math.PI * 2);
+                    ctx.fillStyle = q.color;
+                    ctx.globalAlpha = Math.max(q.life, 0);
+                    ctx.fill();
+                    ctx.globalAlpha = 1;
+                }
+
+                // 中心闪光
+                for (var s = sparks.length - 1; s >= 0; s--) {
+                    var sp = sparks[s];
+                    sp.x += sp.vx;
+                    sp.y += sp.vy;
+                    sp.vx *= 0.94;
+                    sp.vy *= 0.94;
+                    sp.life -= sp.decay;
+                    if (sp.life <= 0) { sparks.splice(s, 1); continue; }
+                    ctx.beginPath();
+                    ctx.arc(sp.x, sp.y, sp.size * sp.life, 0, Math.PI * 2);
+                    ctx.fillStyle = sp.color;
+                    ctx.globalAlpha = Math.max(sp.life, 0);
+                    ctx.fill();
+                    ctx.globalAlpha = 1;
+                }
+
+                if (elapsed < DURATION || rockets.length || particles.length || sparks.length) {
+                    rafId = requestAnimationFrame(frame);
+                } else {
+                    cancelAnimationFrame(rafId);
+                    canvas.remove();
+                }
+            }
+
+            // 开场三连发
+            launchRocket();
+            setTimeout(launchRocket, 140);
+            setTimeout(launchRocket, 300);
+
+            rafId = requestAnimationFrame(frame);
+        }
+    })();
+
 </script>
 
 </body>
