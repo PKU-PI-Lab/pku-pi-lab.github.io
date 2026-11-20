@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PKU Physical Intelligence Lab · 北京大学物理智能实验室</title>
     <meta name="description" content="PKU Physical Intelligence Lab (北京大学物理智能实验室), School of Advanced Manufacturing and Robotics, Peking University. Led by Prof. Zhibo Pang.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261120">
 </head>
 <body class="lang-en">
     <!-- Navigation -->
@@ -365,13 +365,13 @@
             <div class="people-block">
             <h3 class="people-subtitle"><span class="en">Undergraduate Students</span><span class="zh">本科生</span></h3>
             <div class="people-grid">
-                <div class="member-card">
+                <!-- <div class="member-card">
                     <img src="images/people/左天佑.jpg" alt="左天佑">
                     <div class="member-info">
                         <span class="member-name"><span class="en">Tianyou Zuo</span><span class="zh">左天佑</span></span>
                         <span class="member-role"><span class="role-line"><span class="en">Undergraduate Student</span><span class="zh">本科生</span></span><span class="role-line"><span class="en">Self-Evolving Hand</span><span class="zh">自演化手</span></span></span>
                     </div>
-                </div>
+                </div> -->
                 <div class="member-card">
                     <img src="images/people/朱玺谕.jpg" alt="朱玺谕">
                     <div class="member-info">
@@ -536,8 +536,8 @@
                 </div>
                 <div class="paper-card">
                     <div class="paper-info">
-                        <p class="paper-cite">W. Li et al., "<strong>TacInno: Teaching Vision-Language-Action Models the Contact Dynamics Beyond Vision and Action</strong>," <em>arXiv preprint arXiv:2611.19604</em>, 2026.</p>
-                        <p class="paper-links"><a href=" " target="_blank" rel="noopener">Paper</a><a href="https://tacinno.github.io/" target="_blank" rel="noopener">Code</a></p>
+                        <p class="paper-cite">W. Li et al., "<strong>TacInno: Teaching Vision-Language-Action Models the Contact Dynamics Beyond Vision and Action</strong>," <em>arXiv preprint arXiv:2611.26405</em>, 2026.</p>
+                        <p class="paper-links"><a href="https://arxiv.org/abs/2611.26405" target="_blank" rel="noopener">Paper</a><a href="https://tacinno.github.io/" target="_blank" rel="noopener">Code</a></p>
                         <p class="paper-note"><span class="en">Proposes TacInno, a tactile-innovation-guided Vision-Language-Action (VLA) learning framework integrating vision- and action-conditioned tactile disentanglement, multi-frame discrete tactile encoding, and auxiliary prediction supervision to enhance contact dynamics understanding, achieving an average success rate of 87.5% across six simulation tasks and 70.5% across four real-world robotic tasks, outperforming the strongest baselines by 10.7 and 9.0 percentage points, respectively.</span><span class="zh">提出 TacInno 触觉创新驱动的VLA学习框架，通过融合视觉与动作条件化触觉信息解耦、多帧离散触觉编码及辅助预测监督技术，增强机器人对滑移等隐式接触动态的感知能力，在六项仿真任务中实现 87.5% 的平均成功率，较最强基线提升 10.7 个百分点；在四项真实机器人任务中达到 70.5%，提升 9.0 个百分点。</span></p>
                     </div>
                     <div class="paper-figure"><img src="images/pubs/TacInno.png" alt="TacInno system" loading="lazy"></div>
@@ -1026,12 +1026,14 @@
         }
 
         document.addEventListener('keydown', function (e) {
-            if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
+            if (e.ctrlKey || e.metaKey || e.altKey) return;
             if (isTyping(e.target)) return;   // 终端自身的输入框也在此被排除
-            if (e.key === '/') {
+            var isSlash = (e.key === '/' || e.code === 'Slash') && !e.shiftKey;
+            var isT = e.key === 't' || e.key === 'T' || e.code === 'KeyT';
+            if (isSlash) {
                 slashAt = Date.now();
                 e.preventDefault();           // 避免 Firefox 的「/ 快速查找」吞掉后面的 t
-            } else if ((e.key === 't' || e.key === 'T') && Date.now() - slashAt <= SEQ_GAP_MS) {
+            } else if (isT && Date.now() - slashAt <= SEQ_GAP_MS) {
                 slashAt = 0;
                 e.preventDefault();           // 不让这个 t 落进终端输入框
                 open();
